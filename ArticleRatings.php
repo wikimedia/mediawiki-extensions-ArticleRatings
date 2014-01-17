@@ -16,9 +16,9 @@ function areDoPaths(){
 	global $defaultRatingsJSONPath;
 	global $ratingsJSONPaths;
 	$dir = dirname(__FILE__) . '/';
-	
-	$ns = $wgTitle -> getNamespace();
-	if( in_array($ns, $ratingsJSONPaths) ){
+
+	$ns = $wgTitle->getNamespace();
+	if( in_array( $ns, $ratingsJSONPaths ) ) {
 		$finalJSONPath = $dir . $ratingsJSONPaths[$ns];
 	} else {
 		$finalJSONPath = $dir . $defaultRatingsJSONPath;
@@ -27,10 +27,10 @@ function areDoPaths(){
 }
 
 # Check tables and stuff
-function areAddColumn(){
-	$dbw = wfGetDB(DB_MASTER);
-	$q = $dbw -> tableName('ratings');
-	$success = $dbw -> query(
+function areAddColumn() {
+	$dbw = wfGetDB( DB_MASTER );
+	$q = $dbw->tableName( 'ratings' );
+	$success = $dbw->query(
 		'CREATE TABLE ' . $q . '
 		(
 		ratings_title varchar(255),
@@ -52,10 +52,10 @@ $wgHooks['TitleMoveComplete'][] = 'AreHooks::onTitleMoveComplete';
 # Set up <rating />
 $wgHooks['ParserFirstCallInit'][] = 'wfRatingParserInit';
 
-include($dir . "RatingTag.php");
- 
-function wfRatingParserInit(Parser $parser) {
-        $parser->setHook('rating', 'wfRatingRender');
+include( $dir . "RatingTag.php" );
+
+function wfRatingParserInit( Parser $parser ) {
+        $parser->setHook( 'rating', 'wfRatingRender' );
         return true;
 }
 
@@ -73,7 +73,7 @@ $wgExtensionCredits['other'][] = array(
 $wgSpecialPageGroups['ChangeRating'] = 'other';
 $wgSpecialPageGroups['MassRatings'] = 'other';
 
-# Set up Special:ChangeRating 
+# Set up Special:ChangeRating
 $wgAutoloadClasses['SpecialChangeRating'] = $dir . 'SpecialChangeRating.php';
 $wgSpecialPages['ChangeRating'] = 'SpecialChangeRating';
 
