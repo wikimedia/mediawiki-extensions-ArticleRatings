@@ -21,7 +21,7 @@ class RatingData {
 		$this->JSONPath = areDoPaths();
 	}
 
-	public function getAllRatings() {
+	public static function getAllRatings() {
 		global $finalJSONPath;
 		$json = file_get_contents( areDoPaths() );
 		$ratings = json_decode( $json, true );

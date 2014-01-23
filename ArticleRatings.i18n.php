@@ -1,17 +1,26 @@
 <?php
 
 $messages = array();
+
 /** English
  * @author Adam Carter
  */
 $messages['en'] = array(
 	'changerating' => 'ChangeRating',
 	'massratings' => 'MassRatings',
+
 	'log-name-ratings' => 'Rating Change Log',
 	'log-description-ratings' => 'This log shows all the recent changes to pages\' ratings.',
 	'logentry-ratings-change' => '$1 changed the rating of $3 to $4',
-	'ratings-desc' => 'A complex interface for rating pages'
+
+	'ratings-desc' => 'A complex interface for rating pages',
+
+	'are-change-rating' => 'Change Rating',
+
+	'group-qcg' => 'Quality Check Group',
+	'group-qcg-member' => 'Quality Check Group member',
 );
+
 /** Vietnamese/Việt
  * @author Codyn329
  */

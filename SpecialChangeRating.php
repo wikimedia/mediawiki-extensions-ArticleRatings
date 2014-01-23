@@ -9,7 +9,7 @@ class SpecialChangeRating extends SpecialPage {
 		parent::__construct( 'ChangeRating', 'changeRating' );
 	}
 
-	function execute($page) {
+	function execute( $page ) {
 		global $wgRequest, $wgOut, $wgUser, $wgArticlePath;
 
 		$this->setHeaders();
@@ -30,9 +30,6 @@ class SpecialChangeRating extends SpecialPage {
 
 	        	$dbr = wfGetDB( DB_SLAVE );
 
-       			$pageq = $dbr->addQuotes( $page );
-       			$ns = $title->getNamespace();
-
 				$ratingto = $wgRequest->getVal( 'ratingTo' );
 
 				if ( !is_null( $ratingto ) ) {
@@ -42,9 +39,11 @@ class SpecialChangeRating extends SpecialPage {
 
         			$res = $dbw->update(
         				'ratings',
-        				array( 'ratings_rating' => $ratingto,
-        					'ratings_namespace' => $ns ),
-        				array( 'ratings_title = ' . $pageq )
+        				array(
+        					'ratings_rating' => $ratingto,
+        					'ratings_namespace' => $title->getNamespace()
+        				),
+        				array( 'ratings_title' =>  $page )
 					);
 
 					$reason = $wgRequest->getVal( 'reason' );
@@ -76,7 +75,7 @@ class SpecialChangeRating extends SpecialPage {
         		$res = $dbr->select(
         			'ratings',
         			array( 'ratings_rating', 'ratings_title' ),
-        			'ratings_title = ' . $pageq
+        			array( 'ratings_title' => $page )
 				);
 				$row = $res->fetchRow();
 				$field = $row['ratings_rating'];

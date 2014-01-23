@@ -78,115 +78,20 @@ class SpecialMassRatings extends QueryPage {
 	}
 
 	function formatResult( $skin, $page ) {
-		global $wgOut, $wgArticlePath, $wgRequest;
-
-  		$formbody = '';
-
-  		$formhead = '<fieldset><legend>List pages by rating</legend><form action="" method="get">';
-
-  		$formfoot = '<input type="submit" /></form></fieldset>';
-
-  		$wgOut->addHTML( $wgRequest -> getVal( 'rating' ) );
-
-        $ratings = RatingData::getAllRatings();
-
-		foreach ( $ratings as $data ) {
-			$rating = new RatingData($data);
-
-			$label = $rating->getAboutLink();
-			$pic = $rating->getImage();
-
-			if ( $wgRequest->getVal( $data ) == 'true' ) {
-				$checked = ' checked="checked"';
-			} else {
-				$checked = '';
-			}
-
-			$input = '<input type="checkbox" value="true" name="' . $data . '"' . $checked . ' /> ';
-
-  			$formbody = $formbody . $input . $pic . $label . '<br />';
-  		}
 
 		if ( empty( $page->value ) ) {
-			$string = '* No rating - [[' . $page -> title . ']]';
+			return 'No rating - [[' . $page -> title . ']]';
 
-			$wgOut->addWikiText( $string );
 		} else {
 			$rating = new RatingData( $page->value );
 
-			$pic = $rating->getImageWT();
-
-			$label = $rating->getAboutLinkWT();
-
-			$string = '* ' . $pic . $label . ' - [[' . $page->title . ']]';
-
-			$wgOut->addWikiText( $string );
-		}
-	}
-
-	function execute2( $page ) {
-		global $wgOut, $wgArticlePath, $wgRequest;
-
-  		$formbody = '';
-
-  		$formhead = '<fieldset><legend>List pages by rating</legend><form action="" method="get">';
-
-  		$formfoot = '<input type="submit" /></form></fieldset>';
-
-  		$wgOut->addHTML( $wgRequest->getVal( 'rating' ) );
-
-  		$where = '';
-
-        $dbr = wfGetDB( DB_SLAVE );
-
-        $ratings = RatingData::getAllRatings();
-
-		foreach( $ratings as $data ) {
-			$rating = new RatingData( $data );
-
-			$label = $rating->getAboutLink();
 			$pic = $rating->getImage();
+			$label = $rating->getAboutLink();
 
-			$quotes = $dbr->addQuotes( $data );
+			$title = Title::newFromText( $page->title );
+			$link = Linker::link( $title );
 
-			if ( $wgRequest->getVal( $data ) == 'true' ) {
-				$checked = ' checked="checked"';
-				$where = $where . 'page_rating = ' . $quotes . ' OR ';
-			} else {
-				$checked = '';
-			}
-
-			$input = '<input type="checkbox" value="true" name="' . $data . '"' . $checked . ' /> ';
-
-  			$formbody = $formbody . $input . $pic . $label . '<br />';
-  		}
-
-  		$wgOut->addHTML( $formhead . $formbody . $formfoot );
-
-        $where = substr($where, 0, -4);
-
-        $res = $dbr->select(
-        	'ratings',
-        	array( 'ratings_rating', 'ratings_title' ),
-        	$where
-		);
-
-		foreach ( $res as $page ) {
-			if ( empty( $page->ratings_rating ) ) {
-				$string = '* No rating - [[' . $page->ratings_title . ']]';
-
-				$wgOut->addWikiText( $string );
-			} else {
-				$rating = new RatingData( $page->ratings_rating );
-
-				$pic = $rating->getImageWT();
-
-				$label = $rating->getAboutLinkWT();
-
-				$string = '* ' . $pic . $label . ' - [[' . $page->ratings_title . ']]';
-
-				$wgOut->addWikiText( $string );
-			}
+			return $pic . $label . ' - ' . $link;
 		}
 	}
 }
