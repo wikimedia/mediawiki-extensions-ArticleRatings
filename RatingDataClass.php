@@ -6,10 +6,8 @@ global $ratingsJSONName;
 class RatingData {
 
 	protected $thisCodename;
-
 	public $noImageString = '';
-
-	public $JSONPath = '';
+	public $JSON = array();
 
 	public function __construct( $codename ){
 		if ( empty( $codename ) ) {
@@ -17,29 +15,24 @@ class RatingData {
 		} else {
 			$this->thisCodename = $codename;
 		}
-		$this->JSONPath = areDoPaths();
+		$json = wfMessage( 'are-ratings' )->plain();
+		if( empty( $json ) ) {
+			 trigger_error( 'ARE Error: empty JSON' );
+		}
+		$this->JSON = json_decode( $json, true );
 	}
 
 	public static function getAllRatings() {
-		$json = file_get_contents( areDoPaths() );
-		$ratings = json_decode( $json, true );
-
 		$returners = array();
 
-		foreach( $ratings as $data ){
+		foreach( $this->JSON as $data ){
 			$returners[] = $data['codename'];
 		}
 		return $returners;
 	}
 
 	public function getAttr( $attr ) {
-		$json = file_get_contents( $this->JSONPath );
-		if( empty( $json ) ) {
-			 trigger_error( 'ARE Error: empty JSON' );
-		}
-		$ratings = json_decode( $json, true );
-
-		foreach( $ratings as $data ) {
+		foreach( $this->JSON as $data ) {
 			if( $data['codename'] == $this->thisCodename ) {
 				return $data[$attr];
 			}
