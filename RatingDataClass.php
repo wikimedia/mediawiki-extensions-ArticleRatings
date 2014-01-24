@@ -37,7 +37,7 @@ class RatingData {
 				return $data[$attr];
 			}
 		}
-		trigger_error( 'No rating found for the codename "' . $this->thisCodename . '" with a path at "' + $this->JSONPath + '".' );
+		trigger_error( 'No rating found for the codename ' . $this->thisCodename );
 	}
 
 	public function getImage() {
