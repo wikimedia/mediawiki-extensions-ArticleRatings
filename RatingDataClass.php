@@ -17,12 +17,10 @@ class RatingData {
 		} else {
 			$this->thisCodename = $codename;
 		}
-		global $finalJSONPath;
 		$this->JSONPath = areDoPaths();
 	}
 
 	public static function getAllRatings() {
-		global $finalJSONPath;
 		$json = file_get_contents( areDoPaths() );
 		$ratings = json_decode( $json, true );
 
@@ -46,7 +44,7 @@ class RatingData {
 				return $data[$attr];
 			}
 		}
-		trigger_error( 'No rating found for the codename "' . $codename . '"' );
+		trigger_error( 'No rating found for the codename "' . $this->thisCodename . '"' );
 	}
 
 	public function getImage() {
