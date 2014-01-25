@@ -5,25 +5,6 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die('This file is a MediaWiki extension, it is not a valid entry point');
 }
 
-# Define stuff
-$ratingsJSONPaths = array();
-$defaultRatingsJSONPath = '';
-
-function areDoPaths(){
-	global $wgTitle;
-	global $defaultRatingsJSONPath;
-	global $ratingsJSONPaths;
-	$dir = __DIR__ . '/';
-
-	$ns = $wgTitle->getNamespace();
-	if( in_array( $ns, $ratingsJSONPaths ) ) {
-		$finalJSONPath = $dir . $ratingsJSONPaths[$ns];
-	} else {
-		$finalJSONPath = $dir . $defaultRatingsJSONPath;
-	}
-	return $finalJSONPath;
-}
-
 # Check tables and stuff
 function areAddColumn() {
 	$dbw = wfGetDB( DB_MASTER );
@@ -53,18 +34,18 @@ $wgHooks['ParserFirstCallInit'][] = 'wfRatingParserInit';
 include( __DIR__ . "/RatingTag.php" );
 
 function wfRatingParserInit( Parser $parser ) {
-        $parser->setHook( 'rating', 'wfRatingRender' );
-        return true;
+	$parser->setHook( 'rating', 'wfRatingRender' );
+	return true;
 }
 
 # Credits
 $wgExtensionCredits['other'][] = array(
-        'path' => __FILE__,
-        'name' => 'ArticleRating',
-        'author' => 'UltrasonicNXT/Adam Carter',
-        'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
-        'descriptionmsg' => 'ratings-desc',
-        'version' => '2.0',
+	'path' => __FILE__,
+	'name' => 'ArticleRating',
+	'author' => 'UltrasonicNXT/Adam Carter',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
+	'descriptionmsg' => 'ratings-desc',
+	'version' => '2.0',
 );
 
 # Special:SpecialPages
