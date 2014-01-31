@@ -16,10 +16,7 @@ $messages['en'] = array(
 	'ratings-desc' => 'A complex interface for rating pages',
 
 	'are-change-rating' => 'Change Rating',
-	'are-ratings' => '',
-
-	'group-qcg' => 'Quality Check Group',
-	'group-qcg-member' => 'Quality Check Group member',
+	'are-ratings' => ''
 );
 
 /** Vietnamese/Việt
