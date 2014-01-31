@@ -16,7 +16,10 @@ $messages['en'] = array(
 	'ratings-desc' => 'A complex interface for rating pages',
 
 	'are-change-rating' => 'Change Rating',
-	'are-ratings' => ''
+	'are-ratings' => '',
+	
+	'group-reviewer' => 'Reviewer',
+	'group-reviewer-member' => 'Reviewers',
 );
 
 /** Vietnamese/Việt
