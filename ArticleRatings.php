@@ -68,6 +68,6 @@ $wgLogTypes[] = 'ratings';
 $wgLogActionsHandlers['ratings/*'] = 'LogFormatter';
 
 # Groups
-$wgGroupPermissions['qcg']['changeRating'] = true;
+$wgGroupPermissions['reviewer']['changeRating'] = true;
 
 ?>
