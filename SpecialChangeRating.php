@@ -35,15 +35,28 @@ class SpecialChangeRating extends SpecialPage {
 				if ( !is_null( $ratingto ) ) {
 					$ratingto = substr( $ratingto, 0, 2 );
 
+					$res = $dbr->selectField(
+						'ratings',
+						'ratings_rating',
+						array(
+							'ratings_title' => $page,
+							'ratings_namespace' => $title->getNamespace()
+						)
+					);
+					$oldrating = new RatingData( $res );
+					$oldratingname = $oldrating->getAttr( 'name' );
+
 					$dbw = wfGetDB( DB_MASTER );
 
         			$res = $dbw->update(
         				'ratings',
         				array(
         					'ratings_rating' => $ratingto,
-        					'ratings_namespace' => $title->getNamespace()
         				),
-        				array( 'ratings_title' =>  $page )
+        				array(
+        					'ratings_title' => $page,
+        					'ratings_namespace' => $title->getNamespace()
+        				)
 					);
 
 					$reason = $wgRequest->getVal( 'reason' );
@@ -58,7 +71,8 @@ class SpecialChangeRating extends SpecialPage {
 					$logEntry->setPerformer( $wgUser );
 					$logEntry->setTarget( Title::newFromText( strval( $page ) ) );
 					$logEntry->setParameters( array(
-						'4::rating' => $ratingname
+						'4::newrating' => $ratingname,
+						'5::oldrating' => $oldratingname
 					) );
 					if( !is_null( $reason ) ) {
 						$logEntry->setComment( $reason );
