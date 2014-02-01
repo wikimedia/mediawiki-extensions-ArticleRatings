@@ -45,7 +45,7 @@ $wgExtensionCredits['other'][] = array(
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
 	'descriptionmsg' => 'ratings-desc',
-	'version' => '2.0',
+	'version' => '2.1',
 );
 
 # Special:SpecialPages
