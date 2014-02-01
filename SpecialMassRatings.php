@@ -30,11 +30,13 @@ class SpecialMassRatings extends QueryPage {
   			$where = array();
   		}
 
-		return array (
-			'tables' => array ( 'ratings' ),
-			'fields' => array ( 'namespace' => 'ratings_namespace',
-					'title' => 'ratings_title',
-					'value' => 'ratings_rating' ),
+		return array(
+			'tables' => 'ratings',
+			'fields' => array(
+				'namespace' => 'ratings_namespace',
+				'title' => 'ratings_title',
+				'value' => 'ratings_rating'
+			),
 			'conds' => $where
 		);
 	}
@@ -78,21 +80,15 @@ class SpecialMassRatings extends QueryPage {
 	}
 
 	function formatResult( $skin, $page ) {
+		$rating = new RatingData( $page->value );
 
-		if ( empty( $page->value ) ) {
-			return 'No rating - [[' . $page -> title . ']]';
+		$pic = $rating->getImage();
+		$label = $rating->getAboutLink();
 
-		} else {
-			$rating = new RatingData( $page->value );
+		$title = Title::newFromText( $page->title );
+		$link = Linker::link( $title );
 
-			$pic = $rating->getImage();
-			$label = $rating->getAboutLink();
-
-			$title = Title::newFromText( $page->title );
-			$link = Linker::link( $title );
-
-			return $pic . $label . ' - ' . $link;
-		}
+		return $pic . $label . ' - ' . $link;
 	}
 }
 
