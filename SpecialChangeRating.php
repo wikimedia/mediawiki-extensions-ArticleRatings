@@ -122,5 +122,3 @@ class SpecialChangeRating extends SpecialPage {
 		}
 	}
 }
-
-?>

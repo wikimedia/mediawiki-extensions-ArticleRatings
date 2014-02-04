@@ -91,5 +91,3 @@ class SpecialMassRatings extends QueryPage {
 		return $pic . $label . ' - ' . $link;
 	}
 }
-
-?>

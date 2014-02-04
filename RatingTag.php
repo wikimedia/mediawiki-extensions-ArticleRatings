@@ -63,4 +63,3 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 
 	return $out;
 }
-?>
