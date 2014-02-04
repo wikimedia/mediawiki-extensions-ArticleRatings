@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Internationalization file for the ArticleRatings extension.
+ *
+ * @file
+ */
 $messages = array();
 
 /** English
@@ -7,7 +11,15 @@ $messages = array();
  */
 $messages['en'] = array(
 	'changerating' => 'ChangeRating',
+	'changerating-back' => '< Back to [[$1]].',
+	'changerating-intro-text' => "What would you like to change $1's rating to?",
+	'changerating-missing-parameter' => 'No page name was given. The page should be specified in the URL.',
+	'changerating-no-such-page' => 'Sorry, the page "$1" does not exist.',
+	'changerating-reason' => 'Reason:',
+	'changerating-success' => 'Rating changed successfully.',
+	'changerating-submit' => 'Submit',
 	'massratings' => 'MassRatings',
+	'massratings-legend' => 'List pages by rating',
 
 	'log-name-ratings' => 'Rating Change Log',
 	'log-description-ratings' => 'This log shows all the recent changes to pages\' ratings.',
@@ -15,6 +27,8 @@ $messages['en'] = array(
 
 	'ratings-desc' => 'A complex interface for rating pages',
 
+	'are-no-such-page' => 'The page "$1" does not exist.',
+	'are-rating-for-page' => '<span class="mw-rating-rating-for">Rating for "$1"</span>:',
 	'are-change-rating' => 'Change Rating',
 	'are-ratings' => '',
 
@@ -22,7 +36,7 @@ $messages['en'] = array(
 	'group-reviewer-member' => 'Reviewers',
 );
 
-/** Vietnamese/Việt
+/** Vietnamese (Tiếng Việt)
  * @author Codyn329
  */
 $message['vi'] = array(

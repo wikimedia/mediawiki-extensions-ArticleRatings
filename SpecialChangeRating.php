@@ -1,124 +1,124 @@
 <?php
 
-$dir = dirname(__FILE__) . '/';
-
-$wgAutoloadClasses['RatingData'] = $dir . 'RatingDataClass.php';
-
 class SpecialChangeRating extends SpecialPage {
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'ChangeRating', 'changeRating' );
 	}
 
-	function execute( $page ) {
-		global $wgRequest, $wgOut, $wgUser, $wgArticlePath;
+	public function execute( $page ) {
+		// If the user doesn't have sufficient permissions to use this special
+		// page, display an error
+		$this->checkPermissions();
 
+		// Show a message if the database is in read-only mode
+		$this->checkReadOnly();
+
+		// Set the page title, robot policies, etc.
 		$this->setHeaders();
 
-		$bool = $wgUser->isAllowed( 'changeRating' );
+		$out = $this->getOutput();
+		$request = $this->getRequest();
+		$title = Title::newFromText( $page );
 
-		if ( $bool ) {
-			$title = Title::newFromText( $page );
+		if ( is_null( $title ) ) {
+			$out->addWikiMsg( 'changerating-missing-parameter' );
+		} elseif ( !$title->exists() ) {
+			$out->addWikiMsg( 'changerating-no-such-page', $page );
+		} else {
+			$out->addWikiMsg( 'changerating-back', $page );
 
-			if ( is_null( $title ) ) {
-				$wgOut->addWikiText( "No pagename was given. The page should be specified in the URL." );
+			$dbr = wfGetDB( DB_SLAVE );
 
-			} elseif ( !$title->exists() ) {
-				$wgOut->addWikiText( "Sorry, the page '" . $page . "' does not exist." );
+			$ratingto = $request->getVal( 'ratingTo' );
 
-			} else {
-            	$wgOut->addWikiText( '< Back to [[' . $page . ']].' );
+			if ( !is_null( $ratingto ) ) {
+				$ratingto = substr( $ratingto, 0, 2 );
 
-	        	$dbr = wfGetDB( DB_SLAVE );
+				$res = $dbr->selectField(
+					'ratings',
+					'ratings_rating',
+					array(
+						'ratings_title' => $page,
+						'ratings_namespace' => $title->getNamespace()
+					),
+					__METHOD__
+				);
+				$oldrating = new RatingData( $res );
+				$oldratingname = $oldrating->getAttr( 'name' );
 
-				$ratingto = $wgRequest->getVal( 'ratingTo' );
+				$dbw = wfGetDB( DB_MASTER );
 
-				if ( !is_null( $ratingto ) ) {
-					$ratingto = substr( $ratingto, 0, 2 );
+				$res = $dbw->update(
+					'ratings',
+					array( 'ratings_rating' => $ratingto ),
+					array(
+						'ratings_title' => $page,
+						'ratings_namespace' => $title->getNamespace()
+					),
+					__METHOD__
+				);
 
-					$res = $dbr->selectField(
-						'ratings',
-						'ratings_rating',
-						array(
-							'ratings_title' => $page,
-							'ratings_namespace' => $title->getNamespace()
-						)
-					);
-					$oldrating = new RatingData( $res );
-					$oldratingname = $oldrating->getAttr( 'name' );
+				$reason = $request->getVal( 'reason' );
+				$out->addWikiMsg( 'changerating-success' );
 
-					$dbw = wfGetDB( DB_MASTER );
+				$rating = new RatingData( $ratingto );
+				$ratingname = $rating->getAttr( 'name' );
 
-        			$res = $dbw->update(
-        				'ratings',
-        				array(
-        					'ratings_rating' => $ratingto,
-        				),
-        				array(
-        					'ratings_title' => $page,
-        					'ratings_namespace' => $title->getNamespace()
-        				)
-					);
-
-					$reason = $wgRequest->getVal( 'reason' );
-					$wgOut->addWikiText( "Rating changed successfully." );
-
-					$url = str_replace( '$1', $page, $wgArticlePath );
-
-					$rating = new RatingData( $ratingto );
-					$ratingname = $rating->getAttr( 'name' );
-
-					$logEntry = new ManualLogEntry( 'ratings', 'change' );
-					$logEntry->setPerformer( $wgUser );
-					$logEntry->setTarget( Title::newFromText( strval( $page ) ) );
-					$logEntry->setParameters( array(
-						'4::newrating' => $ratingname,
-						'5::oldrating' => $oldratingname
-					) );
-					if( !is_null( $reason ) ) {
-						$logEntry->setComment( $reason );
-					}
-
-					$logid = $logEntry->insert();
-					$logEntry->publish( $logid );
+				$logEntry = new ManualLogEntry( 'ratings', 'change' );
+				$logEntry->setPerformer( $this->getUser() );
+				$logEntry->setTarget( Title::newFromText( strval( $page ) ) );
+				$logEntry->setParameters( array(
+					'4::newrating' => $ratingname,
+					'5::oldrating' => $oldratingname
+				) );
+				if ( !is_null( $reason ) ) {
+					$logEntry->setComment( $reason );
 				}
 
-				$head = "<p>What would you like to change " . $page . "'s rating to?</p><form name='change-rating' action='' method='GET'>";
-				$foot = 'Reason: <input type="text" name="reason" size="50" /><br /><input type="submit" value="Submit" /></form>​';
-				$body = '';
+				$logId = $logEntry->insert();
+				$logEntry->publish( $logId );
+			}
 
-        		$res = $dbr->select(
-        			'ratings',
-        			array( 'ratings_rating', 'ratings_title' ),
-        			array( 'ratings_title' => $page )
-				);
-				$row = $res->fetchRow();
-				$field = $row['ratings_rating'];
+			$head = $this->msg( 'changerating-intro-text', $page )->parseAsBlock();
+			$head .= '<form name="change-rating" action="" method="get">';
+			$foot = $this->msg( 'changerating-reason' )->plain();
+			$foot .= ' <input type="text" name="reason" size="50" /><br />';
+			$foot .= Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' );
+			$foot .= '</form>​';
+			$body = '';
 
-  				$ratings = RatingData::getAllRatings();
+			$res = $dbr->select(
+				'ratings',
+				array( 'ratings_rating', 'ratings_title' ),
+				array( 'ratings_title' => $page ),
+				__METHOD__
+			);
+			$row = $res->fetchRow();
+			$field = $row['ratings_rating'];
 
-  				foreach ( $ratings as $data ) {
-  					$rating = new RatingData( $data );
+			$ratings = RatingData::getAllRatings();
 
-  					if ( $data == $field ) {
-  						$checked = ' checked="checked"';
-  					} else {
-  						$checked = '';
-  					}
+			foreach ( $ratings as $data ) {
+				$rating = new RatingData( $data );
 
-  					$label = $rating->getAboutLink();
+				if ( $data == $field ) {
+					$attribs = array( 'checked' => 'checked' );
+				} else {
+					$attribs = array();
+				}
 
-					$pic = $rating->getImage();
+				$label = $rating->getAboutLink();
 
-					$radio = '<input type="radio" name="ratingTo" value="' . $data . '"' . $checked . '" /> ';
+				$pic = $rating->getImage();
 
-  					$body = $body . $radio . $pic . $label . '<br />';
-  				}
+				$radio = Html::input( 'ratingTo', $data, 'radio', $attribs );
+				$radio .= $this->msg( 'word-separator' )->parse();
 
-				$html = $head . $body . $foot;
-                $wgOut->addHTML( $html );
-        	}
-		} else {
-        	$wgOut -> addWikiText( 'Sorry, this page is restricted to "rating-changer" users.' );
+				$body = $body . $radio . $pic . $label . '<br />';
+			}
+
+			$html = $head . $body . $foot;
+			$out->addHTML( $html );
 		}
 	}
 }

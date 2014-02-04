@@ -1,34 +1,25 @@
 <?php
 
-$dir = dirname(__FILE__) . '/';
-
-$wgAutoloadClasses['RatingData'] = $dir . 'RatingDataClass.php';
-
 class SpecialMassRatings extends QueryPage {
 	function __construct() {
 		parent::__construct( 'MassRatings' );
 	}
 
 	function getQueryInfo() {
-		global $wgRequest;
+		$where = array();
+		$selectedRatings = array();
 
-  		$where = '';
-  		$selectedRatings = array();
-
-        $ratings = RatingData::getAllRatings();
+		$ratings = RatingData::getAllRatings();
 
 		foreach ( $ratings as $data ) {
-
-			if ( $wgRequest->getVal( $data ) == 'true' ) {
+			if ( $this->getRequest()->getVal( $data ) == 'true' ) {
 				$selectedRatings[] = $data;
 			}
-  		}
+		}
 
-  		if ( $selectedRatings ) {
-  			$where = array ( 'ratings_rating' => $selectedRatings );
-  		} else {
-  			$where = array();
-  		}
+		if ( $selectedRatings ) {
+			$where = array( 'ratings_rating' => $selectedRatings );
+		}
 
 		return array(
 			'tables' => 'ratings',
@@ -50,15 +41,17 @@ class SpecialMassRatings extends QueryPage {
 	}
 
 	function getPageHeader() {
-		global $wgRequest;
+		$request = $this->getRequest();
 
-  		$formbody = '';
+		$attribs = array();
+		$formbody = '';
 
-  		$formhead = '<fieldset><legend>List pages by rating</legend><form action="" method="get">';
+		$formhead = '<fieldset><legend>' . $this->msg( 'massratings-legend' )->plain();
+		$formhead .= '</legend><form action="" method="get">';
 
-  		$formfoot = '<input type="submit" /></form></fieldset>';
+		$formfoot = '<input type="submit" /></form></fieldset>';
 
-        $ratings = RatingData::getAllRatings();
+		$ratings = RatingData::getAllRatings();
 
 		foreach ( $ratings as $data ) {
 			$rating = new RatingData( $data );
@@ -66,17 +59,16 @@ class SpecialMassRatings extends QueryPage {
 			$label = $rating->getAboutLink();
 			$pic = $rating->getImage();
 
-			if ( $wgRequest->getVal( $data ) == 'true' ) {
-				$checked = ' checked="checked"';
-			} else {
-				$checked = '';
+			if ( $request->getVal( $data ) == 'true' ) {
+				$attribs = array( 'checked' => 'checked' );
 			}
 
-			$input = '<input type="checkbox" value="true" name="' . $data . '"' . $checked . ' /> ';
-  			$formbody .= $input . $pic . $label . '<br />';
+			$input = Html::input( $data, 'true', 'checkbox', $attribs );
+			$input .= $this->msg( 'word-separator' )->parse();
+			$formbody .= $input . $pic . $label . '<br />';
 		}
 
-  		return $formhead . $formbody . $formfoot;
+		return $formhead . $formbody . $formfoot;
 	}
 
 	function formatResult( $skin, $page ) {
