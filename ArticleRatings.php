@@ -1,37 +1,30 @@
 <?php
+/**
+ * ArticleRating extension -- a complex interface for rating pages
+ *
+ * @file
+ * @ingroup Extensions
+ * @version 2.0
+ * @author Adam Carter (UltrasonicNXT)
+ * @link https://www.mediawiki.org/wiki/Extension:ArticleRatings Documentation
+ */
 
 # Not an entry point
-if( !defined( 'MEDIAWIKI' ) ) {
-	die('This file is a MediaWiki extension, it is not a valid entry point');
+if ( !defined( 'MEDIAWIKI' ) ) {
+	die( 'This file is a MediaWiki extension, it is not a valid entry point' );
 }
 
-# Check tables and stuff
-function areAddColumn() {
-	$dbw = wfGetDB( DB_MASTER );
-	$q = $dbw->tableName( 'ratings' );
-	$success = $dbw->query(
-		'CREATE TABLE ' . $q . '
-		(
-		ratings_title varchar(255),
-		ratings_rating tinytext,
-		ratings_namespace int
-		)',
-		__METHOD__,
-		true
-	);
-}
-//$wgExtensionFunctions[] = 'areAddColumn';
-
-# Load Classes
+# Load classes
 $wgAutoloadClasses['RatingData'] = __DIR__ . '/RatingDataClass.php';
 
-# Load Hooks
+# Load hooks
 $wgAutoloadClasses['AreHooks'] = __DIR__ . '/Hooks.php';
 $wgHooks['BaseTemplateToolbox'][] = 'AreHooks::onBaseTemplateToolbox';
 $wgHooks['TitleMoveComplete'][] = 'AreHooks::onTitleMoveComplete';
 $wgHooks['ParserFirstCallInit'][] = 'wfRatingParserInit';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'AreHooks::onLoadExtensionSchemaUpdates';
 
-include( __DIR__ . "/RatingTag.php" );
+include( __DIR__ . '/RatingTag.php' );
 
 function wfRatingParserInit( Parser $parser ) {
 	$parser->setHook( 'rating', 'wfRatingRender' );
@@ -42,13 +35,13 @@ function wfRatingParserInit( Parser $parser ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ArticleRating',
+	'version' => '2.1',
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
 	'descriptionmsg' => 'ratings-desc',
-	'version' => '2.1',
 );
 
-# Special:SpecialPages
+# Group the special pages under the correct headers in Special:SpecialPages
 $wgSpecialPageGroups['ChangeRating'] = 'other';
 $wgSpecialPageGroups['MassRatings'] = 'other';
 
@@ -62,10 +55,16 @@ $wgSpecialPages['MassRatings'] = 'SpecialMassRatings';
 
 # i18n
 $wgExtensionMessagesFiles['ArticleRatings'] = __DIR__ . '/ArticleRatings.i18n.php';
+$wgExtensionMessagesFiles['ArticleRatingsAlias'] = __DIR__ . '/ArticleRatings.alias.php';
 
 # Logs
 $wgLogTypes[] = 'ratings';
 $wgLogActionsHandlers['ratings/*'] = 'LogFormatter';
 
-# Groups
+# New user right
+$wgAvailableRights[] = 'changeRating';
+
+# TODO FIXME:
+# 1) the user right needs to be renamed to conform to MW conventions (hyphen instead of lowerCamelCase)
+# 2) and then this very definition needs to be moved to Brickimedia's config file(s)
 $wgGroupPermissions['reviewer']['changeRating'] = true;
