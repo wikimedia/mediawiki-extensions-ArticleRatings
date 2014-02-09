@@ -62,9 +62,11 @@ $wgLogTypes[] = 'ratings';
 $wgLogActionsHandlers['ratings/*'] = 'LogFormatter';
 
 # New user right
-$wgAvailableRights[] = 'changeRating';
+$wgAvailableRights[] = 'change-rating';
 
 # TODO FIXME:
-# 1) the user right needs to be renamed to conform to MW conventions (hyphen instead of lowerCamelCase)
-# 2) and then this very definition needs to be moved to Brickimedia's config file(s)
-$wgGroupPermissions['reviewer']['changeRating'] = true;
+# this definition needs to be moved to Brickimedia's config file(s)
+$wgGroupPermissions['reviewer']['change-rating'] = true;
+
+# vars
+$wgAREUseInitialRatings = false;

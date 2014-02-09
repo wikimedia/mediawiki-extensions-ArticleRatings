@@ -1,6 +1,7 @@
 <?php
 
 function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
+	global $wgAREUseInitialRatings;
 	$out = '<div class="mw-rating-tag">';
 
 	if ( isset( $args['page'] ) && $args['page'] ) {
@@ -16,7 +17,7 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$title = $parser->getTitle();
 	}
 
-	if ( isset( $args['initial-rating'] ) ) {
+	if ( isset( $args['initial-rating'] ) && $wgAREUseInitialRatings ) {
 		$initRating = $args['initial-rating'];
 	}
 
