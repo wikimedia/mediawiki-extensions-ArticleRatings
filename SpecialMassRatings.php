@@ -41,15 +41,10 @@ class SpecialMassRatings extends QueryPage {
 	}
 
 	function getPageHeader() {
-		$request = $this->getRequest();
+		$output = '';
 
-		$attribs = array();
-		$formbody = '';
-
-		$formhead = '<fieldset><legend>' . $this->msg( 'massratings-legend' )->plain();
-		$formhead .= '</legend><form action="" method="get">';
-
-		$formfoot = '<input type="submit" /></form></fieldset>';
+		$output .= '<fieldset><legend>' . $this->msg( 'massratings-legend' )->plain();
+		$output .= '</legend><form action="" method="get">';
 
 		$ratings = RatingData::getAllRatings();
 
@@ -59,16 +54,19 @@ class SpecialMassRatings extends QueryPage {
 			$label = $rating->getAboutLink();
 			$pic = $rating->getImage();
 
-			if ( $request->getVal( $data ) == 'true' ) {
+			$attribs = array();
+			if ( $this->getRequest()->getVal( $data ) == 'true' ) {
 				$attribs = array( 'checked' => 'checked' );
 			}
 
 			$input = Html::input( $data, 'true', 'checkbox', $attribs );
 			$input .= $this->msg( 'word-separator' )->parse();
-			$formbody .= $input . $pic . $label . '<br />';
+			$output .= $input . $pic . $label . '<br />';
 		}
 
-		return $formhead . $formbody . $formfoot;
+		$output .= '<input type="submit" /></form></fieldset>';
+
+		return $output;
 	}
 
 	function formatResult( $skin, $page ) {
