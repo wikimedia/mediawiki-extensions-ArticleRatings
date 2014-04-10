@@ -4,7 +4,6 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.0
  * @author Adam Carter (UltrasonicNXT)
  * @link https://www.mediawiki.org/wiki/Extension:ArticleRatings Documentation
  */
@@ -20,7 +19,7 @@ $wgAutoloadClasses['RatingData'] = __DIR__ . '/RatingDataClass.php';
 # Load hooks
 $wgAutoloadClasses['AreHooks'] = __DIR__ . '/Hooks.php';
 $wgHooks['BaseTemplateToolbox'][] = 'AreHooks::onBaseTemplateToolbox';
-$wgHooks['TitleMoveComplete'][] = 'AreHooks::onTitleMoveComplete';
+$wgHooks['TitleMove'][] = 'AreHooks::onTitleMove';
 $wgHooks['ParserFirstCallInit'][] = 'wfRatingParserInit';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'AreHooks::onLoadExtensionSchemaUpdates';
 
@@ -35,7 +34,7 @@ function wfRatingParserInit( Parser $parser ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ArticleRating',
-	'version' => '2.2',
+	'version' => '2.3.0',
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
 	'descriptionmsg' => 'ratings-desc',

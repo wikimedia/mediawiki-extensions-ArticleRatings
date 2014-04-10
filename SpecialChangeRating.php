@@ -2,7 +2,7 @@
 
 class SpecialChangeRating extends SpecialPage {
 	public function __construct() {
-		parent::__construct( 'ChangeRating', 'changeRating' );
+		parent::__construct( 'ChangeRating', 'change-rating' );
 	}
 
 	public function execute( $page ) {
@@ -25,7 +25,7 @@ class SpecialChangeRating extends SpecialPage {
 		} elseif ( !$title->exists() ) {
 			$out->addWikiMsg( 'changerating-no-such-page', $page );
 		} else {
-			$out->addWikiMsg( 'changerating-back', $page );
+			$out->addWikiMsg( 'changerating-back', $title->getFullText() );
 
 			$dbr = wfGetDB( DB_SLAVE );
 
@@ -38,7 +38,7 @@ class SpecialChangeRating extends SpecialPage {
 					'ratings',
 					'ratings_rating',
 					array(
-						'ratings_title' => $page,
+						'ratings_title' => $title->getDBkey(),
 						'ratings_namespace' => $title->getNamespace()
 					),
 					__METHOD__
@@ -52,7 +52,7 @@ class SpecialChangeRating extends SpecialPage {
 					'ratings',
 					array( 'ratings_rating' => $ratingto ),
 					array(
-						'ratings_title' => $page,
+						'ratings_title' => $title->getDBkey(),
 						'ratings_namespace' => $title->getNamespace()
 					),
 					__METHOD__
@@ -66,7 +66,7 @@ class SpecialChangeRating extends SpecialPage {
 
 				$logEntry = new ManualLogEntry( 'ratings', 'change' );
 				$logEntry->setPerformer( $this->getUser() );
-				$logEntry->setTarget( Title::newFromText( strval( $page ) ) );
+				$logEntry->setTarget( $title );
 				$logEntry->setParameters( array(
 					'4::newrating' => $ratingname,
 					'5::oldrating' => $oldratingname
@@ -79,18 +79,16 @@ class SpecialChangeRating extends SpecialPage {
 				$logEntry->publish( $logId );
 			}
 
-			$head = $this->msg( 'changerating-intro-text', $page )->parseAsBlock();
-			$head .= '<form name="change-rating" action="" method="get">';
-			$foot = $this->msg( 'changerating-reason' )->plain();
-			$foot .= ' <input type="text" name="reason" size="50" /><br />';
-			$foot .= Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' );
-			$foot .= '</form>​';
-			$body = '';
+			$output = $this->msg( 'changerating-intro-text', $page )->parseAsBlock() .
+				'<form name="change-rating" action="" method="get">';
 
 			$res = $dbr->select(
 				'ratings',
 				array( 'ratings_rating', 'ratings_title' ),
-				array( 'ratings_title' => $page ),
+				array(
+					'ratings_title' => $title->getDBkey(),
+					'ratings_namespace' => $title->getNamespace()
+				),
 				__METHOD__
 			);
 			$row = $res->fetchRow();
@@ -107,18 +105,21 @@ class SpecialChangeRating extends SpecialPage {
 					$attribs = array();
 				}
 
-				$label = $rating->getAboutLink();
+				$output .= Html::input( 'ratingTo', $data, 'radio', $attribs );
+				$output .= $this->msg( 'word-separator' )->parse();
 
-				$pic = $rating->getImage();
+				$output .= $rating->getImage();
+				$output .= $rating->getAboutLink();
 
-				$radio = Html::input( 'ratingTo', $data, 'radio', $attribs );
-				$radio .= $this->msg( 'word-separator' )->parse();
-
-				$body = $body . $radio . $pic . $label . '<br />';
+				$output .= '<br />';
 			}
 
-			$html = $head . $body . $foot;
-			$out->addHTML( $html );
+			$output .= $this->msg( 'changerating-reason' )->plain() .
+				' <input type="text" name="reason" size="50" /><br />' .
+				Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' ) .
+				'</form>';
+
+			$out->addHTML( $output );
 		}
 	}
 }

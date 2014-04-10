@@ -23,9 +23,9 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 
 	$dbr = wfGetDB( DB_SLAVE );
 
-	$res = $dbr->select(
+	$field = $dbr->selectField(
 		'ratings',
-		array( 'ratings_rating', 'ratings_title' ),
+		'ratings_rating',
 		array(
 			'ratings_title' => $title->getDBkey(),
 			'ratings_namespace' => $title->getNamespace(),
@@ -33,9 +33,7 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		__METHOD__
 	);
 
-	$row = $res->fetchRow();
-
-	if ( !$row ) { // create rating
+	if ( !$field ) { // create rating
 		$ratings = RatingData::getAllRatings();
 
 		if ( isset( $args['initial-rating'] ) && in_array( $initRating, $ratings ) ) {
@@ -55,9 +53,8 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 			),
 			__METHOD__
 		);
+
 		$field = 'un';
-	} else {
-		$field = $row['ratings_rating'];
 	}
 
 	$rating = new RatingData( $field );

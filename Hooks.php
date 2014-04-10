@@ -1,53 +1,39 @@
 <?php
 class AreHooks {
-	public static function onTitleMoveComplete( Title $title, Title $newtitle, User $user, $oldid, $newid ) {
-		$dbr = wfGetDB( DB_SLAVE );
+	public static function onTitleMove( Title $title, Title $newtitle, User $user ) {
+		$dbw = wfGetDB( DB_MASTER );
 
-		$res = $dbr->select(
+		$res = $dbw->update(
 			'ratings',
-			'ratings_rating',
-			/* @todo FIXME: this is a hack...it works because Title has a toString() method,
-			but you really should be calling the proper method here (probably $title->getPrefixedText()?)
-			*/
-			array( 'ratings_title' => $title ),
+			array( 'ratings_title' => $newtitle->getDBkey(), 'ratings_namespace' => $newtitle->getNamespace() ),
+			array( 'ratings_title' => $title->getDBkey(), 'ratings_namespace' => $title->getNamespace() ),
 			__METHOD__
 		);
-		$no = $res->numRows();
-		$row = $res->fetchRow();
-		$rating = $row['ratings_rating'];
-
-		if ( $no != 0 ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$res = $dbw->update(
-				'ratings',
-				array( 'ratings_rating' => $rating ),
-				array( 'ratings_title' => $newtitle ),
-				__METHOD__
-			);
-		}
 
 		return true;
 	}
 
 	public static function onBaseTemplateToolbox( BaseTemplate $skin, array &$toolbox ) {
-		$title = $skin->getSkin()->getTitle();
-		$dbr = wfGetDB( DB_SLAVE );
+		if ( $skin->getSkin()->getUser()->isAllowed( 'change-rating' ) ) {
+			$title = $skin->getSkin()->getTitle();
+			$dbr = wfGetDB( DB_SLAVE );
 
-		$res = $dbr->select(
-			'ratings',
-			'ratings_rating',
-			array(
-				'ratings_title' => $title->getDBkey(),
-				'ratings_namespace' => $title->getNamespace()
-			),
-			__METHOD__
-		);
-
-		if ( $res && $res->numRows() ) {
-			$toolbox['rating'] = array(
-				'text' => $skin->getSkin()->msg( 'are-change-rating' )->text(),
-				'href' => SpecialPage::getTitleFor( 'ChangeRating', $title->getFullText() )->getFullURL()
+			$res = $dbr->select(
+				'ratings',
+				'ratings_rating',
+				array(
+					'ratings_title' => $title->getDBkey(),
+					'ratings_namespace' => $title->getNamespace()
+				),
+				__METHOD__
 			);
+
+			if ( $res && $res->numRows() ) {
+				$toolbox['rating'] = array(
+					'text' => $skin->getSkin()->msg( 'are-change-rating' )->text(),
+					'href' => SpecialPage::getTitleFor( 'ChangeRating', $title->getFullText() )->getFullURL()
+				);
+			}
 		}
 
 		return true;
