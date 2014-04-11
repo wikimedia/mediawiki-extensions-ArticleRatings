@@ -5,15 +5,11 @@ class SpecialChangeRating extends SpecialPage {
 		parent::__construct( 'ChangeRating', 'change-rating' );
 	}
 
-	public function execute( $page ) {
-		// If the user doesn't have sufficient permissions to use this special
-		// page, display an error
+	public function execute( $page ) {;
+		global $wgARENamespaces;
+
 		$this->checkPermissions();
-
-		// Show a message if the database is in read-only mode
 		$this->checkReadOnly();
-
-		// Set the page title, robot policies, etc.
 		$this->setHeaders();
 
 		$out = $this->getOutput();
@@ -25,6 +21,11 @@ class SpecialChangeRating extends SpecialPage {
 		} elseif ( !$title->exists() ) {
 			$out->addWikiMsg( 'changerating-no-such-page', $page );
 		} else {
+			if ( !in_array( $title->getNamespace(), $wgARENamespaces ) ) {
+				$out->addWikiMsg( 'are-disallowed' );
+				return;
+			}
+
 			$out->addWikiMsg( 'changerating-back', $title->getFullText() );
 
 			$dbr = wfGetDB( DB_SLAVE );

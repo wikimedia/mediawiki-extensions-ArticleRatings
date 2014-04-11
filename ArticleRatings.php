@@ -34,7 +34,7 @@ function wfRatingParserInit( Parser $parser ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ArticleRating',
-	'version' => '2.3.0',
+	'version' => '2.3.2',
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
 	'descriptionmsg' => 'ratings-desc',
@@ -69,3 +69,4 @@ $wgGroupPermissions['reviewer']['change-rating'] = true;
 
 # vars
 $wgAREUseInitialRatings = false;
+$wgARENamespaces = $wgContentNamespaces;

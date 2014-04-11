@@ -27,6 +27,7 @@ $messages['en'] = array(
 
 	'ratings-desc' => 'A complex interface for rating pages',
 
+	'are-disallowed' => 'Ratings have been disallowed for this namespace',
 	'are-no-such-page' => 'The page "$1" does not exist.',
 	'are-rating-for-page' => '<span class="mw-rating-rating-for">Rating for "$1"</span>:',
 	'are-change-rating' => 'Change Rating',
