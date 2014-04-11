@@ -80,4 +80,23 @@ class SpecialMassRatings extends QueryPage {
 
 		return $pic . $label . ' - ' . $link;
 	}
+
+	/**
+	 * Ensure rating paramters in URL are passed if the user does a "next 500" or whatever
+	 *
+	 * @see QueryPage::linkParameters()
+	 */
+	function linkParameters() {
+		$params = array();
+
+		$ratings = RatingData::getAllRatings();
+
+		foreach ( $ratings as $data ) {
+			if ( $this->getRequest()->getVal( $data ) == 'true' ) {
+				$params[$data] = 'true';
+			}
+		}
+
+		return $params;
+	}
 }
