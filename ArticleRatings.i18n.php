@@ -20,21 +20,18 @@ $messages['en'] = array(
 	'changerating-submit' => 'Submit',
 	'massratings' => 'MassRatings',
 	'massratings-legend' => 'List pages by rating',
-
 	'log-name-ratings' => 'Rating Change Log',
 	'log-description-ratings' => 'This log shows all the recent changes to pages\' ratings.',
 	'logentry-ratings-change' => '$1 changed the rating of $3 from $5 to $4',
-
 	'ratings-desc' => 'A complex interface for rating pages',
-
 	'are-disallowed' => 'Ratings have been disallowed for this namespace',
 	'are-no-such-page' => 'The page "$1" does not exist.',
 	'are-rating-for-page' => '<span class="mw-rating-rating-for">Rating for "$1"</span>:',
 	'are-change-rating' => 'Change Rating',
 	'are-ratings' => '',
-
 	'group-reviewer' => 'Reviewer',
 	'group-reviewer-member' => 'Reviewers',
+	'action-change-rating' => 'change article ratings',
 );
 
 /** Vietnamese (Tiếng Việt)
