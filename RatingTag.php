@@ -43,7 +43,7 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		if ( isset( $args['initial-rating'] ) && in_array( $initRating, $ratings ) ) {
 			$useRating = $initRating;
 		} else {
-			$useRating = 'un';
+			$useRating = RatingData::getDefaultRating();
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -58,7 +58,7 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 			__METHOD__
 		);
 
-		$field = 'un';
+		$field = $useRating;
 	}
 
 	$rating = new RatingData( $field );

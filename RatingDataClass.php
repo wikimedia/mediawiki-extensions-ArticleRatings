@@ -35,6 +35,16 @@ class RatingData {
 		return $returners;
 	}
 
+	public static function getDefaultRating() {
+		$json = wfMessage( 'are-ratings' )->plain();
+		if ( empty( $json ) ) {
+			trigger_error( 'ARE Error: empty JSON' );
+		}
+		$JSON = json_decode( $json, true );
+
+		return $JSON[0]["codename"];
+	}
+
 	public function getAttr( $attr ) {
 		foreach ( $this->JSON as $data ) {
 			if ( $data['codename'] == $this->thisCodename ) {
