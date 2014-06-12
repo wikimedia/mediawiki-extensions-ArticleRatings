@@ -22,6 +22,7 @@ $wgHooks['BaseTemplateToolbox'][] = 'AreHooks::onBaseTemplateToolbox';
 $wgHooks['TitleMove'][] = 'AreHooks::onTitleMove';
 $wgHooks['ParserFirstCallInit'][] = 'wfRatingParserInit';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'AreHooks::onLoadExtensionSchemaUpdates';
+$wgHooks['ArticleDeleteComplete'][] = 'AreHooks::onArticleDeleteComplete';
 
 include( __DIR__ . '/RatingTag.php' );
 
@@ -34,7 +35,7 @@ function wfRatingParserInit( Parser $parser ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ArticleRating',
-	'version' => '2.3.3',
+	'version' => '2.3.4',
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
 	'descriptionmsg' => 'ratings-desc',
