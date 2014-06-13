@@ -76,6 +76,11 @@ class SpecialMassRatings extends QueryPage {
 		$label = $rating->getAboutLink();
 
 		$title = Title::newFromText( $page->title );
+
+		if ( !$title->isKnown() ) { // remove redlinks from results
+			return false;
+		}
+
 		$link = Linker::link( $title );
 
 		return $pic . $label . ' - ' . $link;
