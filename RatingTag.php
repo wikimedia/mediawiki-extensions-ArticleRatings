@@ -17,7 +17,7 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$title = $parser->getTitle();
 	}
 
-	if ( !in_array( $title()->getNamespace(), $wgARENamespaces ) ) {
+	if ( !in_array( $title->getNamespace(), $wgARENamespaces ) ) {
 		return wfMessage( 'are-disallowed' )->parse();
 	}
 
