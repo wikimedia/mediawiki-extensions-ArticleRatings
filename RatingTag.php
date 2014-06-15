@@ -15,9 +15,13 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		} else {
 			return wfMessage( 'are-no-such-page', $page )->parse();
 		}
+
+		$showAboutLink = false;
 	} else {
 		$title = $parser->getTitle();
 		$out .= '<span class="mw-rating-tag">';
+
+		$showAboutLink = true;
 	}
 
 	if ( !in_array( $title->getNamespace(), $wgARENamespaces ) ) {
@@ -66,7 +70,13 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 
 	$rating = new RatingData( $field );
 
-	$out .= $rating->getAboutLink() . $rating->getImage() . '</span>';
+	$aboutLink = '';
+
+	if ( $showAboutLink ) {
+		$aboutLink = $rating->getAboutLink();
+	}
+
+	$out .= $aboutLink . $rating->getImage() . '</span>';
 
 	return $out;
 }
