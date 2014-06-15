@@ -4,10 +4,6 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 	global $wgAREUseInitialRatings, $wgARENamespaces;
 	$out = '<div class="mw-rating-tag">';
 
-	if ( !in_array( $parser->getTitle()->getNamespace(), $wgARENamespaces ) ) {
-		return wfMessage( 'are-disallowed' )->parse();
-	}
-
 	if ( isset( $args['page'] ) && $args['page'] ) {
 		$title = Title::newFromText( $args['page'] );
 
@@ -19,6 +15,10 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		}
 	} else {
 		$title = $parser->getTitle();
+	}
+
+	if ( !in_array( $title()->getNamespace(), $wgARENamespaces ) ) {
+		return wfMessage( 'are-disallowed' )->parse();
 	}
 
 	if ( isset( $args['initial-rating'] ) && $wgAREUseInitialRatings ) {
