@@ -6,16 +6,18 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 	$out = '';
 
 	if ( isset( $args['page'] ) && $args['page'] ) {
-		$title = Title::newFromText( $args['page'] );
+		$page = $parser->recursiveTagParse( $args['page'], $frame ); // parse variables like {{{1}}}
+
+		$title = Title::newFromText( $page );
 
 		if ( $title && $title->exists() ) {
-			$out .= '<div class="mw-rating-tag-page">';
+			$out .= '<span class="mw-rating-tag-page">';
 		} else {
-			return wfMessage( 'are-no-such-page', $args['page'] )->parse();
+			return wfMessage( 'are-no-such-page', $page )->parse();
 		}
 	} else {
 		$title = $parser->getTitle();
-		$out .= '<div class="mw-rating-tag">';
+		$out .= '<span class="mw-rating-tag">';
 	}
 
 	if ( !in_array( $title->getNamespace(), $wgARENamespaces ) ) {
@@ -64,7 +66,7 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 
 	$rating = new RatingData( $field );
 
-	$out .= $rating->getAboutLink() . $rating->getImage() . '</div>';
+	$out .= $rating->getAboutLink() . $rating->getImage() . '</span>';
 
 	return $out;
 }
