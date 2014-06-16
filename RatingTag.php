@@ -16,6 +16,12 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 			return wfMessage( 'are-no-such-page', $page )->parse();
 		}
 
+		if ( $title->isRedirect() ) { // follow redirects
+			$wikipage = WikiPage::factory( $title );
+			$content = $wikipage->getContent( Revision::FOR_PUBLIC );
+			$title = $content->getUltimateRedirectTarget();
+		}
+
 		$showAboutLink = false;
 	} else {
 		$title = $parser->getTitle();
