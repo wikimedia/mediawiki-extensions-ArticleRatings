@@ -119,8 +119,6 @@ class SpecialChangeRating extends SpecialPage {
 				Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' ) .
 				'</form>';
 
-			$output .= $this->msg( 'changerating-log-text', $page )->parseAsBlock();
-
 			$loglist = new LogEventsList( $this->getContext() );
 			$pager = new LogPager(
 				$loglist,
@@ -129,7 +127,13 @@ class SpecialChangeRating extends SpecialPage {
 				$title
 			);
 
-			$output .= $pager->getBody();
+			$log = $pager->getBody();
+			if ( $log ) {
+				$output .= $this->msg( 'changerating-log-text', $page )->parseAsBlock() . $log;
+			} else {
+				$output .= $this->msg( 'changerating-nolog-text', $page )->parseAsBlock() . $log;
+			}
+
 			$out->addHTML( $output );
 		}
 	}
