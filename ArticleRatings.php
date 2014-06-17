@@ -35,7 +35,7 @@ function wfRatingParserInit( Parser $parser ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ArticleRating',
-	'version' => '2.3.5',
+	'version' => '2.3.6',
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
 	'descriptionmsg' => 'ratings-desc',

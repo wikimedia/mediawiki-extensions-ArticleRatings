@@ -32,6 +32,7 @@ $messages['en'] = array(
 	'group-reviewer' => 'Reviewer',
 	'group-reviewer-member' => 'Reviewers',
 	'action-change-rating' => 'change article ratings',
+	'changerating-log-text' => 'Past rating changes on this article:'
 );
 
 /** Vietnamese (Tiếng Việt)

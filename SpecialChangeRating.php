@@ -80,8 +80,7 @@ class SpecialChangeRating extends SpecialPage {
 				$logEntry->publish( $logId );
 			}
 
-			$output = $this->msg( 'changerating-intro-text', $page )->parseAsBlock() .
-				'<form name="change-rating" action="" method="get">';
+			$output = $this->msg( 'changerating-intro-text', $page )->parseAsBlock() . '<form name="change-rating" action="" method="get">';
 
 			$res = $dbr->select(
 				'ratings',
@@ -120,6 +119,17 @@ class SpecialChangeRating extends SpecialPage {
 				Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' ) .
 				'</form>';
 
+			$output .= $this->msg( 'changerating-log-text', $page )->parseAsBlock();
+
+			$loglist = new LogEventsList( $this->getContext() );
+			$pager = new LogPager(
+				$loglist,
+				'ratings',
+				'',
+				$title
+			);
+
+			$output .= $pager->getBody();
 			$out->addHTML( $output );
 		}
 	}
