@@ -11,9 +11,9 @@ class SpecialMassRatings extends QueryPage {
 
 		$ratings = RatingData::getAllRatings();
 
-		foreach ( $ratings as $data ) {
-			if ( $this->getRequest()->getVal( $data ) == 'true' ) {
-				$selectedRatings[] = $data;
+		foreach ( $ratings as $rating ) {
+			if ( $this->getRequest()->getVal( $rating->getCodename() ) == 'true' ) {
+				$selectedRatings[] = $rating->getCodename();
 			}
 		}
 
@@ -48,18 +48,16 @@ class SpecialMassRatings extends QueryPage {
 
 		$ratings = RatingData::getAllRatings();
 
-		foreach ( $ratings as $data ) {
-			$rating = new RatingData( $data );
-
+		foreach ( $ratings as $rating ) {
 			$label = $rating->getAboutLink();
 			$pic = $rating->getImage();
 
 			$attribs = array();
-			if ( $this->getRequest()->getVal( $data ) == 'true' ) {
+			if ( $this->getRequest()->getVal( $rating->getCodename() ) == 'true' ) {
 				$attribs = array( 'checked' => 'checked' );
 			}
 
-			$input = Html::input( $data, 'true', 'checkbox', $attribs );
+			$input = Html::input( $rating->getCodename(), 'true', 'checkbox', $attribs );
 			$input .= $this->msg( 'word-separator' )->parse();
 			$output .= $input . $pic . $label . '<br />';
 		}
@@ -70,7 +68,7 @@ class SpecialMassRatings extends QueryPage {
 	}
 
 	function formatResult( $skin, $page ) {
-		$rating = new RatingData( $page->value );
+		$rating = new Rating( $page->value );
 
 		$pic = $rating->getImage();
 		$label = $rating->getAboutLink();
@@ -96,9 +94,9 @@ class SpecialMassRatings extends QueryPage {
 
 		$ratings = RatingData::getAllRatings();
 
-		foreach ( $ratings as $data ) {
-			if ( $this->getRequest()->getVal( $data ) == 'true' ) {
-				$params[$data] = 'true';
+		foreach ( $ratings as $rating ) {
+			if ( $this->getRequest()->getVal( $rating->getCodename() ) == 'true' ) {
+				$params[$rating->getCodename()] = 'true';
 			}
 		}
 

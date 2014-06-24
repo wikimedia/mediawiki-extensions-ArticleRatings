@@ -50,13 +50,20 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		__METHOD__
 	);
 
-	if ( !$field ) { // create rating
+	if ( $field ) {
+		$useRating = new Rating( $field );
+
+	} else { // create rating
 		$ratings = RatingData::getAllRatings();
 
-		if ( isset( $args['initial-rating'] ) && in_array( $initRating, $ratings ) ) {
-			$useRating = $initRating;
-		} else {
-			$useRating = RatingData::getDefaultRating();
+		$useRating = RatingData::getDefaultRating();
+
+		if ( isset( $args['initial-rating'] ) ) {
+			foreach ( $ratings as $rating ) {
+				if ( $args['initial-rating'] == $rating->getCodename() ) { // check if the rating actually exists
+					$useRating = $rating;
+				}
+			}
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -64,25 +71,21 @@ function wfRatingRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$dbw->insert(
 			'ratings',
 			array(
-				'ratings_rating' => $useRating,
+				'ratings_rating' => $useRating->getCodename(),
 				'ratings_title' => $title->getDBkey(),
 				'ratings_namespace' => $title->getNamespace()
 			),
 			__METHOD__
 		);
-
-		$field = $useRating;
 	}
-
-	$rating = new RatingData( $field );
 
 	$aboutLink = '';
 
 	if ( $showAboutLink ) {
-		$aboutLink = $rating->getAboutLink();
+		$aboutLink = $useRating->getAboutLink();
 	}
 
-	$out .= $aboutLink . $rating->getImage() . '</span>';
+	$out .= $aboutLink . $useRating->getImage() . '</span>';
 
 	return $out;
 }

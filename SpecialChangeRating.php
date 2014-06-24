@@ -44,8 +44,7 @@ class SpecialChangeRating extends SpecialPage {
 					),
 					__METHOD__
 				);
-				$oldrating = new RatingData( $res );
-				$oldratingname = $oldrating->getAttr( 'name' );
+				$oldrating = new Rating( $res );
 
 				$dbw = wfGetDB( DB_MASTER );
 
@@ -62,15 +61,14 @@ class SpecialChangeRating extends SpecialPage {
 				$reason = $request->getVal( 'reason' );
 				$out->addWikiMsg( 'changerating-success' );
 
-				$rating = new RatingData( $ratingto );
-				$ratingname = $rating->getAttr( 'name' );
+				$rating = new Rating( $ratingto );
 
 				$logEntry = new ManualLogEntry( 'ratings', 'change' );
 				$logEntry->setPerformer( $this->getUser() );
 				$logEntry->setTarget( $title );
 				$logEntry->setParameters( array(
-					'4::newrating' => $ratingname,
-					'5::oldrating' => $oldratingname
+					'4::newrating' => $rating->getName(),
+					'5::oldrating' => $oldrating->getName()
 				) );
 				if ( !is_null( $reason ) ) {
 					$logEntry->setComment( $reason );
@@ -80,32 +78,28 @@ class SpecialChangeRating extends SpecialPage {
 				$logEntry->publish( $logId );
 			}
 
-			$output = $this->msg( 'changerating-intro-text', $page )->parseAsBlock() . '<form name="change-rating" action="" method="get">';
+			$output = $this->msg( 'changerating-intro-text', $title->getFullText() )->parseAsBlock() . '<form name="change-rating" action="" method="get">';
 
-			$res = $dbr->select(
+			$currentRating = $dbr->selectField(
 				'ratings',
-				array( 'ratings_rating', 'ratings_title' ),
+				'ratings_rating',
 				array(
 					'ratings_title' => $title->getDBkey(),
 					'ratings_namespace' => $title->getNamespace()
 				),
 				__METHOD__
 			);
-			$row = $res->fetchRow();
-			$field = $row['ratings_rating'];
 
 			$ratings = RatingData::getAllRatings();
 
-			foreach ( $ratings as $data ) {
-				$rating = new RatingData( $data );
-
-				if ( $data == $field ) {
+			foreach ( $ratings as $rating ) {
+				if ( $rating->getCodename() == $currentRating ) {
 					$attribs = array( 'checked' => 'checked' );
 				} else {
 					$attribs = array();
 				}
 
-				$output .= Html::input( 'ratingTo', $data, 'radio', $attribs );
+				$output .= Html::input( 'ratingTo', $rating->getCodename(), 'radio', $attribs );
 				$output .= $this->msg( 'word-separator' )->parse();
 
 				$output .= $rating->getImage();

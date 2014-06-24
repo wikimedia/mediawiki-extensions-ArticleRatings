@@ -1,101 +1,90 @@
 <?php
 
 class RatingData {
-
-	protected $thisCodename;
-	public $noImageString = '';
-	public $JSON = array();
-
-	public function __construct( $codename ) {
-		if ( empty( $codename ) ) {
-			trigger_error( 'Never seed RatingData with an empty codename' );
-		} else {
-			$this->thisCodename = $codename;
-		}
+	public static function getJSON() {
 		$json = wfMessage( 'are-ratings' )->plain();
 		if ( empty( $json ) ) {
 			trigger_error( 'ARE Error: empty JSON' );
 		}
-		$this->JSON = json_decode( $json, true );
+		return json_decode( $json, true );
 	}
 
 	public static function getAllRatings() {
-		$json = wfMessage( 'are-ratings' )->plain();
-		if ( empty( $json ) ) {
-			trigger_error( 'ARE Error: empty JSON' );
-		}
-		$JSON = json_decode( $json, true );
+		$JSON = self::getJSON();
 
 		$returners = array();
 
 		foreach ( $JSON as $data ) {
-			$returners[] = $data['codename'];
+			$returners[] = new Rating( $data['codename'] );
 		}
 
 		return $returners;
 	}
 
 	public static function getDefaultRating() {
-		$json = wfMessage( 'are-ratings' )->plain();
-		if ( empty( $json ) ) {
-			trigger_error( 'ARE Error: empty JSON' );
-		}
-		$JSON = json_decode( $json, true );
+		$JSON = self::getJSON();
 
-		return $JSON[0]["codename"];
+		return new Rating( $JSON[0]["codename"] );
 	}
+}
 
-	public function getAttr( $attr ) {
-		foreach ( $this->JSON as $data ) {
-			if ( $data['codename'] == $this->thisCodename ) {
-				return $data[$attr];
+class Rating {
+	protected $codename;
+	protected $data = array();
+
+	public function __construct( $codename ) {
+		if ( empty( $codename ) ) {
+			trigger_error( 'Never seed Rating with an empty codename' );
+		} else {
+			$this->codename = $codename;
+		}
+
+		foreach ( RatingData::getJSON() as $data ) {
+			if ( $data['codename'] == $this->codename ) {
+				$this->data = $data;
+				return;
 			}
 		}
-		trigger_error( 'No rating found for the codename ' . $this->thisCodename );
+		trigger_error( 'No rating found for the codename ' . $this->codename );
+	}
+
+	public function getCodename() {
+		return $this->codename;
+	}
+
+	public function getName() {
+		return $this->data['name'];
+	}
+
+	public function getLink(){
+		return $this->data['link'];
+	}
+
+	public function getImg(){
+		return $this->data['img'];
 	}
 
 	public function getImage() {
-		$data = $this->getAttr( 'img' );
-
-		$file = wfFindFile( $data );
+		$file = wfFindFile( $this->getImg() );
 		if ( !$file ) {
-			return $this->noImageString;
+			return '';
 		}
 		$image = $file->getCanonicalUrl();
 		$pic = Html::element( 'img', array(
-			'class' => 'mw-rating-img',
-			'src' => $image,
-			'height' => '20px',
-			'width' => '20px'
+				'class' => 'mw-rating-img',
+				'src' => $image,
+				'height' => '20px',
+				'width' => '20px'
 		) ) . wfMessage( 'word-separator' )->parse();
 
 		return $pic;
 	}
 
-	public function getImageWT() {
-		$data = $this->getAttr( 'img' );
-
-		$file = wfFindFile( $data );
-		if ( !$file ) {
-			return $this->noImageString;
-		}
-		return '[[File:' . $data . '|20px]] ';
-	}
-
 	public function getAboutLink() {
 		global $wgArticlePath;
 
-		$link = $this->getAttr( 'link' );
-
-		$url = str_replace( '$1', $link, $wgArticlePath );
-		$label = '<a class="mw-rating-about-link" href="' . $url . '" target="_blank">' .
-			$this->getAttr( 'name' ) . '</a>';
-
-		return $label;
-	}
-
-	public function getAboutLinkWT() {
-		$label = '[[' . $this->getAttr( 'link' ) . '|' . $this->getAttr( 'name' ) . ']]';
+		$url = str_replace( '$1', $this->getLink(), $wgArticlePath );
+		$label = '<a class="mw-rating-about-link" href="' . $url . '" target="_blank">' . $this->getName() . '</a>';
 
 		return $label;
 	}

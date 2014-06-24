@@ -15,6 +15,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 # Load classes
 $wgAutoloadClasses['RatingData'] = __DIR__ . '/RatingDataClass.php';
+$wgAutoloadClasses['Rating'] = __DIR__ . '/RatingDataClass.php';
 
 # Load hooks
 $wgAutoloadClasses['AreHooks'] = __DIR__ . '/Hooks.php';
@@ -35,7 +36,7 @@ function wfRatingParserInit( Parser $parser ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'ArticleRating',
-	'version' => '2.3.6',
+	'version' => '2.4.0',
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:ArticleRatings',
 	'descriptionmsg' => 'ratings-desc',
