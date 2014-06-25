@@ -18,7 +18,7 @@ $wgAutoloadClasses['RatingData'] = __DIR__ . '/RatingDataClass.php';
 $wgAutoloadClasses['Rating'] = __DIR__ . '/RatingDataClass.php';
 
 # Load hooks
-$wgAutoloadClasses['AreHooks'] = __DIR__ . '/Hooks.php';
+$wgAutoloadClasses['AreHooks'] = __DIR__ . '/ArticleRatingsHooks.php';
 $wgHooks['BaseTemplateToolbox'][] = 'AreHooks::onBaseTemplateToolbox';
 $wgHooks['TitleMove'][] = 'AreHooks::onTitleMove';
 $wgHooks['ParserFirstCallInit'][] = 'wfRatingParserInit';
