@@ -24,7 +24,7 @@ class RatingData {
 	public static function getDefaultRating() {
 		$JSON = self::getJSON();
 
-		return new Rating( $JSON[0]["codename"] );
+		return new Rating( $JSON[0]['codename'] );
 	}
 }
 

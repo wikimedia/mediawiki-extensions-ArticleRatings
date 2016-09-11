@@ -5,7 +5,7 @@ class SpecialChangeRating extends SpecialPage {
 		parent::__construct( 'ChangeRating', 'change-rating' );
 	}
 
-	public function execute( $page ) {;
+	public function execute( $page ) {
 		global $wgARENamespaces;
 
 		$this->checkPermissions();
