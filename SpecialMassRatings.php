@@ -79,7 +79,7 @@ class SpecialMassRatings extends QueryPage {
 			return false;
 		}
 
-		$link = Linker::link( $title );
+		$link = $this->getLinkRenderer()->makeLink( $title );
 
 		return $pic . $label . ' - ' . $link;
 	}
