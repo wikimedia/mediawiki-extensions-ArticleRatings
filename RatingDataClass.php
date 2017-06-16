@@ -45,7 +45,7 @@ class Rating {
 				return;
 			}
 		}
-		trigger_error( 'No rating found for the codename ' . $this->codename );
+		//trigger_error( 'No rating found for the codename ' . $this->codename );
 	}
 
 	public function getCodename() {
@@ -53,15 +53,15 @@ class Rating {
 	}
 
 	public function getName() {
-		return $this->data['name'];
+		return isset( $this->data['name'] ) ? $this->data['name'] : '';
 	}
 
-	public function getLink(){
-		return $this->data['link'];
+	public function getLink() {
+		return isset( $this->data['link'] ) ? $this->data['link'] : '';
 	}
 
-	public function getImg(){
-		return $this->data['img'];
+	public function getImg() {
+		return isset( $this->data['img'] ) ? $this->data['img'] : '';
 	}
 
 	public function getImage() {
@@ -71,10 +71,10 @@ class Rating {
 		}
 		$image = $file->getCanonicalUrl();
 		$pic = Html::element( 'img', array(
-				'class' => 'mw-rating-img',
-				'src' => $image,
-				'height' => '20px',
-				'width' => '20px'
+			'class' => 'mw-rating-img',
+			'src' => $image,
+			'height' => '20px',
+			'width' => '20px'
 		) ) . wfMessage( 'word-separator' )->parse();
 
 		return $pic;
