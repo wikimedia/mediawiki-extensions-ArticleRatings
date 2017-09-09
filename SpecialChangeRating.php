@@ -28,7 +28,7 @@ class SpecialChangeRating extends SpecialPage {
 
 			$out->addWikiMsg( 'changerating-back', $title->getFullText() );
 
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 
 			$ratingto = $request->getVal( 'ratingTo' );
 

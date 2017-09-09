@@ -68,7 +68,7 @@ class AreHooks {
 			$initRating = $args['initial-rating'];
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$field = $dbr->selectField(
 			'ratings',
@@ -141,7 +141,7 @@ class AreHooks {
 	public static function onBaseTemplateToolbox( BaseTemplate $skin, array &$toolbox ) {
 		if ( $skin->getSkin()->getUser()->isAllowed( 'change-rating' ) ) {
 			$title = $skin->getSkin()->getTitle();
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 
 			$res = $dbr->select(
 				'ratings',
