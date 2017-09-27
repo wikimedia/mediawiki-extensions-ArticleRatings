@@ -17,7 +17,7 @@ class AreHooks {
 	 * @return bool
 	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
-		$parser->setHook( 'rating', array( __CLASS__, 'renderRating' ) );
+		$parser->setHook( 'rating', [ __CLASS__, 'renderRating' ] );
 		return true;
 	}
 
@@ -73,10 +73,10 @@ class AreHooks {
 		$field = $dbr->selectField(
 			'ratings',
 			'ratings_rating',
-			array(
+			[
 				'ratings_title' => $title->getDBkey(),
 				'ratings_namespace' => $title->getNamespace(),
-			),
+			],
 			__METHOD__
 		);
 
@@ -99,11 +99,11 @@ class AreHooks {
 
 			$dbw->insert(
 				'ratings',
-				array(
+				[
 					'ratings_rating' => $useRating->getCodename(),
 					'ratings_title' => $title->getDBkey(),
 					'ratings_namespace' => $title->getNamespace()
-				),
+				],
 				__METHOD__
 			);
 		}
@@ -124,14 +124,14 @@ class AreHooks {
 
 		$res = $dbw->update(
 			'ratings',
-			array(
+			[
 				'ratings_title' => $newTitle->getDBkey(),
 				'ratings_namespace' => $newTitle->getNamespace()
-			),
-			array(
+			],
+			[
 				'ratings_title' => $title->getDBkey(),
 				'ratings_namespace' => $title->getNamespace()
-			),
+			],
 			__METHOD__
 		);
 
@@ -146,18 +146,18 @@ class AreHooks {
 			$res = $dbr->select(
 				'ratings',
 				'ratings_rating',
-				array(
+				[
 					'ratings_title' => $title->getDBkey(),
 					'ratings_namespace' => $title->getNamespace()
-				),
+				],
 				__METHOD__
 			);
 
 			if ( $res && $res->numRows() ) {
-				$toolbox['rating'] = array(
+				$toolbox['rating'] = [
 					'text' => $skin->getSkin()->msg( 'are-change-rating' )->text(),
 					'href' => SpecialPage::getTitleFor( 'ChangeRating', $title->getFullText() )->getFullURL()
-				);
+				];
 			}
 		}
 
@@ -182,10 +182,10 @@ class AreHooks {
 
 		$res = $dbw->delete(
 			'ratings',
-			array(
+			[
 				'ratings_title' => $title->getDBkey(),
 				'ratings_namespace' => $title->getNamespace()
-			),
+			],
 			__METHOD__
 		);
 
@@ -201,7 +201,7 @@ class AreHooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$file = __DIR__ . '/ratings.sql';
-		$updater->addExtensionUpdate( array( 'addTable', 'ratings', $file, true ) );
+		$updater->addExtensionUpdate( [ 'addTable', 'ratings', $file, true ] );
 		return true;
 	}
 }
