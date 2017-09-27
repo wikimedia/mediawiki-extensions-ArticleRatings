@@ -38,10 +38,10 @@ class SpecialChangeRating extends SpecialPage {
 				$res = $dbr->selectField(
 					'ratings',
 					'ratings_rating',
-					array(
+					[
 						'ratings_title' => $title->getDBkey(),
 						'ratings_namespace' => $title->getNamespace()
-					),
+					],
 					__METHOD__
 				);
 				$oldrating = new Rating( $res );
@@ -50,11 +50,11 @@ class SpecialChangeRating extends SpecialPage {
 
 				$res = $dbw->update(
 					'ratings',
-					array( 'ratings_rating' => $ratingto ),
-					array(
+					[ 'ratings_rating' => $ratingto ],
+					[
 						'ratings_title' => $title->getDBkey(),
 						'ratings_namespace' => $title->getNamespace()
-					),
+					],
 					__METHOD__
 				);
 
@@ -66,10 +66,10 @@ class SpecialChangeRating extends SpecialPage {
 				$logEntry = new ManualLogEntry( 'ratings', 'change' );
 				$logEntry->setPerformer( $this->getUser() );
 				$logEntry->setTarget( $title );
-				$logEntry->setParameters( array(
+				$logEntry->setParameters( [
 					'4::newrating' => $rating->getName(),
 					'5::oldrating' => $oldrating->getName()
-				) );
+				] );
 				if ( !is_null( $reason ) ) {
 					$logEntry->setComment( $reason );
 				}
@@ -78,15 +78,16 @@ class SpecialChangeRating extends SpecialPage {
 				$logEntry->publish( $logId );
 			}
 
-			$output = $this->msg( 'changerating-intro-text', $title->getFullText() )->parseAsBlock() . '<form name="change-rating" action="" method="get">';
+			$output = $this->msg( 'changerating-intro-text', $title->getFullText() )->parseAsBlock()
+				. '<form name="change-rating" action="" method="get">';
 
 			$currentRating = $dbr->selectField(
 				'ratings',
 				'ratings_rating',
-				array(
+				[
 					'ratings_title' => $title->getDBkey(),
 					'ratings_namespace' => $title->getNamespace()
-				),
+				],
 				__METHOD__
 			);
 
@@ -94,9 +95,9 @@ class SpecialChangeRating extends SpecialPage {
 
 			foreach ( $ratings as $rating ) {
 				if ( $rating->getCodename() == $currentRating ) {
-					$attribs = array( 'checked' => 'checked' );
+					$attribs = [ 'checked' => 'checked' ];
 				} else {
-					$attribs = array();
+					$attribs = [];
 				}
 
 				$output .= Html::input( 'ratingTo', $rating->getCodename(), 'radio', $attribs );

@@ -6,10 +6,10 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English */
-$specialPageAliases['en'] = array(
-	'ChangeRating' => array( 'ChangeRating' ),
-	'MassRatings' => array( 'MassRatings' ),
-);
+$specialPageAliases['en'] = [
+	'ChangeRating' => [ 'ChangeRating' ],
+	'MassRatings' => [ 'MassRatings' ],
+];
