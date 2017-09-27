@@ -12,7 +12,7 @@ class RatingData {
 	public static function getAllRatings() {
 		$JSON = self::getJSON();
 
-		$returners = array();
+		$returners = [];
 
 		foreach ( $JSON as $data ) {
 			$returners[] = new Rating( $data['codename'] );
@@ -30,7 +30,7 @@ class RatingData {
 
 class Rating {
 	protected $codename;
-	protected $data = array();
+	protected $data = [];
 
 	public function __construct( $codename ) {
 		if ( empty( $codename ) ) {
@@ -45,7 +45,7 @@ class Rating {
 				return;
 			}
 		}
-		//trigger_error( 'No rating found for the codename ' . $this->codename );
+		// trigger_error( 'No rating found for the codename ' . $this->codename );
 	}
 
 	public function getCodename() {
@@ -70,12 +70,12 @@ class Rating {
 			return '';
 		}
 		$image = $file->getCanonicalUrl();
-		$pic = Html::element( 'img', array(
+		$pic = Html::element( 'img', [
 			'class' => 'mw-rating-img',
 			'src' => $image,
 			'height' => '20px',
 			'width' => '20px'
-		) ) . wfMessage( 'word-separator' )->parse();
+		] ) . wfMessage( 'word-separator' )->parse();
 
 		return $pic;
 	}
@@ -84,7 +84,8 @@ class Rating {
 		global $wgArticlePath;
 
 		$url = str_replace( '$1', $this->getLink(), $wgArticlePath );
-		$label = '<a class="mw-rating-about-link" href="' . $url . '" target="_blank">' . $this->getName() . '</a>';
+		$label = '<a class="mw-rating-about-link" href="' . $url . '" target="_blank">'
+			. $this->getName() . '</a>';
 
 		return $label;
 	}

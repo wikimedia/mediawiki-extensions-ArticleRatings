@@ -6,8 +6,8 @@ class SpecialMassRatings extends QueryPage {
 	}
 
 	function getQueryInfo() {
-		$where = array();
-		$selectedRatings = array();
+		$where = [];
+		$selectedRatings = [];
 
 		$ratings = RatingData::getAllRatings();
 
@@ -18,22 +18,22 @@ class SpecialMassRatings extends QueryPage {
 		}
 
 		if ( $selectedRatings ) {
-			$where = array( 'ratings_rating' => $selectedRatings );
+			$where = [ 'ratings_rating' => $selectedRatings ];
 		}
 
-		return array(
+		return [
 			'tables' => 'ratings',
-			'fields' => array(
+			'fields' => [
 				'namespace' => 'ratings_namespace',
 				'title' => 'ratings_title',
 				'value' => 'ratings_rating'
-			),
+			],
 			'conds' => $where
-		);
+		];
 	}
 
 	function getOrderFields() {
-		return array( 'ratings_title' );
+		return [ 'ratings_title' ];
 	}
 
 	function sortDescending() {
@@ -52,9 +52,9 @@ class SpecialMassRatings extends QueryPage {
 			$label = $rating->getAboutLink();
 			$pic = $rating->getImage();
 
-			$attribs = array();
+			$attribs = [];
 			if ( $this->getRequest()->getVal( $rating->getCodename() ) == 'true' ) {
-				$attribs = array( 'checked' => 'checked' );
+				$attribs = [ 'checked' => 'checked' ];
 			}
 
 			$input = Html::input( $rating->getCodename(), 'true', 'checkbox', $attribs );
@@ -88,9 +88,10 @@ class SpecialMassRatings extends QueryPage {
 	 * Ensure rating paramters in URL are passed if the user does a "next 500" or whatever
 	 *
 	 * @see QueryPage::linkParameters()
+	 * @return array
 	 */
 	function linkParameters() {
-		$params = array();
+		$params = [];
 
 		$ratings = RatingData::getAllRatings();
 
