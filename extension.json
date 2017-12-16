@@ -33,8 +33,8 @@
 		"ArticleRatingsAlias": "ArticleRatings.alias.php"
 	},
 	"AutoloadClasses": {
-		"RatingData": "RatingDataClass.php",
-		"Rating": "RatingDataClass.php",
+		"RatingData": "RatingData.php",
+		"Rating": "Rating.php",
 		"AreHooks": "ArticleRatingsHooks.php",
 		"SpecialChangeRating": "SpecialChangeRating.php",
 		"SpecialMassRatings": "SpecialMassRatings.php"
