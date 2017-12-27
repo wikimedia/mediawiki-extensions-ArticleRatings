@@ -206,7 +206,7 @@ class AreHooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$file = __DIR__ . '/ratings.sql';
-		$updater->addExtensionUpdate( [ 'addTable', 'ratings', $file, true ] );
+		$updater->addExtensionTable( 'ratings', $file );
 		return true;
 	}
 }
