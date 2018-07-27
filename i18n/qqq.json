@@ -14,6 +14,7 @@
 	"log-description-ratings": "{{doc-logpage}}",
 	"logentry-ratings-change": "A description message",
 	"ratings-desc": "{{desc|name=ArticleRatings|url=https://www.mediawiki.org/wiki/Extension:ArticleRatings}}",
+	"right-change-rating": "{{doc-right|change-rating}}",
 	"are-disallowed": "An error message",
 	"are-no-such-page": "An error message",
 	"are-rating-for-page": "A label message",
