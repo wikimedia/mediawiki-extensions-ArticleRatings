@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Adam Carter"
+			"Adam Carter",
+			"MarcoAurelio"
 		]
 	},
 	"changerating": "Change rating",
@@ -18,6 +19,7 @@
 	"log-description-ratings": "This log shows all the recent changes to pages' ratings.",
 	"logentry-ratings-change": "$1 changed the rating of $3 from $5 to $4",
 	"ratings-desc": "A complex interface for rating pages",
+	"right-change-rating": "Change the ratings of pages",
 	"are-disallowed": "Ratings have been disallowed for this namespace",
 	"are-no-such-page": "The page \"$1\" does not exist.",
 	"are-rating-for-page": "<span class=\"mw-rating-rating-for\">Rating for \"$1\"</span>:",
