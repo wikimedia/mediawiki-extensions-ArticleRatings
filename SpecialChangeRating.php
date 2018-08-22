@@ -109,7 +109,7 @@ class SpecialChangeRating extends SpecialPage {
 				$output .= '<br />';
 			}
 
-			$output .= $this->msg( 'changerating-reason' )->plain() .
+			$output .= $this->msg( 'changerating-reason' )->escaped() .
 				' <input type="text" name="reason" size="50" /><br />' .
 				Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' ) .
 				'</form>';
