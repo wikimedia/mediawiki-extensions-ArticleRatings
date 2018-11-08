@@ -120,7 +120,9 @@ class AreHooks {
 		return $out;
 	}
 
-	public static function onTitleMove( Title $title, Title $newTitle, User $user ) {
+	public static function onTitleMove(
+		Title $title, Title $newTitle, User $user, $reason, Status $status
+	) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$res = $dbw->update(
