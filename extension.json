@@ -6,6 +6,9 @@
 	"descriptionmsg": "ratings-desc",
 	"type": "other",
 	"callback": "AreHooks::onRegisterExtension",
+	"requires": {
+		"MediaWiki": ">= 1.33.0"
+	},
 	"GroupPermissions": {
 		"reviewer": {
 			"change-rating": true
