@@ -4,6 +4,7 @@
 	"author": "UltrasonicNXT/Adam Carter",
 	"url": "https://www.mediawiki.org/wiki/Extension:ArticleRatings",
 	"descriptionmsg": "ratings-desc",
+	"license-name": "GPL-2.0-or-later",
 	"type": "other",
 	"callback": "AreHooks::onRegisterExtension",
 	"requires": {
