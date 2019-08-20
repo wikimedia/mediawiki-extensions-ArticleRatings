@@ -85,7 +85,7 @@ class SpecialMassRatings extends QueryPage {
 	}
 
 	/**
-	 * Ensure rating paramters in URL are passed if the user does a "next 500" or whatever
+	 * Ensure rating parameters in URL are passed if the user does a "next 500" or whatever
 	 *
 	 * @see QueryPage::linkParameters()
 	 * @return array
