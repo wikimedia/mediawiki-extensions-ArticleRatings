@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c28a093_78f9ec88",
+        "filename": "ArticleRatingsHooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2019-10-31T16:17:17Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be if ( !$wgARENamespaces ) { ... }?",
+      "revId": "741ac83ebee37ecc3c024dd6b70bafad94186b84",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
