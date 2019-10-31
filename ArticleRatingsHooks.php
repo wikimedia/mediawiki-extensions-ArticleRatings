@@ -1,15 +1,6 @@
 <?php
 
 class AreHooks {
-
-	/**
-	 * Extension registration callback -- set $wgARENamespaces to $wgContentNa
-	 */
-	public static function onRegisterExtension() {
-		global $wgARENamespaces;
-		$wgARENamespaces = MWNamespace::getContentNamespaces();
-	}
-
 	/**
 	 * Register the <rating> tag with the Parser.
 	 *
@@ -32,6 +23,8 @@ class AreHooks {
 	 */
 	public static function renderRating( $input, array $args, Parser $parser, PPFrame $frame ) {
 		global $wgAREUseInitialRatings, $wgARENamespaces;
+
+		$arNamespaces = array_merge( $wgARENamespaces, MWNamespace::getContentNamespaces() );
 
 		$out = '';
 
@@ -60,7 +53,7 @@ class AreHooks {
 			$showAboutLink = true;
 		}
 
-		if ( !in_array( $title->getNamespace(), $wgARENamespaces ) ) {
+		if ( !in_array( $title->getNamespace(), $arNamespaces ) ) {
 			return wfMessage( 'are-disallowed' )->parse();
 		}
 
