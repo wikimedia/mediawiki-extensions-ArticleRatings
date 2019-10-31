@@ -3,10 +3,10 @@
 class AreHooks {
 
 	/**
-	 * Extension registration callback -- set $wgARENamespaces to $wgContentNa
+	 * Extension Functions callback -- set $wgARENamespaces to MWNamespace::getContentNamespaces();
 	 */
 	public static function onRegisterExtension() {
-		global $wgARENamespaces;
+		global $wgARENamespaces, $wgContentNamespaces;
 		$wgARENamespaces = MWNamespace::getContentNamespaces();
 	}
 
