@@ -5,7 +5,9 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:ArticleRatings",
 	"descriptionmsg": "ratings-desc",
 	"type": "other",
-	"callback": "AreHooks::onRegisterExtension",
+	"ExtensionFunctions": [
+		"AreHooks::onExtensionFunctions"
+	],
 	"requires": {
 		"MediaWiki": ">= 1.33.0"
 	},
