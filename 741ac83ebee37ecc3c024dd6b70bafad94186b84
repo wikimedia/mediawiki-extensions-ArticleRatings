@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "54cb6681_649ea62b",
+        "filename": "ArticleRatingsHooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2019-11-01T07:33:42Z",
+      "side": 1,
+      "message": "I would suggest renaming this `onExtensionFunctions` or similar",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "741ac83ebee37ecc3c024dd6b70bafad94186b84",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c28a093_78f9ec88",
         "filename": "ArticleRatingsHooks.php",
         "patchSetId": 7
@@ -13,6 +36,24 @@
       "writtenOn": "2019-10-31T16:17:17Z",
       "side": 1,
       "message": "Shouldn\u0027t this be if ( !$wgARENamespaces ) { ... }?",
+      "revId": "741ac83ebee37ecc3c024dd6b70bafad94186b84",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ef5926d_fd264def",
+        "filename": "ArticleRatingsHooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2019-11-01T07:33:42Z",
+      "side": 1,
+      "message": "It depends. Is this hook function called multiple times? Does the extension change the value of this global after? Are users/sysadmins likely to have set it to some value in LocalSettings.php before this is run?",
+      "parentUuid": "1c28a093_78f9ec88",
       "revId": "741ac83ebee37ecc3c024dd6b70bafad94186b84",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
