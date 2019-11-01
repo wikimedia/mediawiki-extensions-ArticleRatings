@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2dc1fc29_0a964267",
+        "filename": "ArticleRatingsHooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2019-11-01T19:04:35Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "54cb6681_649ea62b",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "741ac83ebee37ecc3c024dd6b70bafad94186b84",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c28a093_78f9ec88",
         "filename": "ArticleRatingsHooks.php",
         "patchSetId": 7
@@ -54,6 +78,24 @@
       "side": 1,
       "message": "It depends. Is this hook function called multiple times? Does the extension change the value of this global after? Are users/sysadmins likely to have set it to some value in LocalSettings.php before this is run?",
       "parentUuid": "1c28a093_78f9ec88",
+      "revId": "741ac83ebee37ecc3c024dd6b70bafad94186b84",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47d0d751_e722866c",
+        "filename": "ArticleRatingsHooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2019-11-01T19:04:35Z",
+      "side": 1,
+      "message": "I\u0027m not entirly sure, at least we use what ever this is set to by default.\n\nSo i\u0027ll leave it for now.",
+      "parentUuid": "0ef5926d_fd264def",
       "revId": "741ac83ebee37ecc3c024dd6b70bafad94186b84",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
