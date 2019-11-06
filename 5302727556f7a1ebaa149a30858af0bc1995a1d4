@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d968adec_984caf5e",
+        "filename": "ArticleRatingsHooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2019-11-06T20:15:45Z",
+      "side": 1,
+      "message": "Seems like this is broken already. `getContentNamespaces` may include extra namespaces from extensions and LocalSettings.\n\nIf this is not meant to be a configurable setting, then what is the point of setting it. If it is meant to be configurable, then it cannot have a default value that depends on other configuration when that is still in flux. Perhaps this should be merged at run-time somewhere where it is consumed by merging ARENamespaces and ContentNamespaces there.\n\nOr perhaps this is unused and usage can be replaced by calling getContentNamespaces directly - which is what would happen if we merge this as-is, it would become immutable and thus not useful.",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 57
+      },
+      "revId": "5302727556f7a1ebaa149a30858af0bc1995a1d4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
