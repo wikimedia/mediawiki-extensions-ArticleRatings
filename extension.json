@@ -6,7 +6,7 @@
 	"descriptionmsg": "ratings-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
-	"callback": "AreHooks::onRegisterExtension",
+	"callback": "ArticleRatingsHooks::onRegisterExtension",
 	"requires": {
 		"MediaWiki": ">= 1.33.0"
 	},
@@ -37,18 +37,18 @@
 		"ArticleRatingsAlias": "ArticleRatings.alias.php"
 	},
 	"AutoloadClasses": {
-		"RatingData": "RatingData.php",
-		"Rating": "Rating.php",
-		"AreHooks": "ArticleRatingsHooks.php",
-		"SpecialChangeRating": "SpecialChangeRating.php",
-		"SpecialMassRatings": "SpecialMassRatings.php"
+		"RatingData": "includes/RatingData.php",
+		"Rating": "includes/Rating.php",
+		"ArticleRatingsHooks": "ArticleRatingsHooks.php",
+		"SpecialChangeRating": "specials/SpecialChangeRating.php",
+		"SpecialMassRatings": "specials/SpecialMassRatings.php"
 	},
 	"Hooks": {
-		"BaseTemplateToolbox": "AreHooks::onBaseTemplateToolbox",
-		"TitleMove": "AreHooks::onTitleMove",
-		"ParserFirstCallInit": "AreHooks::onParserFirstCallInit",
-		"LoadExtensionSchemaUpdates": "AreHooks::onLoadExtensionSchemaUpdates",
-		"ArticleDeleteComplete": "AreHooks::onArticleDeleteComplete"
+		"BaseTemplateToolbox": "ArticleRatingsHooks::onBaseTemplateToolbox",
+		"TitleMove": "ArticleRatingsHooks::onTitleMove",
+		"ParserFirstCallInit": "ArticleRatingsHooks::onParserFirstCallInit",
+		"LoadExtensionSchemaUpdates": "ArticleRatingsHooks::onLoadExtensionSchemaUpdates",
+		"ArticleDeleteComplete": "ArticleRatingsHooks::onArticleDeleteComplete"
 	},
 	"config": {
 		"AREUseInitialRatings": false,
