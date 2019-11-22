@@ -1,6 +1,6 @@
 <?php
 
-class AreHooks {
+class ArticleRatingsHooks {
 
 	/**
 	 * Extension registration callback -- set $wgARENamespaces to $wgContentNa
@@ -207,7 +207,7 @@ class AreHooks {
 	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$file = __DIR__ . '/ratings.sql';
+		$file = __DIR__ . '/sql/ratings.sql';
 		$updater->addExtensionTable( 'ratings', $file );
 		return true;
 	}
