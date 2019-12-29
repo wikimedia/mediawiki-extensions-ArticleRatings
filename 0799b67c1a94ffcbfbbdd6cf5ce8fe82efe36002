@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c931b88_89119132",
+        "filename": "extension.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-12-29T10:15:47Z",
+      "side": 1,
+      "message": "This is still in the root folder. Is this intentional?",
+      "range": {
+        "startLine": 42,
+        "startChar": 26,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "0799b67c1a94ffcbfbbdd6cf5ce8fe82efe36002",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3eb22d_96fbf6a9",
+        "filename": "extension.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-12-29T10:15:47Z",
+      "side": 1,
+      "message": "That\u0027s a little odd, I must say. Tools like our coverage reports can not recognize files in folders other than src/ or includes/. Why not move the two special pages either directly to includes/, or to includes/specials/?\n\nPersonally, I would prefer a folder src/ that contains all .php files, including ArticleRatingsHooks.php.",
+      "range": {
+        "startLine": 43,
+        "startChar": 26,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "0799b67c1a94ffcbfbbdd6cf5ce8fe82efe36002",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
