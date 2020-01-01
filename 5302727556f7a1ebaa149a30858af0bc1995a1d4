@@ -22,6 +22,30 @@
       "revId": "5302727556f7a1ebaa149a30858af0bc1995a1d4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60fff2e3_911cbc56",
+        "filename": "ArticleRatingsHooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2020-01-01T18:10:33Z",
+      "side": 1,
+      "message": "I\u0027ve changed it to follow your suggestion of merging it as an array_merge (see latest patchset).",
+      "parentUuid": "d968adec_984caf5e",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 57
+      },
+      "revId": "5302727556f7a1ebaa149a30858af0bc1995a1d4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
