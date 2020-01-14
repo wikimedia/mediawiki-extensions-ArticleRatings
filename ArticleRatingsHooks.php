@@ -171,7 +171,7 @@ class AreHooks {
 	/**
 	 * Hook to remove the ratings DB entry when a page is deleted.
 	 * While not actually needed for pages, prevents deleted pages appearing on MassRaitings
-
+	 *
 	 * @param WikiPage &$article
 	 * @param User &$user
 	 * @param string $reason

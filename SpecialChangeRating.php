@@ -16,7 +16,7 @@ class SpecialChangeRating extends SpecialPage {
 		$request = $this->getRequest();
 		$title = Title::newFromText( $page );
 
-		if ( is_null( $title ) ) {
+		if ( $title === null ) {
 			$out->addWikiMsg( 'changerating-missing-parameter' );
 		} elseif ( !$title->exists() ) {
 			$out->addWikiMsg( 'changerating-no-such-page', $page );
@@ -32,7 +32,7 @@ class SpecialChangeRating extends SpecialPage {
 
 			$ratingto = $request->getVal( 'ratingTo' );
 
-			if ( !is_null( $ratingto ) ) {
+			if ( $ratingto !== null ) {
 				$ratingto = substr( $ratingto, 0, 2 );
 
 				$res = $dbr->selectField(
@@ -70,7 +70,7 @@ class SpecialChangeRating extends SpecialPage {
 					'4::newrating' => $rating->getName(),
 					'5::oldrating' => $oldrating->getName()
 				] );
-				if ( !is_null( $reason ) ) {
+				if ( $reason !== null ) {
 					$logEntry->setComment( $reason );
 				}
 
