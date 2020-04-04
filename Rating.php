@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class Rating {
 	protected $codename;
 	protected $data = [];
@@ -37,7 +39,13 @@ class Rating {
 	}
 
 	public function getImage() {
-		$file = wfFindFile( $this->getImg() );
+		if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
+			// MediaWiki 1.34+
+			$file = MediaWikiServices::getInstance()->getRepoGroup()
+				->findFile( $this->getImg() );
+		} else {
+			$file = wfFindFile( $this->getImg() );
+		}
 		if ( !$file ) {
 			return '';
 		}
