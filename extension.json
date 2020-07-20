@@ -51,8 +51,12 @@
 		"ArticleDeleteComplete": "AreHooks::onArticleDeleteComplete"
 	},
 	"config": {
-		"AREUseInitialRatings": false,
-		"ARENamespaces": []
+		"AREUseInitialRatings": {
+			"value": false
+		},
+		"ARENamespaces": {
+			"value": []
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
