@@ -14,11 +14,9 @@ class AreHooks {
 	 * Register the <rating> tag with the Parser.
 	 *
 	 * @param Parser $parser
-	 * @return bool
 	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->setHook( 'rating', [ __CLASS__, 'renderRating' ] );
-		return true;
 	}
 
 	/**
@@ -137,8 +135,6 @@ class AreHooks {
 			],
 			__METHOD__
 		);
-
-		return true;
 	}
 
 	public static function onBaseTemplateToolbox( BaseTemplate $skin, array &$toolbox ) {
@@ -164,21 +160,18 @@ class AreHooks {
 				];
 			}
 		}
-
-		return true;
 	}
 
 	/**
 	 * Hook to remove the ratings DB entry when a page is deleted.
-	 * While not actually needed for pages, prevents deleted pages appearing on MassRaitings
+	 * While not actually needed for pages, prevents deleted pages appearing on MassRatings
 	 *
 	 * @param WikiPage &$article
 	 * @param User &$user
 	 * @param string $reason
 	 * @param int $id
-	 * @param unknown $content
-	 * @param unknown $logEntry
-	 * @return bool
+	 * @param Content|null $content
+	 * @param ManualLogEntry $logEntry
 	 */
 	public static function onArticleDeleteComplete(
 		WikiPage &$article, User &$user, $reason, $id, $content, $logEntry
@@ -195,8 +188,6 @@ class AreHooks {
 			],
 			__METHOD__
 		);
-
-		return true;
 	}
 
 	/**
@@ -204,11 +195,8 @@ class AreHooks {
 	 * maintenance/update.php.
 	 *
 	 * @param DatabaseUpdater $updater
-	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$file = __DIR__ . '/ratings.sql';
-		$updater->addExtensionTable( 'ratings', $file );
-		return true;
+		$updater->addExtensionTable( 'ratings', __DIR__ . '/ratings.sql' );
 	}
 }
