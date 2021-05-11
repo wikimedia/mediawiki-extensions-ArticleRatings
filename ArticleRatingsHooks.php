@@ -3,14 +3,6 @@
 class AreHooks {
 
 	/**
-	 * Extension registration callback -- set $wgARENamespaces to $wgContentNa
-	 */
-	public static function onRegisterExtension() {
-		global $wgARENamespaces;
-		$wgARENamespaces = MWNamespace::getContentNamespaces();
-	}
-
-	/**
 	 * Register the <rating> tag with the Parser.
 	 *
 	 * @param Parser $parser
@@ -60,7 +52,8 @@ class AreHooks {
 			$showAboutLink = true;
 		}
 
-		if ( !in_array( $title->getNamespace(), $wgARENamespaces ) ) {
+		$namespaces = $wgARENamespaces ?? MWNamespace::getContentNamespaces();
+		if ( !in_array( $title->getNamespace(), $namespaces ) ) {
 			return wfMessage( 'are-disallowed' )->parse();
 		}
 

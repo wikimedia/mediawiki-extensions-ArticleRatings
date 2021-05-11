@@ -21,7 +21,8 @@ class SpecialChangeRating extends SpecialPage {
 		} elseif ( !$title->exists() ) {
 			$out->addWikiMsg( 'changerating-no-such-page', $page );
 		} else {
-			if ( !in_array( $title->getNamespace(), $wgARENamespaces ) ) {
+			$namespaces = $wgARENamespaces ?? MWNamespace::getContentNamespaces();
+			if ( !in_array( $title->getNamespace(), $namespaces ) ) {
 				$out->addWikiMsg( 'are-disallowed' );
 				return;
 			}
