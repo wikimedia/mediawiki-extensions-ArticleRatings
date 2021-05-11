@@ -24,7 +24,7 @@
 	"are-no-such-page": "The page \"$1\" does not exist.",
 	"are-rating-for-page": "<span class=\"mw-rating-rating-for\">Rating for \"$1\"</span>:",
 	"are-change-rating": "Change rating",
-	"are-ratings": "",
+	"are-ratings": "{}",
 	"group-reviewer": "Reviewer",
 	"group-reviewer-member": "Reviewers",
 	"action-change-rating": "change article ratings",
