@@ -47,7 +47,7 @@ class SpecialChangeRating extends SpecialPage {
 				);
 				$oldrating = new Rating( $res );
 
-				$dbw = wfGetDB( DB_MASTER );
+				$dbw = wfGetDB( DB_PRIMARY );
 
 				$res = $dbw->update(
 					'ratings',

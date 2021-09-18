@@ -87,7 +87,7 @@ class AreHooks {
 				}
 			}
 
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 
 			$dbw->insert(
 				'ratings',
@@ -114,7 +114,7 @@ class AreHooks {
 	public static function onTitleMove(
 		Title $title, Title $newTitle, User $user, $reason, Status $status
 	) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$res = $dbw->update(
 			'ratings',
@@ -171,7 +171,7 @@ class AreHooks {
 	) {
 		$title = $article->getTitle();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$res = $dbw->delete(
 			'ratings',
