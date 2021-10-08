@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SpecialChangeRating extends SpecialPage {
 	public function __construct() {
 		parent::__construct( 'ChangeRating', 'change-rating' );
@@ -21,7 +23,8 @@ class SpecialChangeRating extends SpecialPage {
 		} elseif ( !$title->exists() ) {
 			$out->addWikiMsg( 'changerating-no-such-page', $page );
 		} else {
-			$namespaces = $wgARENamespaces ?? MWNamespace::getContentNamespaces();
+			$namespaces = $wgARENamespaces ?? MediaWikiServices::getInstance()
+				->getNamespaceInfo()->getContentNamespaces();
 			if ( !in_array( $title->getNamespace(), $namespaces ) ) {
 				$out->addWikiMsg( 'are-disallowed' );
 				return;

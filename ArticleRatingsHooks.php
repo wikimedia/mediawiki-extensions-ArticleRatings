@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class AreHooks {
 
 	/**
@@ -50,7 +52,8 @@ class AreHooks {
 			$showAboutLink = true;
 		}
 
-		$namespaces = $wgARENamespaces ?? MWNamespace::getContentNamespaces();
+		$namespaces = $wgARENamespaces ?? MediaWikiServices::getInstance()
+			->getNamespaceInfo()->getContentNamespaces();
 		if ( !in_array( $title->getNamespace(), $namespaces ) ) {
 			return wfMessage( 'are-disallowed' )->parse();
 		}
