@@ -1,4 +1,5 @@
 {
+	"name": "ArticleRatings",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
