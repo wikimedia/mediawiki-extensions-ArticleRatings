@@ -22,7 +22,5 @@
 	"are-ratings": "{{ignore}}",
 	"group-reviewer": "{{doc-group|reviewer}}",
 	"group-reviewer-member": "{{doc-group|reviewer|member}}",
-	"action-change-rating": "{{doc-action|change-rating}}",
-	"changerating-log-text": "A label message",
-	"changerating-nolog-text": "A hint message for no result"
+	"action-change-rating": "{{doc-action|change-rating}}"
 }

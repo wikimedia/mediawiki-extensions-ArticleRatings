@@ -118,22 +118,9 @@ class SpecialChangeRating extends SpecialPage {
 				Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' ) .
 				'</form>';
 
-			$loglist = new LogEventsList( $this->getContext() );
-			$pager = new LogPager(
-				$loglist,
-				'ratings',
-				'',
-				$title
-			);
-
-			$log = $pager->getBody();
-			if ( $log ) {
-				$output .= $this->msg( 'changerating-log-text', $page )->parseAsBlock() . $log;
-			} else {
-				$output .= $this->msg( 'changerating-nolog-text', $page )->parseAsBlock() . $log;
-			}
-
 			$out->addHTML( $output );
+
+			LogEventsList::showLogExtract( $out, 'ratings', $title );
 		}
 	}
 }
