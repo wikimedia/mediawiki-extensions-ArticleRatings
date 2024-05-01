@@ -2,7 +2,7 @@
 
 class RatingData {
 	public static function getJSON() {
-		$json = wfMessage( 'are-ratings' )->plain();
+		$json = wfMessage( 'are-ratings' )->inContentLanguage()->plain();
 		if ( empty( $json ) ) {
 			trigger_error( 'ARE Error: empty JSON' );
 		}
