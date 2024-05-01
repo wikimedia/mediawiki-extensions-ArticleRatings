@@ -36,7 +36,13 @@ class SpecialChangeRating extends SpecialPage {
 
 			$ratingto = $request->getVal( 'ratingTo' );
 
-			if ( $ratingto !== null ) {
+			$output = '';
+
+			if (
+				$request->wasPosted() &&
+				$user->matchEditToken( $request->getVal( 'wpRatingToken' ) ) &&
+				$ratingto !== null
+			) {
 				$ratingto = substr( $ratingto, 0, 2 );
 
 				$res = $dbr->selectField(
@@ -80,10 +86,13 @@ class SpecialChangeRating extends SpecialPage {
 
 				$logId = $logEntry->insert();
 				$logEntry->publish( $logId );
+			} elseif ( $request->wasPosted() && !$user->matchEditToken( $request->getVal( 'wpRatingToken' ) ) ) {
+				// Cross-site request forgery (CSRF) attempt or something, display an error
+				$output .= Html::errorBox( $this->msg( 'sessionfailure' )->parse() );
 			}
 
-			$output = $this->msg( 'changerating-intro-text', $title->getFullText() )->parseAsBlock()
-				. '<form name="change-rating" action="" method="get">';
+			$output .= $this->msg( 'changerating-intro-text', $title->getFullText() )->parseAsBlock()
+				. '<form name="change-rating" action="" method="post">';
 
 			$currentRating = $dbr->selectField(
 				'ratings',
@@ -115,6 +124,7 @@ class SpecialChangeRating extends SpecialPage {
 
 			$output .= $this->msg( 'changerating-reason' )->escaped() .
 				' <input type="text" name="reason" size="50" /><br />' .
+				Html::hidden( 'wpRatingToken', $user->getEditToken() ) .
 				Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' ) .
 				'</form>';
 
