@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 class AreHooks {
 
@@ -45,7 +46,7 @@ class AreHooks {
 				} else {
 					$wikipage = WikiPage::factory( $title );
 				}
-				$content = $wikipage->getContent( Revision::FOR_PUBLIC );
+				$content = $wikipage->getContent( RevisionRecord::FOR_PUBLIC );
 				$title = $content->getUltimateRedirectTarget();
 			}
 
