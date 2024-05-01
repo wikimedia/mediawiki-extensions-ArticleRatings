@@ -7,6 +7,16 @@ class SpecialChangeRating extends SpecialPage {
 		parent::__construct( 'ChangeRating', 'change-rating' );
 	}
 
+	/** @inheritDoc */
+	public function doesWrites() {
+		return true;
+	}
+
+	/**
+	 * Render the special page.
+	 *
+	 * @param string|null $page Name of the page we're going to rate
+	 */
 	public function execute( $page ) {
 		global $wgARENamespaces;
 
