@@ -15,7 +15,8 @@ class SpecialChangeRating extends SpecialPage {
 	/**
 	 * Render the special page.
 	 *
-	 * @param string|null $page Name of the page we're going to rate
+	 * @param string|null $page Name of the page we're going to rate; if not specified,
+	 *  the user will be presented with a form that allows them to choose a page.
 	 */
 	public function execute( $page ) {
 		global $wgARENamespaces;
@@ -26,10 +27,13 @@ class SpecialChangeRating extends SpecialPage {
 
 		$out = $this->getOutput();
 		$request = $this->getRequest();
+		if ( !$page ) {
+			$page = urldecode( $request->getVal( 'pagetitle' ) );
+		}
 		$title = Title::newFromText( $page );
 
 		if ( $title === null ) {
-			$out->addWikiMsg( 'changerating-missing-parameter' );
+			$this->displayPageSearchForm();
 		} elseif ( !$title->exists() ) {
 			$out->addWikiMsg( 'changerating-no-such-page', $page );
 		} else {
@@ -145,5 +149,33 @@ class SpecialChangeRating extends SpecialPage {
 
 			$out->addHTML( $output );
 		}
+	}
+
+	/**
+	 * Display a form for searching a page, with autocompletion and all that fancy stuff!
+	 *
+	 * @see https://phabricator.wikimedia.org/T164233
+	 */
+	private function displayPageSearchForm() {
+		$fields = [
+			'target' => [
+				'type' => 'title',
+				'creatable' => true,
+				'name' => 'pagetitle',
+				'default' => '',
+				'label-message' => 'changecontentmodel-title-label',
+			]
+		];
+
+		$htmlForm = HTMLForm::factory( 'ooui', $fields, $this->getContext() );
+		$htmlForm
+			->addHiddenField( 'title', $this->getPageTitle() )
+			->setAction( '' )
+			->setMethod( 'get' )
+			->setName( 'are-page-search' )
+			->setSubmitTextMsg( 'search' )
+			->setWrapperLegend( '' )
+			->prepareForm()
+			->displayForm( false );
 	}
 }
