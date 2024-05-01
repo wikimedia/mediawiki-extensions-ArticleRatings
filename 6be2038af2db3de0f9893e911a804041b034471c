@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c97ad93_5527d288",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-05-01T13:56:20Z",
+      "side": 1,
+      "message": "This looks cool, thank you for this! 👍 I\u0027ll try to play around with this soon-ish and see about rebasing it since I caused the merge conflict (please don\u0027t bother rebasing this yourself just yet, since that\u0027ll cause another merge conflict, I have one more patch coming up which touches these sections of code) ...",
+      "revId": "6be2038af2db3de0f9893e911a804041b034471c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
