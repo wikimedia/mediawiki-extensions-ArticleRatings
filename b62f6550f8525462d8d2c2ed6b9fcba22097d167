@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d756a3f_4a8a6ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-05-01T12:43:31Z",
+      "side": 1,
+      "message": "extension.json requires MW 1.35.3+ anyway, so this is fine.",
+      "revId": "b62f6550f8525462d8d2c2ed6b9fcba22097d167",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
