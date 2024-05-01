@@ -51,9 +51,11 @@
 	},
 	"config": {
 		"AREUseInitialRatings": {
+			"description": "If true, the ratings tag has an init-rating parameter that wil set the initial rating to the codename supplied, not the default. Not recommended for production use, but can be used as a workaround to allow bots to use the extension.",
 			"value": false
 		},
 		"ARENamespaces": {
+			"description": "Array of namespace numbers/constants that are allowed to have ratings on them.",
 			"value": []
 		}
 	},
