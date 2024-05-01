@@ -27,6 +27,7 @@ class SpecialChangeRating extends SpecialPage {
 
 		$out = $this->getOutput();
 		$request = $this->getRequest();
+		$user = $this->getUser();
 		if ( !$page ) {
 			$page = urldecode( $request->getVal( 'pagetitle' ) );
 		}
@@ -53,7 +54,7 @@ class SpecialChangeRating extends SpecialPage {
 			if ( $ratingto !== null ) {
 				$ratingto = substr( $ratingto, 0, 2 );
 
-				$res = $dbr->selectField(
+				$resOldRating = $dbr->selectField(
 					'ratings',
 					'ratings_rating',
 					[
@@ -62,27 +63,51 @@ class SpecialChangeRating extends SpecialPage {
 					],
 					__METHOD__
 				);
-				$oldrating = new Rating( $res );
 
 				$dbw = wfGetDB( DB_PRIMARY );
-
-				$res = $dbw->update(
-					'ratings',
-					[ 'ratings_rating' => $ratingto ],
-					[
-						'ratings_title' => $title->getDBkey(),
-						'ratings_namespace' => $title->getNamespace()
-					],
-					__METHOD__
-				);
+				// If there is an entry, update it.
+				// If there isn't, we need to *create* it before we can even
+				// think of updating it :^)
+				// (Whaddya know, trying to UPDATE something that doesn't exist
+				// seems to fail silently, nothing tells you that "you gotta INSERT
+				// first", the code just fails and sends you on a wild goose chase
+				// for half an hour or so...)
+				if ( $resOldRating ) {
+					$res = $dbw->update(
+						'ratings',
+						[ 'ratings_rating' => $ratingto ],
+						[
+							'ratings_title' => $title->getDBkey(),
+							'ratings_namespace' => $title->getNamespace()
+						],
+						__METHOD__
+					);
+				} else {
+					$res = $dbw->insert(
+						'ratings',
+						[
+							'ratings_rating' => $ratingto,
+							'ratings_title' => $title->getDBkey(),
+							'ratings_namespace' => $title->getNamespace()
+						],
+						__METHOD__
+					);
+				}
 
 				$reason = $request->getVal( 'reason' );
 				$out->addWikiMsg( 'changerating-success' );
 
 				$rating = new Rating( $ratingto );
+				// We're not guaranteed to have an old rating
+				if ( !$resOldRating ) {
+					$seed = RatingData::getDefaultRating();
+				} else {
+					$seed = $resOldRating;
+				}
+				$oldrating = new Rating( $seed );
 
 				$logEntry = new ManualLogEntry( 'ratings', 'change' );
-				$logEntry->setPerformer( $this->getUser() );
+				$logEntry->setPerformer( $user );
 				$logEntry->setTarget( $title );
 				$logEntry->setParameters( [
 					'4::newrating' => $rating->getName(),
