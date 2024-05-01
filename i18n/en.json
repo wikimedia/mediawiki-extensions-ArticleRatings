@@ -25,8 +25,8 @@
 	"are-rating-for-page": "<span class=\"mw-rating-rating-for\">Rating for \"$1\"</span>:",
 	"are-change-rating": "Change rating",
 	"are-ratings": "{}",
-	"group-reviewer": "Reviewer",
-	"group-reviewer-member": "Reviewers",
+	"group-reviewer": "Reviewers",
+	"group-reviewer-member": "Reviewer",
 	"action-change-rating": "change article ratings",
 	"changerating-log-text": "Past rating changes on this article:",
 	"changerating-nolog-text": "There are no past rating changes on this article."
