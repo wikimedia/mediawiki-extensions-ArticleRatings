@@ -139,9 +139,16 @@ class AreHooks {
 		);
 	}
 
-	public static function onBaseTemplateToolbox( BaseTemplate $skin, array &$toolbox ) {
-		if ( $skin->getSkin()->getUser()->isAllowed( 'change-rating' ) ) {
-			$title = $skin->getSkin()->getTitle();
+	/**
+	 * Add a "change rating" link to the sidebar for privileged users on pages
+	 * which have already been rated.
+	 *
+	 * @param Skin $skin
+	 * @param array &$sidebar
+	 */
+	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
+		if ( $skin->getUser()->isAllowed( 'change-rating' ) ) {
+			$title = $skin->getTitle();
 			$dbr = wfGetDB( DB_REPLICA );
 
 			$res = $dbr->select(
@@ -155,8 +162,9 @@ class AreHooks {
 			);
 
 			if ( $res && $res->numRows() ) {
-				$toolbox['rating'] = [
-					'text' => $skin->getSkin()->msg( 'are-change-rating' )->text(),
+				$sidebar['TOOLBOX'][] = [
+					'id' => 'rating',
+					'msg' => 'are-change-rating',
 					'href' => SpecialPage::getTitleFor( 'ChangeRating', $title->getFullText() )
 						->getFullURL()
 				];

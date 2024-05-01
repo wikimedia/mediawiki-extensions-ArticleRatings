@@ -43,7 +43,7 @@
 		"SpecialMassRatings": "SpecialMassRatings.php"
 	},
 	"Hooks": {
-		"BaseTemplateToolbox": "AreHooks::onBaseTemplateToolbox",
+		"SidebarBeforeOutput": "AreHooks::onSidebarBeforeOutput",
 		"TitleMove": "AreHooks::onTitleMove",
 		"ParserFirstCallInit": "AreHooks::onParserFirstCallInit",
 		"LoadExtensionSchemaUpdates": "AreHooks::onLoadExtensionSchemaUpdates",
