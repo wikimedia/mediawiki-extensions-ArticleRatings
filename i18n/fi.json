@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jack Phoenix"
+		]
+	},
+	"changerating": "Muuta arviota",
+	"changerating-back": "< Takaisin sivulle [[$1]].",
+	"changerating-intro-text": "Miksi haluat vaihtaa sivun '''$1''' arvioinnin?",
+	"changerating-no-such-page": "Pahoittelut, sivua nimeltä \"$1\" ei ole olemassa.",
+	"changerating-reason": "Syy:",
+	"changerating-success": "Arvio muutettu onnistuneesti.",
+	"changerating-submit": "Lähetä",
+	"massratings": "Joukkoarviointi",
+	"massratings-legend": "Luettelo sivuista arvioiden mukaan",
+	"log-name-ratings": "Arviointimuutosloki",
+	"log-description-ratings": "Tämä loki näyttää kaikki tuoreet muutokset sivujen arviointeihin.",
+	"logentry-ratings-change": "$1 muutti sivun $3 arvioinnin tilaksi $4 aiemmasta arviosta $5",
+	"ratings-desc": "Monimutkainen käyttöliittymä sivujen arviointiin",
+	"right-change-rating": "Muuttaa sivujen arviointeja",
+	"are-disallowed": "Arviot ovat poissa käytöstä tämän nimiavaruuden sivuille",
+	"are-no-such-page": "Sivua \"$1\" ei ole olemassa.",
+	"are-rating-for-page": "<span class=\"mw-rating-rating-for\">Arvio sivulle \"$1\"</span>:",
+	"are-change-rating": "Muuta arviointia",
+	"group-reviewer": "Arvioijat",
+	"group-reviewer-member": "Arvioija",
+	"action-change-rating": "muuttaa artikkelien arviointeja",
+	"changerating-log-text": "Tämän artikkelin menneet arviointimuutokset:",
+	"changerating-nolog-text": "Tällä artikkelilla ei ole menneitä arviointimuutoksia."
+}
