@@ -106,7 +106,7 @@ class SpecialChangeRating extends SpecialPage {
 				$rating = new Rating( $ratingto );
 				// We're not guaranteed to have an old rating
 				if ( !$resOldRating ) {
-					$seed = RatingData::getDefaultRating();
+					$seed = RatingData::getDefaultRating()->getCodename();
 				} else {
 					$seed = $resOldRating;
 				}
