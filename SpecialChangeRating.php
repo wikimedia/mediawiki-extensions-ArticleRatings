@@ -60,6 +60,19 @@ class SpecialChangeRating extends SpecialPage {
 			) {
 				$ratingto = substr( $ratingto, 0, 2 );
 
+				$isValidRatingCodename = self::validateRatingCodename( $ratingto );
+
+				if ( !$isValidRatingCodename ) {
+					$out->addHTML( Html::errorBox( $this->msg( 'changerating-error-invalid-rating' )->escaped() ) );
+					// @todo FIXME: I don't *love* this _but_ it gets the job done
+					// as tampered forms are such an edge case.
+					// From the user's POV, it's mildly annoying to have to click to a link
+					// instead of being shown the form here because they literally _are_ on
+					// this page already, but oh well.
+					$out->addReturnTo( $this->getPageTitle( $title->getPrefixedText() ) );
+					return;
+				}
+
 				// @todo FIXME: this is now _also_ done inside insertOrUpdateRating() :-(
 				// But we need the value here, too...
 				$resOldRating = self::getCurrentRatingForPage( $title );
@@ -165,6 +178,30 @@ class SpecialChangeRating extends SpecialPage {
 		} else {
 			return $rating;
 		}
+	}
+
+	/**
+	 * Validate the two-character codename, in case if someone tried to tamper with the form.
+	 *
+	 * @param string $ratingTo Target rating codename
+	 * @return bool True if valid, false if not
+	 */
+	public static function validateRatingCodename( $ratingTo ) {
+		// Make sure it absolutely, definitely, positively is only two characters long
+		$ratingTo = substr( $ratingTo, 0, 2 );
+
+		// Pessimism FTW
+		$validRatingCodename = false;
+
+		$ratings = RatingData::getAllRatings();
+
+		foreach ( $ratings as $rating ) {
+			if ( $rating->getCodename() == $ratingTo ) {
+				$validRatingCodename = true;
+			}
+		}
+
+		return $validRatingCodename;
 	}
 
 	/**
