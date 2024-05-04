@@ -1,5 +1,11 @@
 {
 	"@metadata": {},
+	"apihelp-change-rating-summary": "{{doc-apihelp-summary|change-rating}}",
+	"apihelp-change-rating-param-title": "{{doc-apihelp-param|change-rating|title}}",
+	"apihelp-change-rating-param-pageid": "{{doc-apihelp-param|change-rating|pageid}}",
+	"apihelp-change-rating-param-reason": "{{doc-apihelp-param|change-rating|reason}}",
+	"apihelp-change-rating-param-rating-to": "{{doc-apihelp-param|change-rating|rating-to}}",
+	"apihelp-change-rating-example-1": "{{doc-apihelp-example|change-rating}}",
 	"changerating": "{{doc-special}}",
 	"changerating-back": "A navigation message",
 	"changerating-error-invalid-rating": "{{doc-apierror}}\nAlso used by the Special:ChangeRating page if the user tries to submit a tampered form which contains a codename that isn't recognized nor registered as a valid codename (codenames and other rating logic are set up in <code>MediaWiki:Are-ratings</code>)",
