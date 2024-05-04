@@ -64,26 +64,32 @@ class SpecialChangeRating extends SpecialPage {
 				// But we need the value here, too...
 				$resOldRating = self::getCurrentRatingForPage( $title );
 
-				$changedRows = self::insertOrUpdateRating( $ratingto, $title );
-
-				if ( $changedRows > 0 ) {
-					$out->addWikiMsg( 'changerating-success' );
+				if ( $resOldRating === $ratingto ) {
+					// Pointless. Raise an error.
+					// phpcs:disable Generic.Files.LineLength
+					$out->addHTML( Html::errorBox( $this->msg( 'changerating-error-no-changes-requested' )->escaped() ) );
 				} else {
-					$out->addHTML( Html::errorBox( $this->msg( 'error' )->escaped() ) );
+					$changedRows = self::insertOrUpdateRating( $ratingto, $title );
+
+					if ( $changedRows > 0 ) {
+						$out->addWikiMsg( 'changerating-success' );
+					} else {
+						$out->addHTML( Html::errorBox( $this->msg( 'error' )->escaped() ) );
+					}
+
+					$rating = new Rating( $ratingto );
+					// We're not guaranteed to have an old rating
+					if ( !$resOldRating ) {
+						$seed = RatingData::getDefaultRating()->getCodename();
+					} else {
+						$seed = $resOldRating;
+					}
+					$oldrating = new Rating( $seed );
+
+					$reason = $request->getVal( 'reason' );
+
+					self::log( $user, $title, $rating, $oldrating, $reason );
 				}
-
-				$rating = new Rating( $ratingto );
-				// We're not guaranteed to have an old rating
-				if ( !$resOldRating ) {
-					$seed = RatingData::getDefaultRating()->getCodename();
-				} else {
-					$seed = $resOldRating;
-				}
-				$oldrating = new Rating( $seed );
-
-				$reason = $request->getVal( 'reason' );
-
-				self::log( $user, $title, $rating, $oldrating, $reason );
 			} elseif ( $request->wasPosted() && !$user->matchEditToken( $request->getVal( 'wpRatingToken' ) ) ) {
 				// Cross-site request forgery (CSRF) attempt or something, display an error
 				$output .= Html::errorBox( $this->msg( 'sessionfailure' )->parse() );

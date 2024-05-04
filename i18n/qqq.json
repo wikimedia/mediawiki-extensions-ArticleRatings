@@ -2,6 +2,7 @@
 	"@metadata": {},
 	"changerating": "{{doc-special}}",
 	"changerating-back": "A navigation message",
+	"changerating-error-no-changes-requested": "Error message shown on Special:ChangeRating if the user tries to give the page the same rating it already has",
 	"changerating-intro-text": "An intro text",
 	"changerating-no-such-page": "An error message",
 	"changerating-reason": "A label message",
