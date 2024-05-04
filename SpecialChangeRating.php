@@ -45,7 +45,9 @@ class SpecialChangeRating extends SpecialPage {
 				return;
 			}
 
-			$out->addWikiMsg( 'changerating-back', $title->getFullText() );
+			$out->setSubtitle(
+				$this->msg( 'changerating-back', $title->getFullText() )->parse()
+			);
 
 			$ratingto = $request->getVal( 'ratingTo' );
 
