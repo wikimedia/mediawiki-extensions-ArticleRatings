@@ -8,6 +8,7 @@
 	"changerating": "Change rating",
 	"changerating-back": "< Back to [[$1]].",
 	"changerating-intro-text": "What would you like to change ''$1'''s rating to?",
+	"changerating-error-invalid-rating": "The given identifier is not a valid known rating code(name)",
 	"changerating-error-no-changes-requested": "You must choose a different rating than the current one!",
 	"changerating-no-such-page": "Sorry, the page \"$1\" does not exist.",
 	"changerating-reason": "Reason:",

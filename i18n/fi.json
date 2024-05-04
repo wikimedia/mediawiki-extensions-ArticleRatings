@@ -7,6 +7,7 @@
 	"changerating": "Muuta arviota",
 	"changerating-back": "< Takaisin sivulle [[$1]].",
 	"changerating-error-no-changes-requested": "Sinun tulee valita jokin muu arvio kuin nykyinen!",
+	"changerating-error-invalid-rating": "Annettu tunniste ei ole kelvollinen arvion koodi(nimi)",
 	"changerating-intro-text": "Miksi haluat vaihtaa sivun '''$1''' arvioinnin?",
 	"changerating-no-such-page": "Pahoittelut, sivua nimeltä \"$1\" ei ole olemassa.",
 	"changerating-reason": "Syy:",
