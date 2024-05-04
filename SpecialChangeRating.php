@@ -72,7 +72,7 @@ class SpecialChangeRating extends SpecialPage {
 					$changedRows = self::insertOrUpdateRating( $ratingto, $title );
 
 					if ( $changedRows > 0 ) {
-						$out->addWikiMsg( 'changerating-success' );
+						$out->addHTML( Html::successBox( $this->msg( 'changerating-success' )->escaped() ) );
 					} else {
 						$out->addHTML( Html::errorBox( $this->msg( 'error' )->escaped() ) );
 					}
