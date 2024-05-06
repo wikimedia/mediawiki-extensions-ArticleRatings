@@ -38,9 +38,13 @@
 	"AutoloadClasses": {
 		"RatingData": "RatingData.php",
 		"Rating": "Rating.php",
+		"ApiChangeRating": "ApiChangeRating.php",
 		"AreHooks": "ArticleRatingsHooks.php",
 		"SpecialChangeRating": "SpecialChangeRating.php",
 		"SpecialMassRatings": "SpecialMassRatings.php"
+	},
+	"APIModules": {
+		"change-rating": "ApiChangeRating"
 	},
 	"Hooks": {
 		"SidebarBeforeOutput": "AreHooks::onSidebarBeforeOutput",
