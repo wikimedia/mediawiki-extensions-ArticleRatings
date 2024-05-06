@@ -16,6 +16,40 @@
       "message": "@Ciencia: bored enough to give this a look at some point? ;) Thanks in advance!",
       "revId": "171988cb01837f11fbb9a108980237c31888cc0c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "729d96f9_e2009f0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2024-05-06T09:12:59Z",
+      "side": 1,
+      "message": "Untested but LGTM, with a suggestion",
+      "revId": "171988cb01837f11fbb9a108980237c31888cc0c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5095d27_93964bb4",
+        "filename": "ApiChangeRating.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2024-05-06T09:12:59Z",
+      "side": 1,
+      "message": "This check can be simplified by using:\n$this-\u003echeckUserRightsAny( \u0027change-rating\u0027 );\n\nSee for example https://doc.wikimedia.org/mediawiki-core/master/php/ApiBlock_8php_source.html#l00113\n\nYou can probably avoid the user-\u003eisRegistered() check altogether",
+      "revId": "171988cb01837f11fbb9a108980237c31888cc0c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
     }
   ]
 }
