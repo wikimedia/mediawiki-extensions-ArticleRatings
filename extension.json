@@ -39,7 +39,7 @@
 		"RatingData": "RatingData.php",
 		"Rating": "Rating.php",
 		"ApiChangeRating": "ApiChangeRating.php",
-		"AreHooks": "ArticleRatingsHooks.php",
+		"ArticleRatingsHooks": "ArticleRatingsHooks.php",
 		"SpecialChangeRating": "SpecialChangeRating.php",
 		"SpecialMassRatings": "SpecialMassRatings.php"
 	},
@@ -47,11 +47,11 @@
 		"change-rating": "ApiChangeRating"
 	},
 	"Hooks": {
-		"SidebarBeforeOutput": "AreHooks::onSidebarBeforeOutput",
-		"TitleMove": "AreHooks::onTitleMove",
-		"ParserFirstCallInit": "AreHooks::onParserFirstCallInit",
-		"LoadExtensionSchemaUpdates": "AreHooks::onLoadExtensionSchemaUpdates",
-		"ArticleDeleteComplete": "AreHooks::onArticleDeleteComplete"
+		"SidebarBeforeOutput": "ArticleRatingsHooks::onSidebarBeforeOutput",
+		"TitleMove": "ArticleRatingsHooks::onTitleMove",
+		"ParserFirstCallInit": "ArticleRatingsHooks::onParserFirstCallInit",
+		"LoadExtensionSchemaUpdates": "ArticleRatingsHooks::onLoadExtensionSchemaUpdates",
+		"ArticleDeleteComplete": "ArticleRatingsHooks::onArticleDeleteComplete"
 	},
 	"config": {
 		"AREUseInitialRatings": {

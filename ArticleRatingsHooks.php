@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 
-class AreHooks {
+class ArticleRatingsHooks {
 
 	/**
 	 * Register the <rating> tag with the Parser.
