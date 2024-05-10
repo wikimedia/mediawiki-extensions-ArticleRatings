@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e547c36_732cd0e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2024-05-10T05:33:06Z",
+      "side": 1,
+      "message": "unrelated failure\n\u003e PHP Deprecated: Use of wfGetDB was deprecated in MediaWiki 1.39. [Called from ArticleRatingsHooks::onArticleDeleteComplete]",
+      "revId": "a9b218b2ebd1ea8c60ba322bd92d812147f2e5b4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
