@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "007de4e8_398a6e62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-05-11T05:03:41Z",
+      "side": 1,
+      "message": "I tested this out and manually rebased it. Decided to keep the \"changerating-log-text\" i18n message around, as I felt it added some needed clarity to the special page.\n\nOther than that, this is good to go and CI failures are still 100% unrelated wfGetDB-related cruft.",
+      "revId": "93c27e84aca88601f932d3c925987ce74964bea7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
