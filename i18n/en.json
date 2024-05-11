@@ -35,6 +35,5 @@
 	"group-reviewer": "Reviewers",
 	"group-reviewer-member": "Reviewer",
 	"action-change-rating": "change article ratings",
-	"changerating-log-text": "Past rating changes on this article:",
-	"changerating-nolog-text": "There are no past rating changes on this article."
+	"changerating-log-text": "Past rating changes on this article:"
 }

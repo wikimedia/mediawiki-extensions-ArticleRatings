@@ -30,6 +30,5 @@
 	"group-reviewer": "{{doc-group|reviewer}}",
 	"group-reviewer-member": "{{doc-group|reviewer|member}}",
 	"action-change-rating": "{{doc-action|change-rating}}",
-	"changerating-log-text": "A label message",
-	"changerating-nolog-text": "A hint message for no result"
+	"changerating-log-text": "Informational message shown on Special:ChangeRating, after the rating change form; this message will be followed by the list of previously logged rating changes for the current page, assuming there are any such entries in the log"
 }

@@ -27,6 +27,5 @@
 	"group-reviewer": "Arvioijat",
 	"group-reviewer-member": "Arvioija",
 	"action-change-rating": "muuttaa artikkelien arviointeja",
-	"changerating-log-text": "Tämän artikkelin menneet arviointimuutokset:",
-	"changerating-nolog-text": "Tällä artikkelilla ei ole menneitä arviointimuutoksia."
+	"changerating-log-text": "Tämän artikkelin menneet arviointimuutokset:"
 }
