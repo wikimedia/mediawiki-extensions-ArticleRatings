@@ -24,7 +24,6 @@
 	"right-change-rating": "{{doc-right|change-rating}}",
 	"are-disallowed": "An error message",
 	"are-no-such-page": "An error message",
-	"are-rating-for-page": "A label message",
 	"are-change-rating": "A link text",
 	"are-ratings": "{{ignore}}",
 	"group-reviewer": "{{doc-group|reviewer}}",

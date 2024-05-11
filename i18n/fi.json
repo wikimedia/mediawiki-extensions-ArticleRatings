@@ -22,7 +22,6 @@
 	"right-change-rating": "Muuttaa sivujen arviointeja",
 	"are-disallowed": "Arviot ovat poissa käytöstä tämän nimiavaruuden sivuille",
 	"are-no-such-page": "Sivua \"$1\" ei ole olemassa.",
-	"are-rating-for-page": "<span class=\"mw-rating-rating-for\">Arvio sivulle \"$1\"</span>:",
 	"are-change-rating": "Muuta arviointia",
 	"group-reviewer": "Arvioijat",
 	"group-reviewer-member": "Arvioija",
