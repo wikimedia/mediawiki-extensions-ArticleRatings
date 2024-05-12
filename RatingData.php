@@ -1,9 +1,16 @@
 <?php
 
 class RatingData {
+	/**
+	 * Pull rating definitions from the [[MediaWiki:Are-ratings]] system message, or
+	 * if it's totally empty, raise an error.
+	 *
+	 * @return array
+	 */
 	public static function getJSON() {
-		$json = wfMessage( 'are-ratings' )->inContentLanguage()->plain();
-		if ( empty( $json ) ) {
+		$msg = wfMessage( 'are-ratings' )->inContentLanguage();
+		$json = $msg->plain();
+		if ( $msg->isDisabled() ) {
 			trigger_error( 'ARE Error: empty JSON' );
 		}
 		return json_decode( $json, true );

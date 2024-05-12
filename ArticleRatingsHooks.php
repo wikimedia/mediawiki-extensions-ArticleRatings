@@ -44,10 +44,18 @@ class ArticleRatingsHooks {
 					// MW 1.36+
 					$wikipage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 				} else {
+					// @phan-suppress-next-line PhanUndeclaredStaticMethod
 					$wikipage = WikiPage::factory( $title );
 				}
 				$content = $wikipage->getContent( RevisionRecord::FOR_PUBLIC );
-				$title = $content->getUltimateRedirectTarget();
+				if ( method_exists( $content, 'getUltimateRedirectTarget' ) ) {
+					// Deprecated in 1.38, removed in 1.41
+					// @see https://phabricator.wikimedia.org/T296430
+					// @phan-suppress-next-line PhanUndeclaredMethod
+					$title = $content->getUltimateRedirectTarget();
+				} else {
+					$title = $content->getRedirectTarget();
+				}
 			}
 
 			$showAboutLink = false;

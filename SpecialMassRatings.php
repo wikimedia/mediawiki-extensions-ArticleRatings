@@ -57,6 +57,13 @@ class SpecialMassRatings extends QueryPage {
 				$attribs = [ 'checked' => 'checked' ];
 			}
 
+			// This is...complicated. The use of Html::input() here is correct, but
+			// currently we're telling phan that RatingData#getJSON returns an escaped
+			// value (which isn't strictly speaking true, but...) so phan is fooled into
+			// thinking that we're escaping something here *again*.
+			// Regardless, codenames are two characters long, so abusing those would be pretty
+			// hard, I think.
+			// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 			$input = Html::input( $rating->getCodename(), 'true', 'checkbox', $attribs );
 			$input .= $this->msg( 'word-separator' )->parse();
 			$output .= $input . $pic . $label . '<br />';
