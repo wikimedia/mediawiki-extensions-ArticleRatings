@@ -122,6 +122,13 @@ class SpecialChangeRating extends SpecialPage {
 					$attribs = [];
 				}
 
+				// This is...complicated. The use of Html::input() here is correct, but
+				// currently we're telling phan that RatingData#getJSON returns an escaped
+				// value (which isn't strictly speaking true, but...) so phan is fooled into
+				// thinking that we're escaping something here *again*.
+				// Regardless, codenames are two characters long, so abusing those would be pretty
+				// hard, I think.
+				// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 				$output .= Html::input( 'ratingTo', $rating->getCodename(), 'radio', $attribs );
 				$output .= $this->msg( 'word-separator' )->parse();
 
