@@ -9,6 +9,7 @@
  * @see https://phabricator.wikimedia.org/T146552
  */
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiChangeRating extends ApiBase {
