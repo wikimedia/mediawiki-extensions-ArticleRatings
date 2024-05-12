@@ -1,9 +1,13 @@
 <?php
 
 class RatingData {
+	/**
+	 * @return-taint escaped Kinda not true but we do need ->plain() here, using ->escaped() won't do it :-(
+	 */
 	public static function getJSON() {
-		$json = wfMessage( 'are-ratings' )->inContentLanguage()->plain();
-		if ( empty( $json ) ) {
+		$msg = wfMessage( 'are-ratings' )->inContentLanguage();
+		$json = $msg->plain();
+		if ( $msg->isDisabled() ) {
 			trigger_error( 'ARE Error: empty JSON' );
 		}
 		return json_decode( $json, true );
@@ -24,6 +28,7 @@ class RatingData {
 	public static function getDefaultRating() {
 		$JSON = self::getJSON();
 
+		// @phan-suppress-next-line PhanTypeArraySuspiciousNullable Let it be suspicious
 		return new Rating( $JSON[0]['codename'] );
 	}
 }
