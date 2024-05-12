@@ -27,15 +27,15 @@ class Rating {
 	}
 
 	public function getName() {
-		return isset( $this->data['name'] ) ? $this->data['name'] : '';
+		return $this->data['name'] ?? '';
 	}
 
 	public function getLink() {
-		return isset( $this->data['link'] ) ? $this->data['link'] : '';
+		return $this->data['link'] ?? '';
 	}
 
 	public function getImg() {
-		return isset( $this->data['img'] ) ? $this->data['img'] : '';
+		return $this->data['img'] ?? '';
 	}
 
 	public function getImage() {
