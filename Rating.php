@@ -7,7 +7,7 @@ class Rating {
 	protected $data = [];
 
 	public function __construct( $codename ) {
-		if ( empty( $codename ) ) {
+		if ( !$codename ) {
 			trigger_error( 'Never seed Rating with an empty codename' );
 		} else {
 			$this->codename = $codename;
@@ -27,15 +27,15 @@ class Rating {
 	}
 
 	public function getName() {
-		return isset( $this->data['name'] ) ? $this->data['name'] : '';
+		return $this->data['name'] ?? '';
 	}
 
 	public function getLink() {
-		return isset( $this->data['link'] ) ? $this->data['link'] : '';
+		return $this->data['link'] ?? '';
 	}
 
 	public function getImg() {
-		return isset( $this->data['img'] ) ? $this->data['img'] : '';
+		return $this->data['img'] ?? '';
 	}
 
 	public function getImage() {
@@ -58,8 +58,8 @@ class Rating {
 		global $wgArticlePath;
 
 		$url = str_replace( '$1', $this->getLink(), $wgArticlePath );
-		$label = '<a class="mw-rating-about-link" href="' . $url . '" target="_blank">'
-			. $this->getName() . '</a>';
+		$label = '<a class="mw-rating-about-link" href="' . htmlspecialchars( $url, ENT_QUOTES ) . '" target="_blank">'
+			. htmlspecialchars( $this->getName(), ENT_QUOTES ) . '</a>';
 
 		return $label;
 	}
