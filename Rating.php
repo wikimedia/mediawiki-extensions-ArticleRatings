@@ -39,13 +39,7 @@ class Rating {
 	}
 
 	public function getImage() {
-		if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
-			// MediaWiki 1.34+
-			$file = MediaWikiServices::getInstance()->getRepoGroup()
-				->findFile( $this->getImg() );
-		} else {
-			$file = wfFindFile( $this->getImg() );
-		}
+		$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $this->getImg() );
 		if ( !$file ) {
 			return '';
 		}
