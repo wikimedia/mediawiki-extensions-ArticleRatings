@@ -76,7 +76,7 @@ class ArticleRatingsHooks {
 			$initRating = $args['initial-rating'];
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getDBHandle( 'read' );
 
 		$field = $dbr->selectField(
 			'ratings',
@@ -104,7 +104,7 @@ class ArticleRatingsHooks {
 				}
 			}
 
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = self::getDBHandle( 'write' );
 
 			$dbw->insert(
 				'ratings',
@@ -131,7 +131,7 @@ class ArticleRatingsHooks {
 	public static function onTitleMove(
 		Title $title, Title $newTitle, User $user, $reason, Status $status
 	) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getDBHandle( 'write' );
 
 		$res = $dbw->update(
 			'ratings',
@@ -157,7 +157,7 @@ class ArticleRatingsHooks {
 	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
 		if ( $skin->getUser()->isAllowed( 'change-rating' ) ) {
 			$title = $skin->getTitle();
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = self::getDBHandle( 'read' );
 
 			$res = $dbr->select(
 				'ratings',
@@ -196,7 +196,7 @@ class ArticleRatingsHooks {
 	) {
 		$title = $article->getTitle();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getDBHandle( 'write' );
 
 		$res = $dbw->delete(
 			'ratings',
@@ -216,5 +216,34 @@ class ArticleRatingsHooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'ratings', __DIR__ . '/ratings.sql' );
+	}
+
+	/**
+	 * Get a handle for performing database operations.
+	 *
+	 * This is pretty much wfGetDB() in disguise with support for MW 1.39+
+	 * _without_ triggering WMF CI warnings/errors.
+	 *
+	 * @see https://phabricator.wikimedia.org/T273239
+	 * @see https://phabricator.wikimedia.org/T330641
+	 *
+	 * @param string $type 'read' or 'write', depending on what we need to do
+	 * @return \Wikimedia\Rdbms\IDatabase|\Wikimedia\Rdbms\IReadableDatabase
+	 */
+	public static function getDBHandle( $type = 'read' ) {
+		$services = MediaWikiServices::getInstance();
+		if ( $type === 'read' ) {
+			if ( method_exists( $services, 'getConnectionProvider' ) ) {
+				return $services->getConnectionProvider()->getReplicaDatabase();
+			} else {
+				return $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+			}
+		} elseif ( $type === 'write' ) {
+			if ( method_exists( $services, 'getConnectionProvider' ) ) {
+				return $services->getConnectionProvider()->getPrimaryDatabase();
+			} else {
+				return $services->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+			}
+		}
 	}
 }
