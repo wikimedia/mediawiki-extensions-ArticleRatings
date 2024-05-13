@@ -152,7 +152,7 @@ class SpecialChangeRating extends SpecialPage {
 	 * @return string|bool Current rating for the given page title, if any, or bool false on failure
 	 */
 	public static function getCurrentRatingForPage( $title ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = ArticleRatingsHooks::getDBHandle( 'read' );
 		$rating = $dbr->selectField(
 			'ratings',
 			'ratings_rating',
@@ -201,7 +201,7 @@ class SpecialChangeRating extends SpecialPage {
 	 * @return int Number of rows affected by the DB query, if any
 	 */
 	public static function insertOrUpdateRating( $ratingTo, $title ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = ArticleRatingsHooks::getDBHandle( 'write' );
 		$resOldRating = self::getCurrentRatingForPage( $title );
 		// If there is an entry, update it.
 		// If there isn't, we need to *create* it before we can even
