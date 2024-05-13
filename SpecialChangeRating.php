@@ -32,7 +32,7 @@ class SpecialChangeRating extends SpecialPage {
 
 			$out->addWikiMsg( 'changerating-back', $title->getFullText() );
 
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = ArticleRatingsHooks::getDBHandle( 'read' );
 
 			$ratingto = $request->getVal( 'ratingTo' );
 
@@ -56,7 +56,7 @@ class SpecialChangeRating extends SpecialPage {
 				);
 				$oldrating = new Rating( $res );
 
-				$dbw = wfGetDB( DB_PRIMARY );
+				$dbw = ArticleRatingsHooks::getDBHandle( 'write' );
 
 				$res = $dbw->update(
 					'ratings',
