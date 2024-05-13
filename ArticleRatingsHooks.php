@@ -67,7 +67,7 @@ class AreHooks {
 			$initRating = $args['initial-rating'];
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getDBHandle( 'read' );
 
 		$field = $dbr->selectField(
 			'ratings',
@@ -95,7 +95,7 @@ class AreHooks {
 				}
 			}
 
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = self::getDBHandle( 'write' );
 
 			$dbw->insert(
 				'ratings',
@@ -122,7 +122,7 @@ class AreHooks {
 	public static function onTitleMove(
 		Title $title, Title $newTitle, User $user, $reason, Status $status
 	) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getDBHandle( 'write' );
 
 		$res = $dbw->update(
 			'ratings',
@@ -138,10 +138,45 @@ class AreHooks {
 		);
 	}
 
+<<<<<<< HEAD   (afe43a [SECURITY] Fix CSRF in Special:ChangeRating)
 	public static function onBaseTemplateToolbox( BaseTemplate $skin, array &$toolbox ) {
 		if ( $skin->getSkin()->getUser()->isAllowed( 'change-rating' ) ) {
 			$title = $skin->getSkin()->getTitle();
 			$dbr = wfGetDB( DB_REPLICA );
+||||||| BASE
+			],
+			[
+				'ratings_title' => $title->getDBkey(),
+				'ratings_namespace' => $title->getNamespace()
+			],
+			__METHOD__
+		);
+	}
+
+	/**
+	 * Add a "change rating" link to the sidebar for privileged users on pages
+	 * which have already been rated.
+	 *
+	 * @param Skin $skin
+	 * @param array &$sidebar
+	 */
+	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
+		if ( $skin->getUser()->isAllowed( 'change-rating' ) ) {
+			$title = $skin->getTitle();
+			$dbr = wfGetDB( DB_REPLICA );
+=======
+	/**
+	 * Add a "change rating" link to the sidebar for privileged users on pages
+	 * which have already been rated.
+	 *
+	 * @param Skin $skin
+	 * @param array &$sidebar
+	 */
+	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
+		if ( $skin->getUser()->isAllowed( 'change-rating' ) ) {
+			$title = $skin->getTitle();
+			$dbr = self::getDBHandle( 'read' );
+>>>>>>> CHANGE (fd5bb4 Finally shut up WMF CI "errors" about wfGetDB + bump extensi)
 
 			$res = $dbr->select(
 				'ratings',
@@ -179,7 +214,7 @@ class AreHooks {
 	) {
 		$title = $article->getTitle();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getDBHandle( 'write' );
 
 		$res = $dbw->delete(
 			'ratings',
@@ -199,5 +234,34 @@ class AreHooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'ratings', __DIR__ . '/ratings.sql' );
+	}
+
+	/**
+	 * Get a handle for performing database operations.
+	 *
+	 * This is pretty much wfGetDB() in disguise with support for MW 1.39+
+	 * _without_ triggering WMF CI warnings/errors.
+	 *
+	 * @see https://phabricator.wikimedia.org/T273239
+	 * @see https://phabricator.wikimedia.org/T330641
+	 *
+	 * @param string $type 'read' or 'write', depending on what we need to do
+	 * @return \Wikimedia\Rdbms\IDatabase|\Wikimedia\Rdbms\IReadableDatabase
+	 */
+	public static function getDBHandle( $type = 'read' ) {
+		$services = MediaWikiServices::getInstance();
+		if ( $type === 'read' ) {
+			if ( method_exists( $services, 'getConnectionProvider' ) ) {
+				return $services->getConnectionProvider()->getReplicaDatabase();
+			} else {
+				return $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+			}
+		} elseif ( $type === 'write' ) {
+			if ( method_exists( $services, 'getConnectionProvider' ) ) {
+				return $services->getConnectionProvider()->getPrimaryDatabase();
+			} else {
+				return $services->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+			}
+		}
 	}
 }
