@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e26abc7_c0a4b25b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2024-06-11T21:10:09Z",
+      "side": 1,
+      "message": "Resubmit\n\n\u003e npm ERR! network aborted",
+      "revId": "af70e725955ec79cc07925d1e010a3fbc4b1621d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
