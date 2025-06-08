@@ -1,6 +1,10 @@
 <?php
 
+use MediaWiki\Html\Html;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\Title;
 
 class SpecialChangeRating extends SpecialPage {
 	public function __construct() {
@@ -148,11 +152,11 @@ class SpecialChangeRating extends SpecialPage {
 	/**
 	 * Given a Title, returns that page's current rating (if any).
 	 *
-	 * @param Title $title
+	 * @param MediaWiki\Title\Title $title
 	 * @return string|bool Current rating for the given page title, if any, or bool false on failure
 	 */
 	public static function getCurrentRatingForPage( $title ) {
-		$dbr = ArticleRatingsHooks::getDBHandle( 'read' );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$rating = $dbr->selectField(
 			'ratings',
 			'ratings_rating',
@@ -197,11 +201,11 @@ class SpecialChangeRating extends SpecialPage {
 	 * INSERT a rating for a page if it has none yet, or if it has, UPDATE it to $ratingTo.
 	 *
 	 * @param string $ratingTo New rating (two-character codename)
-	 * @param Title $title The page being rated
+	 * @param MediaWiki\Title\Title $title The page being rated
 	 * @return int Number of rows affected by the DB query, if any
 	 */
 	public static function insertOrUpdateRating( $ratingTo, $title ) {
-		$dbw = ArticleRatingsHooks::getDBHandle( 'write' );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$resOldRating = self::getCurrentRatingForPage( $title );
 		// If there is an entry, update it.
 		// If there isn't, we need to *create* it before we can even
@@ -237,8 +241,8 @@ class SpecialChangeRating extends SpecialPage {
 	/**
 	 * Log a rating change to Special:Log/ratings.
 	 *
-	 * @param User $user The user who performed the action
-	 * @param Title $title Rated page
+	 * @param MediaWiki\User\User $user The user who performed the action
+	 * @param MediaWiki\Title\Title $title Rated page
 	 * @param Rating $newRating New Rating object for the given page (Title)
 	 * @param Rating $oldRating Old Rating object for the given page (Title)
 	 * @param string|null $reason User-supplied additional rating comment, if any

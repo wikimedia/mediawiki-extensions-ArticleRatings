@@ -1,13 +1,13 @@
 {
 	"name": "ArticleRating",
-	"version": "2.6",
+	"version": "2.7",
 	"author": "UltrasonicNXT/Adam Carter",
 	"url": "https://www.mediawiki.org/wiki/Extension:ArticleRatings",
 	"descriptionmsg": "ratings-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.43.0"
 	},
 	"GroupPermissions": {
 		"reviewer": {
