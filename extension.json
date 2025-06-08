@@ -11,13 +11,16 @@
 	},
 	"GroupPermissions": {
 		"reviewer": {
+			"batch-rate": true,
 			"change-rating": true
 		}
 	},
 	"AvailableRights": [
+		"batch-rate",
 		"change-rating"
 	],
 	"SpecialPages": {
+		"BatchRating": "SpecialBatchRating",
 		"ChangeRating": "SpecialChangeRating",
 		"MassRatings": "SpecialMassRatings"
 	},
@@ -40,6 +43,7 @@
 		"Rating": "Rating.php",
 		"ApiChangeRating": "ApiChangeRating.php",
 		"ArticleRatingsHooks": "ArticleRatingsHooks.php",
+		"SpecialBatchRating": "SpecialBatchRating.php",
 		"SpecialChangeRating": "SpecialChangeRating.php",
 		"SpecialMassRatings": "SpecialMassRatings.php"
 	},
