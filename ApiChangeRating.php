@@ -9,6 +9,7 @@
  * @see https://phabricator.wikimedia.org/T146552
  */
 
+use MediaWiki\Api\ApiBase;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\ParamValidator\ParamValidator;
 

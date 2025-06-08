@@ -1,5 +1,9 @@
 <?php
 
+use MediaWiki\Html\Html;
+use MediaWiki\SpecialPage\QueryPage;
+use MediaWiki\Title\Title;
+
 class SpecialMassRatings extends QueryPage {
 	function __construct() {
 		parent::__construct( 'MassRatings' );

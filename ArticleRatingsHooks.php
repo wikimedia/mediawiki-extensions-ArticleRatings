@@ -2,15 +2,17 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\Title;
 
 class ArticleRatingsHooks {
 
 	/**
 	 * Register the <rating> tag with the Parser.
 	 *
-	 * @param Parser $parser
+	 * @param MediaWiki\Parser\Parser $parser
 	 */
-	public static function onParserFirstCallInit( Parser $parser ) {
+	public static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'rating', [ __CLASS__, 'renderRating' ] );
 	}
 
@@ -19,14 +21,15 @@ class ArticleRatingsHooks {
 	 *
 	 * @param mixed $input User-supplied input [unused]
 	 * @param array $args Arguments for the tag (<rating page="Some page" ... />)
-	 * @param Parser $parser
-	 * @param PPFrame $frame
+	 * @param MediaWiki\Parser\Parser $parser
+	 * @param MediaWiki\Parser\PPFrame $frame
 	 * @return string
 	 */
-	public static function renderRating( $input, array $args, Parser $parser, PPFrame $frame ) {
+	public static function renderRating( $input, array $args, $parser, $frame ) {
 		global $wgAREUseInitialRatings, $wgARENamespaces;
 
 		$out = '';
+		$services = MediaWikiServices::getInstance();
 
 		if ( isset( $args['page'] ) && $args['page'] ) {
 			$page = $parser->recursiveTagParse( $args['page'], $frame ); // parse variables like {{{1}}}
@@ -40,22 +43,9 @@ class ArticleRatingsHooks {
 			}
 
 			if ( $title->isRedirect() ) { // follow redirects
-				if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-					// MW 1.36+
-					$wikipage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-				} else {
-					// @phan-suppress-next-line PhanUndeclaredStaticMethod
-					$wikipage = WikiPage::factory( $title );
-				}
+				$wikipage = $services->getWikiPageFactory()->newFromTitle( $title );
 				$content = $wikipage->getContent( RevisionRecord::FOR_PUBLIC );
-				if ( method_exists( $content, 'getUltimateRedirectTarget' ) ) {
-					// Deprecated in 1.38, removed in 1.41
-					// @see https://phabricator.wikimedia.org/T296430
-					// @phan-suppress-next-line PhanUndeclaredMethod
-					$title = $content->getUltimateRedirectTarget();
-				} else {
-					$title = $content->getRedirectTarget();
-				}
+				$title = $content->getRedirectTarget();
 			}
 
 			$showAboutLink = false;
@@ -66,8 +56,7 @@ class ArticleRatingsHooks {
 			$showAboutLink = true;
 		}
 
-		$namespaces = $wgARENamespaces ?? MediaWikiServices::getInstance()
-			->getNamespaceInfo()->getContentNamespaces();
+		$namespaces = $wgARENamespaces ?? $services->getNamespaceInfo()->getContentNamespaces();
 		if ( !in_array( $title->getNamespace(), $namespaces ) ) {
 			return wfMessage( 'are-disallowed' )->parse();
 		}
@@ -76,7 +65,8 @@ class ArticleRatingsHooks {
 			$initRating = $args['initial-rating'];
 		}
 
-		$dbr = self::getDBHandle( 'read' );
+		$connectionProvider = $services->getConnectionProvider();
+		$dbr = $connectionProvider->getReplicaDatabase();
 
 		$field = $dbr->selectField(
 			'ratings',
@@ -104,7 +94,7 @@ class ArticleRatingsHooks {
 				}
 			}
 
-			$dbw = self::getDBHandle( 'write' );
+			$dbw = $connectionProvider->getPrimaryDatabase();
 
 			$dbw->insert(
 				'ratings',
@@ -129,9 +119,9 @@ class ArticleRatingsHooks {
 	}
 
 	public static function onTitleMove(
-		Title $title, Title $newTitle, User $user, $reason, Status $status
+		Title $title, Title $newTitle, $user, $reason, $status
 	) {
-		$dbw = self::getDBHandle( 'write' );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$res = $dbw->update(
 			'ratings',
@@ -157,7 +147,7 @@ class ArticleRatingsHooks {
 	public static function onSidebarBeforeOutput( Skin $skin, &$sidebar ) {
 		if ( $skin->getUser()->isAllowed( 'change-rating' ) ) {
 			$title = $skin->getTitle();
-			$dbr = self::getDBHandle( 'read' );
+			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 			$res = $dbr->select(
 				'ratings',
@@ -185,18 +175,18 @@ class ArticleRatingsHooks {
 	 * While not actually needed for pages, prevents deleted pages appearing on MassRatings
 	 *
 	 * @param WikiPage &$article
-	 * @param User &$user
+	 * @param MediaWiki\User\User &$user
 	 * @param string $reason
 	 * @param int $id
-	 * @param Content|null $content
+	 * @param MediaWiki\Content\Content|null $content
 	 * @param ManualLogEntry $logEntry
 	 */
 	public static function onArticleDeleteComplete(
-		WikiPage &$article, User &$user, $reason, $id, $content, $logEntry
+		WikiPage &$article, &$user, $reason, $id, $content, $logEntry
 	) {
 		$title = $article->getTitle();
 
-		$dbw = self::getDBHandle( 'write' );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$res = $dbw->delete(
 			'ratings',
@@ -212,38 +202,9 @@ class ArticleRatingsHooks {
 	 * Creates the necessary database table when the user runs
 	 * maintenance/update.php.
 	 *
-	 * @param DatabaseUpdater $updater
+	 * @param MediaWiki\Installer\DatabaseUpdater $updater
 	 */
-	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
+	public static function onLoadExtensionSchemaUpdates( $updater ) {
 		$updater->addExtensionTable( 'ratings', __DIR__ . '/ratings.sql' );
-	}
-
-	/**
-	 * Get a handle for performing database operations.
-	 *
-	 * This is pretty much wfGetDB() in disguise with support for MW 1.39+
-	 * _without_ triggering WMF CI warnings/errors.
-	 *
-	 * @see https://phabricator.wikimedia.org/T273239
-	 * @see https://phabricator.wikimedia.org/T330641
-	 *
-	 * @param string $type 'read' or 'write', depending on what we need to do
-	 * @return \Wikimedia\Rdbms\IDatabase|\Wikimedia\Rdbms\IReadableDatabase
-	 */
-	public static function getDBHandle( $type = 'read' ) {
-		$services = MediaWikiServices::getInstance();
-		if ( $type === 'read' ) {
-			if ( method_exists( $services, 'getConnectionProvider' ) ) {
-				return $services->getConnectionProvider()->getReplicaDatabase();
-			} else {
-				return $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
-			}
-		} elseif ( $type === 'write' ) {
-			if ( method_exists( $services, 'getConnectionProvider' ) ) {
-				return $services->getConnectionProvider()->getPrimaryDatabase();
-			} else {
-				return $services->getDBLoadBalancer()->getConnection( DB_PRIMARY );
-			}
-		}
 	}
 }
