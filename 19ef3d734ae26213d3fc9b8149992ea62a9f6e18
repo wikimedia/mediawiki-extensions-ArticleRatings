@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e274de8_96cc2e63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11926
+      },
+      "writtenOn": "2025-07-14T17:48:56Z",
+      "side": 1,
+      "message": "The extension does not have a compatibility policy specified on the [mediawiki.org page](https://www.mediawiki.org/wiki/Extension:ArticleRatings), so fixes like this need to be backported to release branches, in this case REL1_44, since otherwise the extension won\u0027t work on these branches.",
+      "revId": "19ef3d734ae26213d3fc9b8149992ea62a9f6e18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
