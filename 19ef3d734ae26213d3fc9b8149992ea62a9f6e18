@@ -16,6 +16,24 @@
       "message": "The extension does not have a compatibility policy specified on the [mediawiki.org page](https://www.mediawiki.org/wiki/Extension:ArticleRatings), so fixes like this need to be backported to release branches, in this case REL1_44, since otherwise the extension won\u0027t work on these branches.",
       "revId": "19ef3d734ae26213d3fc9b8149992ea62a9f6e18",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b98b9ba4_733e6553",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2025-07-14T18:07:53Z",
+      "side": 1,
+      "message": "*De facto* the compatibility policy for ARE and [other extensions I (quasi-)maintain](https://www.mediawiki.org/wiki/User:Jack_Phoenix/extensions) is \"latest LTS only\" as I test and develop (only) against that. If others wish to pretend that the REL_* branches are something else than an automatically created mistake, then fine, but I can\u0027t accept any responsibility over that, of course. Sadly my time is limited and I\u0027m just not able to test all currently supported branches, so I have to stick with the one that\u0027s most likely going to be used by end-users, as the lifespan of non-LTS releases is pretty short.",
+      "parentUuid": "8e274de8_96cc2e63",
+      "revId": "19ef3d734ae26213d3fc9b8149992ea62a9f6e18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
     }
   ]
 }
