@@ -205,6 +205,6 @@ class ArticleRatingsHooks {
 	 * @param MediaWiki\Installer\DatabaseUpdater $updater
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater ) {
-		$updater->addExtensionTable( 'ratings', __DIR__ . '/ratings.sql' );
+		$updater->addExtensionTable( 'ratings', __DIR__ . '/../ratings.sql' );
 	}
 }

@@ -39,13 +39,13 @@
 		"ArticleRatingsAlias": "ArticleRatings.alias.php"
 	},
 	"AutoloadClasses": {
-		"RatingData": "RatingData.php",
-		"Rating": "Rating.php",
-		"ApiChangeRating": "ApiChangeRating.php",
-		"ArticleRatingsHooks": "ArticleRatingsHooks.php",
-		"SpecialBatchRating": "SpecialBatchRating.php",
-		"SpecialChangeRating": "SpecialChangeRating.php",
-		"SpecialMassRatings": "SpecialMassRatings.php"
+		"RatingData": "src/RatingData.php",
+		"Rating": "src/Rating.php",
+		"ApiChangeRating": "src/api/ApiChangeRating.php",
+		"ArticleRatingsHooks": "src/ArticleRatingsHooks.php",
+		"SpecialBatchRating": "src/specials/SpecialBatchRating.php",
+		"SpecialChangeRating": "src/specials/SpecialChangeRating.php",
+		"SpecialMassRatings": "src/specials/SpecialMassRatings.php"
 	},
 	"APIModules": {
 		"change-rating": "ApiChangeRating"
