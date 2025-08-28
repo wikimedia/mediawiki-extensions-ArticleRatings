@@ -1,5 +1,12 @@
 {
 	"@metadata": {},
+	"apierror-are-no-pages": "No pages have been rated yet (in this namespace).",
+	"apihelp-query+are-ratings-summary": "Get the list of rated pages and their ratings, optionally filtered by a given namespace",
+	"apihelp-query+are-ratings-param-limit": "Amount of rated pages to show (default 50)",
+	"apihelp-query+are-ratings-param-namespace": "Show rated pages only from this namespace (optional); defaults to 0 (<code>NS_MAIN</code>)",
+	"apihelp-query+are-ratings-param-order": "Sorting order, either <code>ASC</code> for ASCending or <code>DESC</code> for DESCending",
+	"apihelp-query+are-ratings-example-1": "Fetch a list of rated pages in the main namespace",
+	"apihelp-query+are-ratings-example-2": "Get up to 100 rated pages in the main namespace",
 	"apihelp-change-rating-summary": "Change a page's rating.",
 	"apihelp-change-rating-param-title": "Title of the page to rate. Cannot be used together with <var>pageid</var>.",
 	"apihelp-change-rating-param-pageid": "Page ID of the page to rate. Cannot be used together with <var>title</var>.",
