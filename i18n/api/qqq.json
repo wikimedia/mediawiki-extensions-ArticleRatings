@@ -1,5 +1,12 @@
 {
 	"@metadata": {},
+	"apierror-are-no-pages": "{{doc-apierror}}",
+	"apihelp-query+are-ratings-summary": "{{doc-apihelp-summary|query+are-ratings}}",
+	"apihelp-query+are-ratings-param-limit": "{{doc-apihelp-param|query+are-ratings|limit}}",
+	"apihelp-query+are-ratings-param-namespace": "{{doc-apihelp-param|query+are-ratings|namespace}}",
+	"apihelp-query+are-ratings-param-order": "{{doc-apihelp-param|query+are-ratings|order}}",
+	"apihelp-query+are-ratings-example-1": "{{doc-apihelp-example|query+are-ratings}}",
+	"apihelp-query+are-ratings-example-2": "{{doc-apihelp-example|query+are-ratings}}",
 	"apihelp-change-rating-summary": "{{doc-apihelp-summary|change-rating}}",
 	"apihelp-change-rating-param-title": "{{doc-apihelp-param|change-rating|title}}",
 	"apihelp-change-rating-param-pageid": "{{doc-apihelp-param|change-rating|pageid}}",
