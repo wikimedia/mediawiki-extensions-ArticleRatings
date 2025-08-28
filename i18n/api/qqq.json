@@ -1,0 +1,9 @@
+{
+	"@metadata": {},
+	"apihelp-change-rating-summary": "{{doc-apihelp-summary|change-rating}}",
+	"apihelp-change-rating-param-title": "{{doc-apihelp-param|change-rating|title}}",
+	"apihelp-change-rating-param-pageid": "{{doc-apihelp-param|change-rating|pageid}}",
+	"apihelp-change-rating-param-reason": "{{doc-apihelp-param|change-rating|reason}}",
+	"apihelp-change-rating-param-rating-to": "{{doc-apihelp-param|change-rating|rating-to}}",
+	"apihelp-change-rating-example-1": "{{doc-apihelp-example|change-rating}}"
+}

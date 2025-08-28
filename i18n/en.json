@@ -5,12 +5,6 @@
 			"MarcoAurelio"
 		]
 	},
-	"apihelp-change-rating-summary": "Change a page's rating.",
-	"apihelp-change-rating-param-title": "Title of the page to rate. Cannot be used together with <var>pageid</var>.",
-	"apihelp-change-rating-param-pageid": "Page ID of the page to rate. Cannot be used together with <var>title</var>.",
-	"apihelp-change-rating-param-reason": "Reason for the rating change, will be logged to Special:Log/ratings.",
-	"apihelp-change-rating-param-rating-to": "New rating for the page (a two-character codename as defined in <kbd>MediaWiki:Are-ratings</kbd>).",
-	"apihelp-change-rating-example-1": "Change the rating of a page named \"71040 The Disney Castle\" to \"FA\" with the reason \"Meets featured article criteria, as per the vote\"",
 	"batchrating": "Batch rating",
 	"batchrating-error-no-titles": "You must supply the names of the pages to be rated!",
 	"batchrating-error-no-rating": "No rating chosen!",

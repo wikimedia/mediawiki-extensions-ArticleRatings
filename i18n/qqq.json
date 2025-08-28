@@ -1,11 +1,5 @@
 {
 	"@metadata": {},
-	"apihelp-change-rating-summary": "{{doc-apihelp-summary|change-rating}}",
-	"apihelp-change-rating-param-title": "{{doc-apihelp-param|change-rating|title}}",
-	"apihelp-change-rating-param-pageid": "{{doc-apihelp-param|change-rating|pageid}}",
-	"apihelp-change-rating-param-reason": "{{doc-apihelp-param|change-rating|reason}}",
-	"apihelp-change-rating-param-rating-to": "{{doc-apihelp-param|change-rating|rating-to}}",
-	"apihelp-change-rating-example-1": "{{doc-apihelp-example|change-rating}}",
 	"batchrating": "Page title of <code>Special:BatchRating</code>, the special page which allows the user to rate multiple pages at once",
 	"batchrating-error-no-titles": "Error message shown on <code>Special:BatchRating</code> if the user didn't give any page titles of the pages to be rated",
 	"batchrating-error-no-rating": "Error message shown on <code>Special:BatchRating</code> if the user failed to choose a new rating for the pages they tried to rate",
