@@ -43,6 +43,7 @@
 		"RatingData": "src/RatingData.php",
 		"Rating": "src/Rating.php",
 		"ApiChangeRating": "src/api/ApiChangeRating.php",
+		"ApiQueryARERatings": "src/api/ApiQueryARERatings.php",
 		"ArticleRatingsHooks": "src/ArticleRatingsHooks.php",
 		"SpecialBatchRating": "src/specials/SpecialBatchRating.php",
 		"SpecialChangeRating": "src/specials/SpecialChangeRating.php",
@@ -50,6 +51,9 @@
 	},
 	"APIModules": {
 		"change-rating": "ApiChangeRating"
+	},
+	"APIListModules": {
+		"are-ratings": "ApiQueryARERatings"
 	},
 	"Hooks": {
 		"SidebarBeforeOutput": "ArticleRatingsHooks::onSidebarBeforeOutput",
