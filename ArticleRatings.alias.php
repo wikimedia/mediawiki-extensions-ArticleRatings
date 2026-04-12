@@ -33,7 +33,7 @@ $specialPageAliases['zh'] = [
 $specialPageAliases['zh-hans'] = [
 	'BatchRating' => [ '批量评级' ],
 	'ChangeRating' => [ '更改评级' ],
-	'MassRatings' => [ '大量评级' ],
+	'MassRatings' => [ '大量评级', '查看评级' ],
 ];
 
 /** Traditional Chinese (中文（繁体）) */
