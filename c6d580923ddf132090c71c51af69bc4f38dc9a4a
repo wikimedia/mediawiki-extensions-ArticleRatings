@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "c6d580923ddf132090c71c51af69bc4f38dc9a4a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3247a285_4cdf4e65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4111
+      },
+      "writtenOn": "2026-04-14T03:25:04Z",
+      "side": 1,
+      "message": "recheck\n\n\u003e Root composer.json requires webonyx/graphql-php 15.31.1 (exact version match: 15.31.1 or 15.31.1.0), found webonyx/graphql-php[v15.31.1] but these were not loaded, because they are affected by security advisories\n\n(T423216)",
+      "revId": "c6d580923ddf132090c71c51af69bc4f38dc9a4a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
     }
   ]
 }
