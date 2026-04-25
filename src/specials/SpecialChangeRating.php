@@ -8,7 +8,12 @@ use MediaWiki\Title\Title;
 
 class SpecialChangeRating extends SpecialPage {
 	public function __construct() {
-		parent::__construct( 'ChangeRating', 'change-rating' );
+		parent::__construct( 'ChangeRating' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction() {
+		return 'change-rating';
 	}
 
 	/** @inheritDoc */
