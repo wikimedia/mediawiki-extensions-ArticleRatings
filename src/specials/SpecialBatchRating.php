@@ -28,7 +28,12 @@ class SpecialBatchRating extends FormSpecialPage {
 	public static $failPageNames = [];
 
 	public function __construct() {
-		parent::__construct( 'BatchRating', 'batch-rate' );
+		parent::__construct( 'BatchRating' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'batch-rate';
 	}
 
 	/** @inheritDoc */
