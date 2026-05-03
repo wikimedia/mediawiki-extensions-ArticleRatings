@@ -34,7 +34,7 @@ class ApiChangeRating extends ApiBase {
 		$namespaces = $wgARENamespaces ?? MediaWikiServices::getInstance()
 				->getNamespaceInfo()->getContentNamespaces();
 		if ( !in_array( $title->getNamespace(), $namespaces ) ) {
-			$this->dieWithError( 'are-disallowed' );
+			$this->dieWithError( 'articleratings-disallowed' );
 		}
 
 		$ratingTo = $params['rating-to'];
@@ -56,12 +56,12 @@ class ApiChangeRating extends ApiBase {
 
 		if ( $resOldRating === $ratingTo ) {
 			// Pointless. Raise an error.
-			$this->dieWithError( 'changerating-error-no-changes-requested' );
+			$this->dieWithError( 'articleratings-changerating-error-no-changes-requested' );
 		}
 
 		$rowsUpdated = SpecialChangeRating::insertOrUpdateRating( $ratingTo, $title );
 		if ( $rowsUpdated > 0 ) {
-			$output = 'changerating-success';
+			$output = 'articleratings-changerating-success';
 		} else {
 			// @todo FIXME :)
 			$this->dieWithError( 'error' );

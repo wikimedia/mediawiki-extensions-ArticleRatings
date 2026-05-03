@@ -9,5 +9,5 @@
 	"log-name-ratings": "sự thay đổi Đánh giá ghi",
 	"log-descripiton-ratings": "Nhật ký này cho thấy tất cả các thay đổi gần đây để các trang's Dánh giá.",
 	"logentry-ratings-change": "$1 thay đổi đánh giá của $3 đến $4",
-	"rating-desc": "Một giao diện phức tạp để đánh giá các trang"
+	"articleratings-desc": "Một giao diện phức tạp để đánh giá các trang"
 }
