@@ -2,13 +2,13 @@
 
 class RatingData {
 	/**
-	 * Pull rating definitions from the [[MediaWiki:Are-ratings]] system message, or
+	 * Pull rating definitions from the [[MediaWiki:articleratings-ratings]] system message, or
 	 * if it's totally empty, raise an error.
 	 *
 	 * @return array
 	 */
 	public static function getJSON() {
-		$msg = wfMessage( 'are-ratings' )->inContentLanguage();
+		$msg = wfMessage( 'articleratings-ratings' )->inContentLanguage();
 		$json = $msg->plain();
 		if ( $msg->isDisabled() ) {
 			trigger_error( 'ARE Error: empty JSON' );
