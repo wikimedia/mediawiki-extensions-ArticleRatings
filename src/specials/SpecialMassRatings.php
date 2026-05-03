@@ -9,6 +9,10 @@ class SpecialMassRatings extends QueryPage {
 		parent::__construct( 'MassRatings' );
 	}
 
+	public function getDescription() {
+		return $this->msg( 'articleratings-massratings' );
+	}
+
 	function getQueryInfo() {
 		$where = [];
 		$selectedRatings = [];
@@ -47,7 +51,7 @@ class SpecialMassRatings extends QueryPage {
 	function getPageHeader() {
 		$output = '';
 
-		$output .= '<fieldset><legend>' . $this->msg( 'massratings-legend' )->plain();
+		$output .= '<fieldset><legend>' . $this->msg( 'articleratings-massratings-legend' )->plain();
 		$output .= '</legend><form action="" method="get">';
 
 		$ratings = RatingData::getAllRatings();

@@ -21,6 +21,10 @@ class SpecialChangeRating extends SpecialPage {
 		return true;
 	}
 
+	public function getDescription() {
+		return $this->msg( 'articleratings-changerating' );
+	}
+
 	/**
 	 * Render the special page.
 	 *
@@ -45,17 +49,17 @@ class SpecialChangeRating extends SpecialPage {
 		if ( $title === null ) {
 			$this->displayPageSearchForm();
 		} elseif ( !$title->exists() ) {
-			$out->addWikiMsg( 'changerating-no-such-page', $page );
+			$out->addWikiMsg( 'articleratings-changerating-no-such-page', $page );
 		} else {
 			$namespaces = $wgARENamespaces ?? MediaWikiServices::getInstance()
 				->getNamespaceInfo()->getContentNamespaces();
 			if ( !in_array( $title->getNamespace(), $namespaces ) ) {
-				$out->addWikiMsg( 'are-disallowed' );
+				$out->addWikiMsg( 'articleratings-disallowed' );
 				return;
 			}
 
 			$out->setSubtitle(
-				$this->msg( 'changerating-back', $title->getFullText() )->parse()
+				$this->msg( 'articleratings-changerating-back', $title->getFullText() )->parse()
 			);
 
 			$ratingto = $request->getVal( 'ratingTo' );
@@ -72,7 +76,8 @@ class SpecialChangeRating extends SpecialPage {
 				$isValidRatingCodename = self::validateRatingCodename( $ratingto );
 
 				if ( !$isValidRatingCodename ) {
-					$out->addHTML( Html::errorBox( $this->msg( 'changerating-error-invalid-rating' )->escaped() ) );
+					$out->addHTML( Html::errorBox(
+						$this->msg( 'articleratings-changerating-error-invalid-rating' )->escaped() ) );
 					// @todo FIXME: I don't *love* this _but_ it gets the job done
 					// as tampered forms are such an edge case.
 					// From the user's POV, it's mildly annoying to have to click to a link
@@ -89,12 +94,12 @@ class SpecialChangeRating extends SpecialPage {
 				if ( $resOldRating === $ratingto ) {
 					// Pointless. Raise an error.
 					// phpcs:disable Generic.Files.LineLength
-					$out->addHTML( Html::errorBox( $this->msg( 'changerating-error-no-changes-requested' )->escaped() ) );
+					$out->addHTML( Html::errorBox( $this->msg( 'articleratings-changerating-error-no-changes-requested' )->escaped() ) );
 				} else {
 					$changedRows = self::insertOrUpdateRating( $ratingto, $title );
 
 					if ( $changedRows > 0 ) {
-						$out->addHTML( Html::successBox( $this->msg( 'changerating-success' )->escaped() ) );
+						$out->addHTML( Html::successBox( $this->msg( 'articleratings-changerating-success' )->escaped() ) );
 					} else {
 						$out->addHTML( Html::errorBox( $this->msg( 'error' )->escaped() ) );
 					}
@@ -117,7 +122,7 @@ class SpecialChangeRating extends SpecialPage {
 				$output .= Html::errorBox( $this->msg( 'sessionfailure' )->parse() );
 			}
 
-			$output .= $this->msg( 'changerating-intro-text', $title->getFullText() )->parseAsBlock()
+			$output .= $this->msg( 'articleratings-changerating-intro-text', $title->getFullText() )->parseAsBlock()
 				. '<form name="change-rating" action="" method="post">';
 
 			$currentRating = self::getCurrentRatingForPage( $title );
@@ -140,13 +145,13 @@ class SpecialChangeRating extends SpecialPage {
 				$output .= '<br />';
 			}
 
-			$output .= $this->msg( 'changerating-reason' )->escaped() .
+			$output .= $this->msg( 'articleratings-changerating-reason' )->escaped() .
 				' <input type="text" name="reason" size="50" /><br />' .
 				Html::hidden( 'wpRatingToken', $user->getEditToken() ) .
-				Html::input( 'wpSubmit', $this->msg( 'changerating-submit' )->plain(), 'submit' ) .
+				Html::input( 'wpSubmit', $this->msg( 'articleratings-changerating-submit' )->plain(), 'submit' ) .
 				'</form>';
 
-			$output .= $this->msg( 'changerating-log-text', $page )->parseAsBlock();
+			$output .= $this->msg( 'articleratings-changerating-log-text', $page )->parseAsBlock();
 
 			$out->addHTML( $output );
 

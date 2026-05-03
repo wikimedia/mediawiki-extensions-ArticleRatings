@@ -39,7 +39,7 @@ class ArticleRatingsHooks {
 			if ( $title && $title->exists() ) {
 				$out .= '<span class="mw-rating-tag-page">';
 			} else {
-				return wfMessage( 'are-no-such-page', $page )->parse();
+				return wfMessage( 'articleratings-no-such-page', $page )->parse();
 			}
 
 			if ( $title->isRedirect() ) { // follow redirects
@@ -58,7 +58,7 @@ class ArticleRatingsHooks {
 
 		$namespaces = $wgARENamespaces ?? $services->getNamespaceInfo()->getContentNamespaces();
 		if ( !in_array( $title->getNamespace(), $namespaces ) ) {
-			return wfMessage( 'are-disallowed' )->parse();
+			return wfMessage( 'articleratings-disallowed' )->parse();
 		}
 
 		if ( isset( $args['initial-rating'] ) && $wgAREUseInitialRatings ) {
@@ -162,7 +162,7 @@ class ArticleRatingsHooks {
 			if ( $res && $res->numRows() ) {
 				$sidebar['TOOLBOX'][] = [
 					'id' => 'rating',
-					'msg' => 'are-change-rating',
+					'msg' => 'articleratings-change-rating',
 					'href' => SpecialPage::getTitleFor( 'ChangeRating', $title->getFullText() )
 						->getFullURL()
 				];
