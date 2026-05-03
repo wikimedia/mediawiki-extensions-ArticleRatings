@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d07d5d4_b9405144",
+        "filename": "i18n/fi.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 10102
+      },
+      "writtenOn": "2026-05-03T12:58:33Z",
+      "side": 1,
+      "message": "AFAIK translatewiki.net should handle renaming these messages (so we shouldn\u0027t need to modify the i18n files other than `en.json` and `qqq.json`)",
+      "revId": "f60a719a54033fc8aea90454d7536c1b49f4e734",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
