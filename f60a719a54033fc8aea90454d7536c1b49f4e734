@@ -16,6 +16,24 @@
       "message": "AFAIK translatewiki.net should handle renaming these messages (so we shouldn\u0027t need to modify the i18n files other than `en.json` and `qqq.json`)",
       "revId": "f60a719a54033fc8aea90454d7536c1b49f4e734",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3330ea8_55059d72",
+        "filename": "i18n/fi.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 177
+      },
+      "writtenOn": "2026-05-03T13:05:07Z",
+      "side": 1,
+      "message": "We\u0027re not enabled on TWN yet so it won\u0027t have the point of reference to do so - this patch is part of the feedback to 1182810 to get it enabled.",
+      "parentUuid": "9d07d5d4_b9405144",
+      "revId": "f60a719a54033fc8aea90454d7536c1b49f4e734",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
     }
   ]
 }
