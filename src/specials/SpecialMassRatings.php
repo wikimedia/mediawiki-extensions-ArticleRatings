@@ -47,7 +47,7 @@ class SpecialMassRatings extends QueryPage {
 	function getPageHeader() {
 		$output = '';
 
-		$output .= '<fieldset><legend>' . $this->msg( 'massratings-legend' )->plain();
+		$output .= '<fieldset><legend>' . $this->msg( 'articleratings-massratings-legend' )->plain();
 		$output .= '</legend><form action="" method="get">';
 
 		$ratings = RatingData::getAllRatings();

@@ -76,11 +76,11 @@ class SpecialBatchRating extends FormSpecialPage {
 		$fields = [
 			'titles' => [
 				'type' => 'textarea',
-				'label-message' => 'batchrating-titles',
+				'label-message' => 'articleratings-batchrating-titles',
 			],
 			'new-rating' => [
 				'type' => 'select',
-				'label-message' => 'batchrating-new-rating',
+				'label-message' => 'articleratings-batchrating-new-rating',
 				'options' => self::buildRatingDropDown()
 			],
 		];
@@ -119,22 +119,22 @@ class SpecialBatchRating extends FormSpecialPage {
 		$titles = $data['titles'];
 		if ( !$titles ) {
 			// No pages to rate?
-			return Status::newFatal( 'batchrating-error-no-titles' );
+			return Status::newFatal( 'articleratings-batchrating-error-no-titles' );
 		}
 
 		$newRating = $data['new-rating'];
 		if ( !$newRating ) {
 			// No rating?! (wtf)
-			return Status::newFatal( 'batchrating-error-no-rating' );
+			return Status::newFatal( 'articleratings-batchrating-error-no-rating' );
 		}
 
 		if ( !SpecialChangeRating::validateRatingCodename( $newRating ) ) {
 			// Tampered form
-			return Status::newFatal( 'changerating-error-invalid-rating' );
+			return Status::newFatal( 'articleratings-changerating-error-invalid-rating' );
 		}
 
 		$user = $this->getUser();
-		$reason = $this->msg( 'batchrating-log-summary' )->inContentLanguage()->escaped();
+		$reason = $this->msg( 'articleratings-batchrating-log-summary' )->inContentLanguage()->escaped();
 		$namespaces = $wgARENamespaces ?? MediaWikiServices::getInstance()
 				->getNamespaceInfo()->getContentNamespaces();
 		$success = $fail = 0;
@@ -198,8 +198,8 @@ class SpecialBatchRating extends FormSpecialPage {
 		$out = $this->getOutput();
 		// Report the # of successfully updated rating as well as the # of failures
 		// phpcs:disable Generic.Files.LineLength
-		$out->addHTML( Html::successBox( $this->msg( 'batchrating-success' )->numParams( self::$success )->params( self::$successPageNames )->parse() ) );
+		$out->addHTML( Html::successBox( $this->msg( 'articleratings-batchrating-success' )->numParams( self::$success )->params( self::$successPageNames )->parse() ) );
 		// phpcs:disable Generic.Files.LineLength
-		$out->addHTML( Html::errorBox( $this->msg( 'batchrating-fail' )->numParams( self::$fail )->params( self::$failPageNames )->parse() ) );
+		$out->addHTML( Html::errorBox( $this->msg( 'articleratings-batchrating-fail' )->numParams( self::$fail )->params( self::$failPageNames )->parse() ) );
 	}
 }
