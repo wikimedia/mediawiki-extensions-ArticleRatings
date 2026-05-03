@@ -34,6 +34,24 @@
       "parentUuid": "9d07d5d4_b9405144",
       "revId": "f60a719a54033fc8aea90454d7536c1b49f4e734",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27de4ae9_358ea80d",
+        "filename": "i18n/fi.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 10102
+      },
+      "writtenOn": "2026-05-03T13:08:04Z",
+      "side": 1,
+      "message": "Ahh, thanks for the context",
+      "parentUuid": "b3330ea8_55059d72",
+      "revId": "f60a719a54033fc8aea90454d7536c1b49f4e734",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
     }
   ]
 }
