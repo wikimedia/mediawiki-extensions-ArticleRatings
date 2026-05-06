@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"articleratings-batchrating-titles": "Pagine da valutare",
+	"articleratings-changerating": "Modifica valutazione",
+	"articleratings-changerating-back": "< Torna a [[$1]].",
+	"articleratings-changerating-reason": "Motivo:",
+	"articleratings-changerating-success": "Valutazione modificata correttamente.",
+	"articleratings-changerating-submit": "Invia",
+	"log-name-ratings": "Modifiche alla valutazione",
+	"right-change-rating": "Modifica le valutazioni delle pagine",
+	"articleratings-no-such-page": "La pagina \"$1\" non esiste.",
+	"articleratings-change-rating": "Modifica valutazione",
+	"group-reviewer-member": "Revisore",
+	"action-change-rating": "modificare la valutazione della voce"
+}
