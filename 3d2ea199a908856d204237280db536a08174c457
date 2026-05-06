@@ -1,4 +1,39 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33feb540_87bb206c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2026-05-06T08:45:08Z",
+      "side": 1,
+      "message": "late i18n review",
+      "revId": "3d2ea199a908856d204237280db536a08174c457",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a35f2dcc_dc08be70",
+        "filename": "i18n/en.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2026-05-06T08:45:08Z",
+      "side": 1,
+      "message": "I suggest to change \u003c to ← because a single \u003c resulte in the need of a manual review of the translatewiki export, see https://integration.wikimedia.org/ci/job/mediawiki-i18n-check/87623/console near the end.",
+      "revId": "3d2ea199a908856d204237280db536a08174c457",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ],
   "submitRequirementResults": []
 }
