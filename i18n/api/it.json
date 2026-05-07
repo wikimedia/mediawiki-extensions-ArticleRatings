@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"apihelp-query+are-ratings-example-1": "Recupera un elenco delle pagine valutate nel namespace principale",
+	"apihelp-change-rating-summary": "Modifica la valutazione di una pagina."
+}
