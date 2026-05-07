@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Volvox"
+		]
+	},
+	"apihelp-change-rating-summary": "D'Bewäertung vun enger Säit änneren.",
+	"apihelp-change-rating-param-pageid": "Säiten-ID vun der Säit, déi bewäert soll ginn. Kann net zesumme mat <var>title</var> benotzt ginn."
+}

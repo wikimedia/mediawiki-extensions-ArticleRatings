@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"apierror-are-no-pages": "Er zijn nog geen pagina's beoordeeld (in deze naamruimte).",
+	"apihelp-query+are-ratings-summary": "Ontvang een lijst met beoordeelde pagina's en hun beoordelingen, eventueel gefilterd op een opgegeven naamruimte",
+	"apihelp-query+are-ratings-param-limit": "Aantal beoordeelde pagina's om weer te geven (standaard 50)",
+	"apihelp-query+are-ratings-param-namespace": "Alleen beoordeelde pagina's weergeven uit deze naamruimte (optioneel); standaardwaarde is 0 ( <code>NS_MAIN</code> )",
+	"apihelp-query+are-ratings-param-order": "Sorteervolgorde, ofwel <code>ASC</code> voor oplopend of <code>DESC</code> voor aflopend.",
+	"apihelp-query+are-ratings-example-1": "Haal een lijst op van beoordeelde pagina's in de hoofdnaamruimte",
+	"apihelp-query+are-ratings-example-2": "Tot 100 beoordeelde pagina's in de hoofdnaamruimte ophalen",
+	"apihelp-change-rating-summary": "De beoordeling van een pagina wijzigen.",
+	"apihelp-change-rating-param-title": "Titel van de pagina die beoordeeld moet worden. Kan niet samen met <var>pageid</var> gebruikt worden.",
+	"apihelp-change-rating-param-pageid": "Pagina-ID van de pagina die beoordeeld moet worden. Kan niet samen met <var>title</var> gebruikt worden.",
+	"apihelp-change-rating-param-reason": "De reden voor het wijzigen van de beoordeling wordt vastgelegd in Special:Log/ratings.",
+	"apihelp-change-rating-param-rating-to": "Nieuwe beoordeling voor de pagina (een codenaam van twee tekens zoals gedefinieerd in <kbd>MediaWiki:Are-ratings</kbd> ).",
+	"apihelp-change-rating-example-1": "Wijzig de beoordeling van een pagina met de naam \"71040 Het Disney-kasteel\" naar \"FA\" met als reden \"Voldoet aan de criteria voor een uitgelichte pagina, zoals blijkt uit de stemming\"."
+}

@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Volvox"
+		]
+	},
+	"articleratings-batchrating-error-no-rating": "Keng Bewäertung ausgewielt!",
+	"articleratings-batchrating-fail": "D'Aktualiséierung vun {{PLURAL:$1|der Bewäertung vun der follgender Säit|de Bewäertunge vun de follgende Säiten}} huet net geklappt: $2",
+	"articleratings-batchrating-titles": "Säite fir ze bewäerten",
+	"articleratings-batchrating-new-rating": "Nei Bewäertung",
+	"articleratings-batchrating-success": "D'Bewäertung vun {{PLURAL:$1|der follgender Säit gouf|de follgende Säite goufen}} erfollegräich aktualiséiert: $2",
+	"articleratings-changerating": "Bewäertung änneren",
+	"articleratings-changerating-back": "< Zeréck op [[$1]].",
+	"articleratings-changerating-error-no-changes-requested": "Dir musst eng aner Bewäertung wéi déi aktuell auswielen!",
+	"articleratings-changerating-no-such-page": "Et deet eis leed, d'Säit „$1“ gëtt et net.",
+	"articleratings-changerating-reason": "Grond:",
+	"articleratings-changerating-success": "Bewäertung erfollegräich geännert.",
+	"articleratings-massratings": "Massebewäertungen",
+	"log-name-ratings": "Logbuch vun de Bewäertungsännerungen",
+	"log-description-ratings": "Dëst Logbuch weist all déi rezent Ännerunge vu Säitebewäertungen.",
+	"articleratings-desc": "E komplexen Interface fir Säiten ze bewäerten",
+	"right-change-rating": "Bewäertunge vu Säiten änneren",
+	"articleratings-no-such-page": "D'Säit „$1“ gëtt et net.",
+	"articleratings-change-rating": "Bewäertung änneren",
+	"action-change-rating": "Artikelbewäertungen z'änneren"
+}

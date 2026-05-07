@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"articleratings-batchrating": "Evalutation in serie",
+	"articleratings-batchrating-error-no-titles": "Es necessari fornir le nomines del paginas a evalutar!",
+	"articleratings-batchrating-error-no-rating": "Necun evalutation seligite!",
+	"articleratings-batchrating-fail": "Impossibile actualisar le evalutation{{PLURAL:$1||es}} del sequente pagina{{PLURAL:$1||s}}: $2",
+	"articleratings-batchrating-legend": "Evalutar plure paginas al vice",
+	"articleratings-batchrating-titles": "Paginas a evalutar",
+	"articleratings-batchrating-new-rating": "Nove evalutation",
+	"articleratings-batchrating-log-summary": "Evalutation in serie via [[Special:BatchRating]]",
+	"articleratings-batchrating-success": "Le evalutation{{PLURAL:$1||es}} del sequente pagina{{PLURAL:$1||s}} ha essite actualisate: $2",
+	"articleratings-batchrating-text": "Usa le formulario infra pro evalutar rapidemente plure paginas simultaneemente. Scribe le nomine de cata pagina in su proprie linea.<br />Cata cambio de evalutation utilisara le message de summario definite in [[MediaWiki:articleratings-batchrating-log-summary]] como le message de registro scribite a [[Special:Log/ratings]].",
+	"articleratings-changerating": "Cambiar evalutation",
+	"articleratings-changerating-back": "< Retornar a [[$1]].",
+	"articleratings-changerating-intro-text": "In qual cosa vole tu cambiar le evalutation de ''$1''?",
+	"articleratings-changerating-error-invalid-rating": "Le identificator date non es un codice/nomine de evalutation valide e cognoscite",
+	"articleratings-changerating-error-no-changes-requested": "Es necessari eliger un evalutation altere que le actual!",
+	"articleratings-changerating-no-such-page": "Le pagina “$1” non existe.",
+	"articleratings-changerating-reason": "Motivo:",
+	"articleratings-changerating-success": "Evalutation cambiate con successo.",
+	"articleratings-changerating-submit": "Submitter",
+	"articleratings-massratings": "Evalutationes in massa",
+	"articleratings-massratings-legend": "Listar paginas per evaluation",
+	"log-name-ratings": "Registro de cambiamentos de evalutation",
+	"log-description-ratings": "In iste registro appare tote le cambiamentos recente de evalutation de paginas.",
+	"logentry-ratings-change": "$1 ha cambiate le evalutation de $3 de $5 a $4",
+	"articleratings-desc": "Un interfacie complexe pro evalutar paginas",
+	"right-batch-rate": "Cambiar le evalutationes de plure paginas al vice",
+	"right-change-rating": "Cambiar le evalutationes de paginas",
+	"articleratings-disallowed": "Le evalutationes ha essite prohibite pro iste spatio de nomines",
+	"articleratings-no-such-page": "Le pagina “$1” non existe.",
+	"articleratings-change-rating": "Cambiar evalutation",
+	"group-reviewer": "Revisores",
+	"group-reviewer-member": "Revisor",
+	"action-batch-rate": "cambiar le evalutationes de plure articulos al vice",
+	"action-change-rating": "cambiar le evalutationes de articulos",
+	"articleratings-changerating-log-text": "Cambiamentos passate de evalutation de iste articulo:"
+}

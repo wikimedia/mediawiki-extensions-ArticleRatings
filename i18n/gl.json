@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"articleratings-batchrating": "Avaliación por lotes",
+	"articleratings-batchrating-error-no-titles": "Debes proporcionar os nomes das páxinas que queres avaliar!",
+	"articleratings-batchrating-error-no-rating": "Non se elixiu ningunha avaliación!",
+	"articleratings-batchrating-fail": "{{PLURAL:$1|Fallou a actualización da avaliación da seguinte páxina|Fallaron as actualizacións das avaliacións das seguintes páxinas}}: $2",
+	"articleratings-batchrating-legend": "Avaliar varias páxinas á vez",
+	"articleratings-batchrating-titles": "Páxinas para avaliar",
+	"articleratings-batchrating-new-rating": "Nova avaliación",
+	"articleratings-batchrating-log-summary": "Avaliación por lotes mediante «[[Special:BatchRating]]»",
+	"articleratings-batchrating-success": "{{PLURAL:$1|Actualizouse correctamente a avaliación da seguinte páxina|Actualizáronse correctamente as avaliacións das seguintes páxinas}}: $2",
+	"articleratings-batchrating-text": "Utiliza o formulario inferior para avaliar rapidamente varias páxinas á vez. Escribe o nome de cada páxina na súa propia liña.<br />Cada cambio de avaliación empregará a mensaxe de resumo definida en «[[MediaWiki:articleratings-batchrating-log-summary]]» como a mensaxe de rexistro que se mostrará en «[[Special:Log/ratings]]».",
+	"articleratings-changerating": "Cambiar a avaliación",
+	"articleratings-changerating-back": "< Volver a «[[$1]]».",
+	"articleratings-changerating-intro-text": "A que queres cambiar a avaliación de «''$1''»?",
+	"articleratings-changerating-error-invalid-rating": "O identificador proporcionado non é un código de avaliación coñecido e válido",
+	"articleratings-changerating-error-no-changes-requested": "Debes elixir unha avaliación diferente á actual!",
+	"articleratings-changerating-no-such-page": "Sentímolo, a páxina «$1» non existe.",
+	"articleratings-changerating-reason": "Motivo:",
+	"articleratings-changerating-success": "A avaliación modificouse correctamente.",
+	"articleratings-changerating-submit": "Enviar",
+	"articleratings-massratings": "Avaliacións en masa",
+	"articleratings-massratings-legend": "Listar as páxinas por avaliación",
+	"log-name-ratings": "Rexistro de cambios de avaliación",
+	"log-description-ratings": "Este rexistro mostra todos os cambios recentes nas avaliacións das páxinas.",
+	"logentry-ratings-change": "$1 modificou a avaliación de «$3» de «$5» a «$4»",
+	"articleratings-desc": "Unha interface complexa para avaliar páxinas",
+	"right-batch-rate": "Cambiar as avaliacións de varias páxinas á vez",
+	"right-change-rating": "Cambiar as avaliacións das páxinas",
+	"articleratings-disallowed": "Non se permiten avaliacións neste espazo de nomes",
+	"articleratings-no-such-page": "A páxina «$1» non existe.",
+	"articleratings-change-rating": "Cambiar a avaliación",
+	"group-reviewer": "Revisores",
+	"group-reviewer-member": "Revisor",
+	"action-batch-rate": "cambiar as avaliacións de varios artigos á vez",
+	"action-change-rating": "cambiar as avaliacións dos artigos",
+	"articleratings-changerating-log-text": "Cambios de avaliación anteriores feitos neste artigo:"
+}

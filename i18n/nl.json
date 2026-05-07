@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie",
+			"Siebrand"
+		]
+	},
+	"articleratings-batchrating": "Batchbeoordeling",
+	"articleratings-batchrating-error-no-titles": "U dient de namen van de te beoordelen pagina's op te geven!",
+	"articleratings-batchrating-error-no-rating": "Geen beoordeling gekozen!",
+	"articleratings-batchrating-fail": "Het bijwerken van de volgende {{PLURAL:$1|pagina|'s}} is mislukt: $2",
+	"articleratings-batchrating-legend": "Meerdere pagina's tegelijk beoordelen",
+	"articleratings-batchrating-titles": "Te beoordelen pagina's",
+	"articleratings-batchrating-new-rating": "Nieuwe beoordeling",
+	"articleratings-batchrating-log-summary": "Batchbeoordeling via [[Special:BatchRating]]",
+	"articleratings-batchrating-success": "Het bijwerken van de volgende {{PLURAL:$1|paginabeoordeling|paginabeoordelingen}} is mislukt: $2",
+	"articleratings-batchrating-text": "Gebruik onderstaand formulier om snel meerdere pagina's tegelijk te beoordelen. Schrijf de naam van elke pagina op een aparte regel.<br />Bij elke wijziging van de beoordeling wordt het samenvattingsbericht dat is gedefinieerd op [[MediaWiki:articleratings-batchrating-log-summary]] gebruikt als logbericht dat wordt geschreven naar [[Special:Log/ratings]].",
+	"articleratings-changerating": "Beoordeling wijzigen",
+	"articleratings-changerating-back": "< Terug naar [[$1]].",
+	"articleratings-changerating-intro-text": "Naar welke waarde wilt u de beoordeling van ''$1'' wijzigen?",
+	"articleratings-changerating-error-invalid-rating": "De opgegeven identificatiecode is geen geldige bekende beoordelingscode(naam).",
+	"articleratings-changerating-error-no-changes-requested": "U moet een andere beoordeling kiezen dan de huidige!",
+	"articleratings-changerating-no-such-page": "De pagina \"$1\" bestaat niet.",
+	"articleratings-changerating-reason": "Reden:",
+	"articleratings-changerating-success": "Beoordeling gewijzigd.",
+	"articleratings-changerating-submit": "Opslaan",
+	"articleratings-massratings": "Massabeoordelingen",
+	"articleratings-massratings-legend": "Lijst pagina's op beoordeling",
+	"log-name-ratings": "Logboek met wijzigingen in beoordelingen",
+	"log-description-ratings": "In dit logboek worden alle recente wijzigingen weergegeven in de beoordelingen van pagina's.",
+	"logentry-ratings-change": "$1 heeft de waardering van $3 gewijzigd van $5 naar $4",
+	"articleratings-desc": "Een complexe interface voor paginabeoordelingen",
+	"right-batch-rate": "Beoordelingen van meerdere pagina's tegelijk wijzigen",
+	"right-change-rating": "Beoordelingen van pagina's wijzigen",
+	"articleratings-disallowed": "Beoordelingen zijn niet toegestaan voor deze naamruimte",
+	"articleratings-no-such-page": "De pagina \"$1\" bestaat niet.",
+	"articleratings-change-rating": "Beoordeling wijzigen",
+	"group-reviewer": "Beoordelaars",
+	"group-reviewer-member": "Beoordelaar",
+	"action-batch-rate": "beoordelingen van meerdere pagina's tegelijk te wijzigen",
+	"action-change-rating": "beoordelingen van pagijna's te wijzigen",
+	"articleratings-changerating-log-text": "Eerdere wijzigingen in de beoordeling van deze pagina:"
+}
