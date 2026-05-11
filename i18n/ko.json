@@ -1,11 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bisang",
 			"Tensama0415"
 		]
 	},
+	"articleratings-batchrating-titles": "평가할 문서",
+	"articleratings-changerating-back": "< [[$1]]으로 돌아가기.",
+	"articleratings-changerating-no-such-page": "죄송하지만, \"$1\" 문서는 존재하지 않습니다.",
 	"articleratings-changerating-reason": "이유:",
 	"articleratings-changerating-submit": "제출",
+	"articleratings-no-such-page": "\"$1\" 문서가 존재하지 않습니다.",
 	"group-reviewer": "검토자",
 	"group-reviewer-member": "검토자"
 }
