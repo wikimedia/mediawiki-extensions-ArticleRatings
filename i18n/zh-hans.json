@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Honoka55"
+		]
+	},
+	"log-name-ratings": "评级更改日志",
+	"log-description-ratings": "此日志列出页面评级更改的全部记录。",
+	"logentry-ratings-change": "$1将页面$3的评级从$5更改为$4",
+	"right-change-rating": "更改页面评级",
+	"group-reviewer": "评级者",
+	"group-reviewer-member": "评级者",
+	"action-change-rating": "更改评级"
+}

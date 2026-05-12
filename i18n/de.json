@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"log-name-ratings": "Logbuch der Bewertungsänderungen",
+	"log-description-ratings": "Dieses Logbuch zeigt alle kürzlich vorgenommenen Änderungen an den Seitenbewertungen.",
+	"logentry-ratings-change": "$1 änderte die Bewertung von $3 von $5 auf $4",
+	"right-change-rating": "Ändern von Bewertungen der Seiten",
+	"group-reviewer": "Überprüfer",
+	"group-reviewer-member": "Überprüfer",
+	"action-change-rating": "Artikelbewertungen zu ändern"
+}
