@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Honoka55"
+		]
+	},
+	"apierror-are-no-pages": "（此命名空间中）尚无已评级页面。",
+	"apihelp-query+are-ratings-summary": "获取已评级页面的评级列表，可选择按指定命名空间进行筛选",
+	"apihelp-query+are-ratings-param-limit": "要显示的已评级页面数量（默认为50）",
+	"apihelp-query+are-ratings-param-namespace": "仅显示此命名空间中的已评级页面（可选）；默认为0（<code>NS_MAIN</code>）",
+	"apihelp-query+are-ratings-param-order": "排序方式，<code>ASC</code>升序或<code>DESC</code>降序",
+	"apihelp-query+are-ratings-example-1": "获取主命名空间中已评级页面的列表",
+	"apihelp-query+are-ratings-example-2": "获取主命名空间中最多100个已评级页面的列表",
+	"apihelp-change-rating-summary": "更改单个页面的评级。",
+	"apihelp-change-rating-param-title": "要评级的页面标题。不能与<var>pageid</var>一起使用。",
+	"apihelp-change-rating-param-pageid": "要评级的页面的页面ID。不能与<var>title</var>一起使用。",
+	"apihelp-change-rating-param-reason": "更改评级的原因，会记录在Special:Log/ratings中。",
+	"apihelp-change-rating-param-rating-to": "新的页面评级（<kbd>MediaWiki:articleratings-ratings</kbd>中定义的两字符代码）。",
+	"apihelp-change-rating-example-1": "将标题为“71040 The Disney Castle”的页面评级更改为“FA”，理由为“Meets featured article criteria, as per the vote”"
+}
