@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Volvox"
+		]
+	},
+	"log-name-ratings": "Logbuch vun de Bewäertungsännerungen",
+	"log-description-ratings": "Dëst Logbuch weist all déi rezent Ännerunge vu Säitebewäertungen.",
+	"right-change-rating": "Bewäertunge vu Säiten änneren",
+	"action-change-rating": "Artikelbewäertungen z'änneren"
+}

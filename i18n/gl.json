@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"log-name-ratings": "Rexistro de cambios de avaliación",
+	"log-description-ratings": "Este rexistro mostra todos os cambios recentes nas avaliacións das páxinas.",
+	"logentry-ratings-change": "$1 modificou a avaliación de «$3» de «$5» a «$4»",
+	"right-batch-rate": "Cambiar as avaliacións de varias páxinas á vez",
+	"right-change-rating": "Cambiar as avaliacións das páxinas",
+	"group-reviewer": "Revisores",
+	"group-reviewer-member": "Revisor",
+	"action-batch-rate": "cambiar as avaliacións de varios artigos á vez",
+	"action-change-rating": "cambiar as avaliacións dos artigos"
+}

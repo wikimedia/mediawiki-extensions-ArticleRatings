@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie",
+			"Siebrand"
+		]
+	},
+	"log-name-ratings": "Logboek met wijzigingen in beoordelingen",
+	"log-description-ratings": "In dit logboek worden alle recente wijzigingen weergegeven in de beoordelingen van pagina's.",
+	"logentry-ratings-change": "$1 heeft de waardering van $3 gewijzigd van $5 naar $4",
+	"right-batch-rate": "Beoordelingen van meerdere pagina's tegelijk wijzigen",
+	"right-change-rating": "Beoordelingen van pagina's wijzigen",
+	"group-reviewer": "Beoordelaars",
+	"group-reviewer-member": "Beoordelaar",
+	"action-batch-rate": "beoordelingen van meerdere pagina's tegelijk te wijzigen",
+	"action-change-rating": "beoordelingen van pagijna's te wijzigen"
+}

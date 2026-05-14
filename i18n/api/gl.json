@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"apierror-are-no-pages": "Aínda non se avaliou ningunha páxina (neste espazo de nomes).",
+	"apihelp-query+are-ratings-summary": "Obter a lista de páxinas avaliadas e as súas avaliacións, opcionalmente filtradas por un espazo de nomes determinado",
+	"apihelp-query+are-ratings-param-limit": "Cantidade de páxinas avaliadas que se mostrarán (valor predeterminado: 50)",
+	"apihelp-query+are-ratings-param-namespace": "Mostrar só as páxinas avaliadas deste espazo de nomes (opcional); o valor predeterminado é 0 (<code>NS_MAIN</code>)",
+	"apihelp-query+are-ratings-param-order": "Orde; <code>ASC</code> para ASCendente ou <code>DESC</code> para DESCendente",
+	"apihelp-query+are-ratings-example-1": "Obter unha lista de páxinas avaliadas no espazo de nomes principal",
+	"apihelp-query+are-ratings-example-2": "Obter ata 100 páxinas avaliadas no espazo de nomes principal",
+	"apihelp-change-rating-summary": "Cambiar a avaliación dunha páxina.",
+	"apihelp-change-rating-param-title": "Título da páxina a avaliar. Non pode usarse xunto con <var>pageid</var>.",
+	"apihelp-change-rating-param-pageid": "Identificador da páxina a avaliar. Non pode usarse xunto con <var>title</var>.",
+	"apihelp-change-rating-param-reason": "Motivo do cambio de avaliación; rexistrarase en «Special:Log/ratings».",
+	"apihelp-change-rating-param-rating-to": "Nova avaliación para a páxina (un nome en clave de dous caracteres como se define en <kbd>MediaWiki:Are-ratings</kbd>).",
+	"apihelp-change-rating-example-1": "Cambiar a avaliación dunha páxina chamada «71040 The Disney Castle» a «FA» co motivo «Meets featured article criteria, as per the vote»"
+}

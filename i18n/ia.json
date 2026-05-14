@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"log-name-ratings": "Registro de cambiamentos de evalutation",
+	"log-description-ratings": "In iste registro appare tote le cambiamentos recente de evalutation de paginas.",
+	"logentry-ratings-change": "$1 ha cambiate le evalutation de $3 de $5 a $4",
+	"right-batch-rate": "Cambiar le evalutationes de plure paginas al vice",
+	"right-change-rating": "Cambiar le evalutationes de paginas",
+	"group-reviewer": "Revisores",
+	"group-reviewer-member": "Revisor",
+	"action-batch-rate": "cambiar le evalutationes de plure articulos al vice",
+	"action-change-rating": "cambiar le evalutationes de articulos"
+}
