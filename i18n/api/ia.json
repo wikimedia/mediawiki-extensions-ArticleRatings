@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apierror-are-no-pages": "Necun pagina ha ancora essite evalutate (in iste spatio de nomines).",
+	"apihelp-query+are-ratings-summary": "Obtener le lista de paginas evalutate e lor evalutationes, optionalmente filtrate per un spatio de nomines date",
+	"apihelp-query+are-ratings-param-limit": "Numero de paginas evalutate a monstrar (valor predefinite: 50)",
+	"apihelp-query+are-ratings-param-namespace": "Monstrar paginas evalutate solmente de iste spatio de nomines (optional); le valor predefinite es 0 (<code>NS_MAIN</code>)",
+	"apihelp-query+are-ratings-param-order": "Le ordine in le qual mitter le resultatos, o <code>ASC</code> pro ASCendente o <code>DESC</code> pro DESCendente",
+	"apihelp-query+are-ratings-example-1": "Obtener un lista de paginas evalutate in le spatio de nomines principal",
+	"apihelp-query+are-ratings-example-2": "Obtener usque a 100 paginas evalutate in le spatio de nomines principal",
+	"apihelp-change-rating-summary": "Cambiar le evalutation de un pagina.",
+	"apihelp-change-rating-param-title": "Le titulo del pagina a evalutar. Non pote esser usate insimul con <var>pageid</var>.",
+	"apihelp-change-rating-param-pageid": "Le ID del pagina a evalutar. Non pote esser usate insimul con <var>title</var>.",
+	"apihelp-change-rating-param-reason": "Le ration pro le cambiamento de evalutation; isto essera registrate in Special:Log/ratings.",
+	"apihelp-change-rating-param-rating-to": "Nove evalutation del pagina (un nomine de codice a duo characteres como definite in <kbd>MediaWiki:Are-ratings</kbd>).",
+	"apihelp-change-rating-example-1": "Cambiar le evalutation de un pagina con le nomine “71040 The Disney Castle” a \"FA\" con le motivo “Meets featured article criteria, as per the vote”"
+}
