@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tensama0415"
+		]
+	},
+	"apierror-are-no-pages": "(이 이름공간에는) 아직 평점이 매겨진 문서가 없습니다.",
+	"apihelp-query+are-ratings-summary": "평점이 매겨진 문서 목록과 해당 평점을 가져옵니다. 선택적으로 지정된 이름공간로 필터링할 수 있습니다",
+	"apihelp-query+are-ratings-param-limit": "평점이 매겨진 문서 중 표시할 문서 수 (기본값 50)",
+	"apihelp-query+are-ratings-param-namespace": "평점이 매겨진 문서중 이 이름공간의 문서만 표시합니다(선택 사항). 기본값은 0입니다(<code>NS_MAIN</code>).",
+	"apihelp-query+are-ratings-param-order": "정렬 순서입니다. 오름차순 <code>ASC</code> 또는 내림차순 <code>DESC</code>입니다.",
+	"apihelp-query+are-ratings-example-1": "일반 이름공간에서 평점이 매겨진 문서 목록을 가져옵니다.",
+	"apihelp-query+are-ratings-example-2": "이름 이름공간에서 최대 100개의 평점이 매겨진 문서를 가져옵니다",
+	"apihelp-change-rating-summary": "문서의 평점을 변경합니다.",
+	"apihelp-change-rating-param-title": "평점을 매길 문서의 제목입니다. <var>pageid</var>와 함께 사용할 수 없습니다.",
+	"apihelp-change-rating-param-pageid": "평가를 매길 문서의 ID입니다. <var>title</var>과 함께 사용할 수 없습니다.",
+	"apihelp-change-rating-param-reason": "평점 변경 이유는 Special:Log/ratings에 로깅됩니다.",
+	"apihelp-change-rating-param-rating-to": "문서에 대한 새로운 평점 (<kbd>MediaWiki:Are-ratings</kbd>에 정의된 두 글자 코드명)입니다.",
+	"apihelp-change-rating-example-1": "\"71040 The Disney Castle\"이라는 문서에 대해 \"Meets featured article criteria, as per the vote\" 라는 이유와 함께 평점을 \"FA\"로 변경합니다."
+}
