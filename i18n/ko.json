@@ -2,9 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Bisang",
-			"Tensama0415"
+			"Tensama0415",
+			"解浪"
 		]
 	},
+	"log-name-ratings": "평가 변경 기록",
+	"log-description-ratings": "이 로그에는 문서 평가의 최근 변경 사항이 모두 표시됩니다.",
+	"logentry-ratings-change": "$1님이 $3의 평가를 $5에서 $4(으)로 변경했습니다",
+	"right-change-rating": "문서의 평가를 변경",
 	"group-reviewer": "검토자",
-	"group-reviewer-member": "검토자"
+	"group-reviewer-member": "검토자",
+	"action-change-rating": "문서의 평가를 변경"
 }
