@@ -1,18 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
+			"GuoPC",
 			"Honoka55"
 		]
 	},
 	"articleratings-batchrating": "批量评级",
 	"articleratings-batchrating-error-no-titles": "页面列表为空！",
 	"articleratings-batchrating-error-no-rating": "未选择评级！",
-	"articleratings-batchrating-fail": "以下页面的评级更改失败：$2",
+	"articleratings-batchrating-fail": "以下{{PLURAL:$1|页面的评级}}更新失败：$2",
 	"articleratings-batchrating-legend": "为多个页面批量评级",
 	"articleratings-batchrating-titles": "页面列表",
 	"articleratings-batchrating-new-rating": "新的评级",
 	"articleratings-batchrating-log-summary": "通过[[Special:BatchRating]]批量评级",
-	"articleratings-batchrating-success": "以下页面的评级更改成功：$2",
+	"articleratings-batchrating-success": "以下{{PLURAL:$1|页面的评级}}更新成功：$2",
 	"articleratings-batchrating-text": "使用下面的表单为多个页面批量评级，每行填写一个页面标题。<br />操作摘要可在[[MediaWiki:articleratings-batchrating-log-summary]]更改，评级日志可在[[Special:Log/ratings]]查看。",
 	"articleratings-changerating": "更改评级",
 	"articleratings-changerating-back": "←[[$1]]",
