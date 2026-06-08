@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eduardoaddad"
+		]
+	},
+	"articleratings-batchrating": "Avaliação em lote",
+	"articleratings-batchrating-error-no-titles": "Você deve indicar os nomes das páginas a serem avaliadas!",
+	"articleratings-batchrating-error-no-rating": "Nenhuma avaliação selecionada!",
+	"articleratings-batchrating-legend": "Avalie várias páginas de uma só vez",
+	"articleratings-batchrating-titles": "Páginas para avaliar",
+	"articleratings-batchrating-new-rating": "Nova avaliação",
+	"articleratings-changerating-reason": "Motivo:",
+	"articleratings-changerating-submit": "Enviar",
+	"articleratings-change-rating": "Alterar avaliação",
+	"group-reviewer": "Revisores",
+	"group-reviewer-member": "Revisor"
+}
