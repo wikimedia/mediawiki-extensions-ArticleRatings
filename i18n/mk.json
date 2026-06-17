@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"articleratings-batchrating": "Групно оценување",
+	"articleratings-batchrating-error-no-titles": "Мора да ги укажете имињата на страниците што треба да се оценат!",
+	"articleratings-batchrating-error-no-rating": "Нема избрано оценка!",
+	"articleratings-batchrating-fail": "Не успеав да {{PLURAL:$1|ја подновам оценката на следнава страница|ги подновам оценките на следниве страници}}: $2",
+	"articleratings-batchrating-legend": "Оценување на повеќе страници наеднаш",
+	"articleratings-batchrating-titles": "Страници за оценување",
+	"articleratings-batchrating-new-rating": "Нова оценка",
+	"articleratings-batchrating-log-summary": "Групно оценување преку [[Special:BatchRating]]",
+	"articleratings-batchrating-success": "Успешно {{PLURAL:$1|подновена оценката на следнава страница|подновени оценките на следниве страници}}: $2",
+	"articleratings-batchrating-text": "Послужете се со образецот подолу за бргу да оцените повеќе страници наеднаш. Името на секоја страница треба да биде во нов ред.<br />Секоја промена во оценката ќе има опис зададен во [[MediaWiki:articleratings-batchrating-log-summary]] како порака во дневник што се заведува во [[Special:Log/ratings]].",
+	"articleratings-changerating": "Смени оценка",
+	"articleratings-changerating-back": "< Назад на [[$1]].",
+	"articleratings-changerating-intro-text": "Како би сакале да ја смените оценката на ''$1''?",
+	"articleratings-changerating-error-invalid-rating": "Дадената назнака не е важечки код (име ) на оценка",
+	"articleratings-changerating-error-no-changes-requested": "Мора да изберете друга различна оценка од тековната!",
+	"articleratings-changerating-no-such-page": "Страницата „$1“ не постои.",
+	"articleratings-changerating-reason": "Причина:",
+	"articleratings-changerating-success": "Оценката е успешно сменета.",
+	"articleratings-changerating-submit": "Поднеси",
+	"articleratings-massratings": "Масовни оценки",
+	"articleratings-massratings-legend": "Список на страници по оценка",
+	"log-name-ratings": "Дневник на измени во оценките",
+	"log-description-ratings": "Овој днењвник ги покажува сите скорешни промени во оценките на страниците.",
+	"logentry-ratings-change": "$1 ја измени оценката на $3 од $5 на $4",
+	"articleratings-desc": "Сложен посредник за оценување на странци",
+	"right-batch-rate": "Менување на оценки на повеќе страници наеднаш",
+	"right-change-rating": "Менување на оценки на страници",
+	"articleratings-disallowed": "Оценките не се допуштени за овој именски простор",
+	"articleratings-no-such-page": "Страницата „$1“ не постои.",
+	"articleratings-change-rating": "Смени оценка",
+	"group-reviewer": "Проверувачи",
+	"group-reviewer-member": "Проверувач",
+	"action-batch-rate": "менување на оценки на повеќе статии наеднаш",
+	"action-change-rating": "менување на оценки на статии",
+	"articleratings-changerating-log-text": "Минати промени во оценката на страницава:"
+}
