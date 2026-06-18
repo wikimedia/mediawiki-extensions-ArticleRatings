@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"log-name-ratings": "Дневник на измени во оценките",
+	"log-description-ratings": "Овој днењвник ги покажува сите скорешни промени во оценките на страниците.",
+	"logentry-ratings-change": "$1 ја измени оценката на $3 од $5 на $4",
+	"right-batch-rate": "Менување на оценки на повеќе страници наеднаш",
+	"right-change-rating": "Менување на оценки на страници",
+	"group-reviewer": "Проверувачи",
+	"group-reviewer-member": "Проверувач",
+	"action-batch-rate": "менување на оценки на повеќе статии наеднаш",
+	"action-change-rating": "менување на оценки на статии"
+}
