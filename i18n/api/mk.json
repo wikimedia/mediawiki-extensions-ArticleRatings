@@ -4,5 +4,17 @@
 			"Bjankuloski06"
 		]
 	},
-	"apierror-are-no-pages": "Засега нема ниедна оценета страница (во овој именски простор)."
+	"apierror-are-no-pages": "Засега нема ниедна оценета страница (во овој именски простор).",
+	"apihelp-query+are-ratings-summary": "Дава список на оценети страници и нивните оценки, по желба филтрирани по даден именски простор",
+	"apihelp-query+are-ratings-param-limit": "Колку оценети страници да се прикажат (по основно: 50)",
+	"apihelp-query+are-ratings-param-namespace": "Прикажи оценети страници само од овој именски простор (по желба); по основно: 0 (<code>NS_MAIN</code>)",
+	"apihelp-query+are-ratings-param-order": "Редослед на подредување: или <code>ASC</code> за нагорен или <code>DESC</code> за надолен",
+	"apihelp-query+are-ratings-example-1": "Дај список на оценети страници во главниот именски простор",
+	"apihelp-query+are-ratings-example-2": "Дај до 100 оценети страници во главниот именски простор",
+	"apihelp-change-rating-summary": "Менување на оценката на една страница.",
+	"apihelp-change-rating-param-title": "Наслов на страницата што сакате да ја оцените. Не може да се користи заедно со <var>pageid</var>.",
+	"apihelp-change-rating-param-pageid": "Назнака на страницата што сакате да ја оцените. Не може да се користи заедно со <var>title</var>.",
+	"apihelp-change-rating-param-reason": "Причина за измената на оценката. Ќе се заведе во Special:Log/ratings.",
+	"apihelp-change-rating-param-rating-to": "Нова оценка на страницата (кодно име од два знака според определеното во <kbd>MediaWiki:Are-ratings</kbd>).",
+	"apihelp-change-rating-example-1": "Измена на оценката на страницата „71040 Дизвиев замок“ во „ИС“ со причината „Ги задоволува условите за избрана статија, според изгласаното“"
 }
