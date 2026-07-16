@@ -16,7 +16,7 @@
 	"articleratings-batchrating-success": "Successfully updated the following {{PLURAL:$1|page's rating|pages' ratings}}: $2",
 	"articleratings-batchrating-text": "Use the form below to quickly rate multiple pages at once. Write each page name on its own line.<br />Each rating change will use the summary message defined at [[MediaWiki:articleratings-batchrating-log-summary]] as the log message which gets written to [[Special:Log/ratings]].",
 	"articleratings-changerating": "Change rating",
-	"articleratings-changerating-back": "< Back to [[$1]].",
+	"articleratings-changerating-back": "← Back to [[$1]].",
 	"articleratings-changerating-intro-text": "What would you like to change ''$1'''s rating to?",
 	"articleratings-changerating-error-invalid-rating": "The given identifier is not a valid known rating code(name)",
 	"articleratings-changerating-error-no-changes-requested": "You must choose a different rating than the current one!",
