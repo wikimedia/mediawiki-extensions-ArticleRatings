@@ -15,7 +15,7 @@
 	"articleratings-batchrating-success": "{{PLURAL:$1|Actualizouse correctamente a avaliación da seguinte páxina|Actualizáronse correctamente as avaliacións das seguintes páxinas}}: $2",
 	"articleratings-batchrating-text": "Utiliza o formulario inferior para avaliar rapidamente varias páxinas á vez. Escribe o nome de cada páxina na súa propia liña.<br />Cada cambio de avaliación empregará a mensaxe de resumo definida en «[[MediaWiki:articleratings-batchrating-log-summary]]» como a mensaxe de rexistro que se mostrará en «[[Special:Log/ratings]]».",
 	"articleratings-changerating": "Cambiar a avaliación",
-	"articleratings-changerating-back": "< Volver a «[[$1]]».",
+	"articleratings-changerating-back": "← Volver a «[[$1]]».",
 	"articleratings-changerating-intro-text": "A que queres cambiar a avaliación de «''$1''»?",
 	"articleratings-changerating-error-invalid-rating": "O identificador proporcionado non é un código de avaliación coñecido e válido",
 	"articleratings-changerating-error-no-changes-requested": "Debes elixir unha avaliación diferente á actual!",

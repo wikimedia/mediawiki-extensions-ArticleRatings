@@ -17,7 +17,7 @@
 	"articleratings-batchrating-success": "다음 {{PLURAL:$1|문서의 평가}}를 성공적으로 업데이트했습니다: $2",
 	"articleratings-batchrating-text": "아래 양식을 사용하여 여러 문서를 한 번에 빠르게 평가하세요. 각 문서 이름은 한 줄에 하나씩 입력해 주세요.<br />각 평점 변경에는 [[MediaWiki:articleratings-batchrating-log-summary]]에 정의된 요약 메시지가 [[Special:Log/ratings]]에 기록되는 로그 메시지로 사용됩니다.",
 	"articleratings-changerating": "평가 변경",
-	"articleratings-changerating-back": "< [[$1]]으로 돌아가기.",
+	"articleratings-changerating-back": "← [[$1]]으로 돌아가기.",
 	"articleratings-changerating-intro-text": "''$1''의 평가를 어떻게 변경하시겠습니까?",
 	"articleratings-changerating-error-invalid-rating": "제공된 식별자는 유효한 알려진 평가 코드(이름)가 아닙니다",
 	"articleratings-changerating-error-no-changes-requested": "현재 평가와 다른 평가를 선택해야 합니다!",

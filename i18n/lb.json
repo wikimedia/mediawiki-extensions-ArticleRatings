@@ -10,7 +10,7 @@
 	"articleratings-batchrating-new-rating": "Nei Bewäertung",
 	"articleratings-batchrating-success": "D'Bewäertung vun {{PLURAL:$1|der follgender Säit gouf|de follgende Säite goufen}} erfollegräich aktualiséiert: $2",
 	"articleratings-changerating": "Bewäertung änneren",
-	"articleratings-changerating-back": "< Zeréck op [[$1]].",
+	"articleratings-changerating-back": "← Zeréck op [[$1]].",
 	"articleratings-changerating-error-no-changes-requested": "Dir musst eng aner Bewäertung wéi déi aktuell auswielen!",
 	"articleratings-changerating-no-such-page": "Et deet eis leed, d'Säit „$1“ gëtt et net.",
 	"articleratings-changerating-reason": "Grond:",

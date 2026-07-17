@@ -15,7 +15,7 @@
 	"articleratings-batchrating-success": "Успешно {{PLURAL:$1|подновена оценката на следнава страница|подновени оценките на следниве страници}}: $2",
 	"articleratings-batchrating-text": "Послужете се со образецот подолу за бргу да оцените повеќе страници наеднаш. Името на секоја страница треба да биде во нов ред.<br />Секоја промена во оценката ќе има опис зададен во [[MediaWiki:articleratings-batchrating-log-summary]] како порака во дневник што се заведува во [[Special:Log/ratings]].",
 	"articleratings-changerating": "Смени оценка",
-	"articleratings-changerating-back": "< Назад на [[$1]].",
+	"articleratings-changerating-back": "← Назад на [[$1]].",
 	"articleratings-changerating-intro-text": "Како би сакале да ја смените оценката на ''$1''?",
 	"articleratings-changerating-error-invalid-rating": "Дадената назнака не е важечки код (име ) на оценка",
 	"articleratings-changerating-error-no-changes-requested": "Мора да изберете друга различна оценка од тековната!",

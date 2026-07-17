@@ -13,7 +13,7 @@
 	"articleratings-batchrating-success": "Die {{PLURAL:$1|folgende Seitenbewertung wurde|folgenden Seitenbewertungen wurden}} erfolgreich aktualisiert: $2",
 	"articleratings-batchrating-text": "Nutze das untenstehende Formular, um mehrere Seiten gleichzeitig schnell zu bewerten. Schreibe jeden Seitennamen in eine eigene Zeile.<br />Bei jeder Änderung der Bewertung wird die unter [[MediaWiki:articleratings-batchrating-log-summary]] definierte Zusammenfassung als Logbucheintrag verwendet, die in [[Special:Log/ratings]] geschrieben wird.",
 	"articleratings-changerating": "Bewertung ändern",
-	"articleratings-changerating-back": "< Zurück zu [[$1]].",
+	"articleratings-changerating-back": "← Zurück zu [[$1]].",
 	"articleratings-changerating-intro-text": "Auf welchen Wert möchtest du die Bewertung von ''$1'' ändern?",
 	"articleratings-changerating-error-invalid-rating": "Der angegebene Bezeichner ist kein gültiger bekannter Bewertungscode (Name).",
 	"articleratings-changerating-error-no-changes-requested": "Du musst eine andere Bewertung als die aktuelle auswählen!",

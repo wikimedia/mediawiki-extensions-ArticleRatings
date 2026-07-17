@@ -5,7 +5,7 @@
 		]
 	},
 	"articleratings-changerating": "Muuta arviota",
-	"articleratings-changerating-back": "< Takaisin sivulle [[$1]].",
+	"articleratings-changerating-back": "← Takaisin sivulle [[$1]].",
 	"articleratings-changerating-intro-text": "Miksi haluat vaihtaa sivun '''$1''' arvioinnin?",
 	"articleratings-changerating-error-invalid-rating": "Annettu tunniste ei ole kelvollinen arvion koodi(nimi)",
 	"articleratings-changerating-error-no-changes-requested": "Sinun tulee valita jokin muu arvio kuin nykyinen!",

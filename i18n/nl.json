@@ -16,7 +16,7 @@
 	"articleratings-batchrating-success": "Het bijwerken van de volgende {{PLURAL:$1|paginabeoordeling|paginabeoordelingen}} is mislukt: $2",
 	"articleratings-batchrating-text": "Gebruik onderstaand formulier om snel meerdere pagina's tegelijk te beoordelen. Schrijf de naam van elke pagina op een aparte regel.<br />Bij elke wijziging van de beoordeling wordt het samenvattingsbericht dat is gedefinieerd op [[MediaWiki:articleratings-batchrating-log-summary]] gebruikt als logbericht dat wordt geschreven naar [[Special:Log/ratings]].",
 	"articleratings-changerating": "Beoordeling wijzigen",
-	"articleratings-changerating-back": "< Terug naar [[$1]].",
+	"articleratings-changerating-back": "← Terug naar [[$1]].",
 	"articleratings-changerating-intro-text": "Naar welke waarde wilt u de beoordeling van ''$1'' wijzigen?",
 	"articleratings-changerating-error-invalid-rating": "De opgegeven identificatiecode is geen geldige bekende beoordelingscode(naam).",
 	"articleratings-changerating-error-no-changes-requested": "U moet een andere beoordeling kiezen dan de huidige!",

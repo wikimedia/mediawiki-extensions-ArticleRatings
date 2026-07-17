@@ -15,7 +15,7 @@
 	"articleratings-batchrating-success": "Le evalutation{{PLURAL:$1||es}} del sequente pagina{{PLURAL:$1||s}} ha essite actualisate: $2",
 	"articleratings-batchrating-text": "Usa le formulario infra pro evalutar rapidemente plure paginas simultaneemente. Scribe le nomine de cata pagina in su proprie linea.<br />Cata cambio de evalutation utilisara le message de summario definite in [[MediaWiki:articleratings-batchrating-log-summary]] como le message de registro scribite a [[Special:Log/ratings]].",
 	"articleratings-changerating": "Cambiar evalutation",
-	"articleratings-changerating-back": "< Retornar a [[$1]].",
+	"articleratings-changerating-back": "← Retornar a [[$1]].",
 	"articleratings-changerating-intro-text": "In qual cosa vole tu cambiar le evalutation de ''$1''?",
 	"articleratings-changerating-error-invalid-rating": "Le identificator date non es un codice/nomine de evalutation valide e cognoscite",
 	"articleratings-changerating-error-no-changes-requested": "Es necessari eliger un evalutation altere que le actual!",
