@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"articleratings-batchrating": "Qiimayn dufcad ah",
+	"articleratings-batchrating-error-no-titles": "Waa inaad bixisaa magacyada bogagga la qiimeynayo!",
+	"articleratings-batchrating-error-no-rating": "Ma jiro qiimayn la doortay!",
+	"articleratings-batchrating-fail": "Way ku guuldareysatay in la cusboonaysiiyo qiimaynta {{PLURAL:$1|bogga|bogagga}} soo socda: $2",
+	"articleratings-batchrating-legend": "Qiimee bogag badan hal mar",
+	"articleratings-batchrating-titles": "Bogagga la qiimeynayo",
+	"articleratings-batchrating-new-rating": "Qiimayn cusub",
+	"articleratings-batchrating-log-summary": "Qiimayn dufcad ah iyada oo loo marayo [[Special:BatchRating]]",
+	"articleratings-batchrating-success": "Si guul leh ayaa loo cusboonaysiiyay qiimaynta {{PLURAL:$1|bogga|bogagga}} soo socda: $2",
+	"articleratings-batchrating-text": "Isticmaal foomka hoose si aad si dhakhso ah ugu qiimeyso bogag badan hal mar. Ku qor magaca bog kasta sadar gaar ah.<br />Isbeddel kasta oo qiimayn ah wuxuu adeegsan doonaa farriinta kooban ee lagu qeexay [[MediaWiki:articleratings-batchrating-log-summary]] taas oo ah farriinta diiwaanka lagu qoro [[Special:Log/ratings]].",
+	"articleratings-changerating": "Beddel qiimaynta",
+	"articleratings-changerating-back": "← Ku noqo [[$1]].",
+	"articleratings-changerating-intro-text": "Maxaad jeclaan lahayd inaad u beddesho qiimaynta ''$1'''?",
+	"articleratings-changerating-error-invalid-rating": "Aqoonsiga la bixiyay ma aha koodka (magaca) qiimaynta la yaqaan ee saxda ah",
+	"articleratings-changerating-error-no-changes-requested": "Waa inaad doorataa qiimayn ka duwan tan hadda jirta!",
+	"articleratings-changerating-no-such-page": "Waan ka xunnahay, bogga \"$1\" ma jiro.",
+	"articleratings-changerating-reason": "Sababta:",
+	"articleratings-changerating-success": "Qiimaynta si guul leh ayaa loo beddelay.",
+	"articleratings-changerating-submit": "Gudbi",
+	"articleratings-massratings": "Qiimaynno badan",
+	"articleratings-massratings-legend": "Liiska bogag ah oo ku salaysan qiimayn",
+	"log-name-ratings": "Diiwaanka isbeddelada qiimaynta",
+	"log-description-ratings": "Diiwaankani wuxuu muujinayaa dhammaan isbeddelladii ugu dambeeyay ee lagu sameeyay qiimaynta bogagga.",
+	"logentry-ratings-change": "$1 beddelay qiimaynta $3 laga soo bilaabo $5 ilaa $4",
+	"articleratings-desc": "Isku xirnaan adag oo loogu talagalay qiimeynta bogagga",
+	"right-batch-rate": "Beddel qiimaynta bogag badan hal mar",
+	"right-change-rating": "Beddel qiimaynta bogagga",
+	"articleratings-disallowed": "Qiimaynta looma oggola magacan goobta",
+	"articleratings-no-such-page": "Bogga \"$1\" ma jiro.",
+	"articleratings-change-rating": "Beddel qiimaynta",
+	"group-reviewer": "Dib u eegayaasha",
+	"group-reviewer-member": "Dib u eegis",
+	"action-batch-rate": "beddel qiimaynta maqaallo badan hal mar",
+	"action-change-rating": "beddel qiimaynta maqaallada",
+	"articleratings-changerating-log-text": "Isbeddelladii hore ee qiimaynta maqaalkan:"
+}
