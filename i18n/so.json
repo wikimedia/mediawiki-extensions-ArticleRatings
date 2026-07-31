@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"log-name-ratings": "Diiwaanka isbeddelada qiimaynta",
+	"log-description-ratings": "Diiwaankani wuxuu muujinayaa dhammaan isbeddelladii ugu dambeeyay ee lagu sameeyay qiimaynta bogagga.",
+	"logentry-ratings-change": "$1 beddelay qiimaynta $3 laga soo bilaabo $5 ilaa $4",
+	"right-batch-rate": "Beddel qiimaynta bogag badan hal mar",
+	"right-change-rating": "Beddel qiimaynta bogagga",
+	"group-reviewer": "Dib u eegayaasha",
+	"group-reviewer-member": "Dib u eegis",
+	"action-batch-rate": "beddel qiimaynta maqaallo badan hal mar",
+	"action-change-rating": "beddel qiimaynta maqaallada"
+}
