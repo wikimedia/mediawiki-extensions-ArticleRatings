@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"articleratings-batchrating": "ډله‌ييزه ارزونه",
+	"articleratings-batchrating-error-no-titles": " تاسو بايد هغه مخونو نومونه ورکړئ چې ارزول کېږي!",
+	"articleratings-batchrating-error-no-rating": "هېڅ ارزونه غوره شوې نه ده!",
+	"articleratings-batchrating-fail": "د لاندې {{PLURAL:$1|مخ ارزونې|مخونو ارزونو}} هم‌مهالولو کې پاتې راغی: $2",
+	"articleratings-batchrating-legend": "څو مخونه په يو ځل وارزوئ",
+	"articleratings-batchrating-titles": "هغه مخونه چې بايد ورازول شي",
+	"articleratings-batchrating-new-rating": "نوې ارزونه",
+	"articleratings-batchrating-log-summary": "د [[Special:BatchRating]] له لارې ډله‌ييزه ارزونه",
+	"articleratings-batchrating-success": "د لاندې {{PLURAL:$1|مخ ارزونې|مخونو ارزونې}} هم‌مهالول په برياليتوب ترسره شول: $2",
+	"articleratings-batchrating-text": "په يوه وخت کې د څو موخونو د چټکې ارزونې لپاره لاندې فورمه وکاروئ. د هر مخ نوم د هغې خپله کرښّ کې وليکئ.<br />د ارزونې هر بدلون به د لنډيز پيغام چې په [[MediaWiki:articleratings-batchrating-log-summary]] کې تعريف شوی د يادښت پيغام په توگه وکاروي، کوم چې [[Special:Log/ratings]] ته ليکل کېږي.",
+	"articleratings-changerating": "ارزونه بدلول",
+	"articleratings-changerating-back": "← بېرته [[$1]] ته.",
+	"articleratings-changerating-intro-text": "تاسو غواړئ د ''$1''' ارزونه څه ته بدله کړئ؟",
+	"articleratings-changerating-error-invalid-rating": "ورکړل شوی پېژندونکی د باور وړ پېژندل شوې ارزونې کوډ (نوم) نه دی",
+	"articleratings-changerating-error-no-changes-requested": "تاسو بايد اوسنۍ ارزونې څخه بېله ارزونه غوره کړئ!",
+	"articleratings-changerating-no-such-page": "وبښئ، د \"$1\" مخ شتون نلري.",
+	"articleratings-changerating-reason": "لامل:",
+	"articleratings-changerating-success": "ارزونه په برياليتوب سره بدله شوه.",
+	"articleratings-changerating-submit": "سپارل",
+	"articleratings-massratings": "ډله‌ييزې ارزونې",
+	"articleratings-massratings-legend": "مخونه د ارزونې له مخې لړليک کړئ",
+	"log-name-ratings": "د ارزونې د بدلون يادښت",
+	"log-description-ratings": "دا يادښت د مخونو د ارزونې ټول وروستي بدلونونه ښيي.",
+	"logentry-ratings-change": "$1 د $3 ارزونه له $5 څخه $4 ته بدله کړه",
+	"articleratings-desc": "د ارزونې لپاره يوه پېچلې مخبڼه",
+	"right-batch-rate": "په يو وخت کې د څو مخونو ارزونه بدلول",
+	"right-change-rating": "د مخونو ارزونه بدلول",
+	"articleratings-disallowed": "دې نوم‌تشيال لپاره ارزونه منع شوې ده",
+	"articleratings-no-such-page": "\"$1\" مخ شتون نلري.",
+	"articleratings-change-rating": "ارزونه بدلول",
+	"group-reviewer": "بياکتونکي",
+	"group-reviewer-member": "بياکتنونکی",
+	"action-batch-rate": "په يو وخت کې د څو ليکنو ارزونه بدلول",
+	"action-change-rating": "د ليکنې ارزونې بدلول",
+	"articleratings-changerating-log-text": "دې ليکنه کې د ارزونې پخواني بدلونونه:"
+}
