@@ -12,8 +12,8 @@
 	"apihelp-query+are-ratings-example-1": "په اړ نوم‌تشيتل کې د ارزول شويو مخونو ترلاسنه",
 	"apihelp-query+are-ratings-example-2": "تر ۱۰۰ ارزول شوي مخونه په آر نوم‌تشيال کې ترلاسه کړئ",
 	"apihelp-change-rating-summary": "د مخ ارزونه بدله کړئ.",
-	"apihelp-change-rating-param-title": "د ارزول کېدونکي مخ سرليک. د <var>$1pageid</var> سره يوځای نشي کارول کېدای.",
-	"apihelp-change-rating-param-pageid": "د ارزول کېدونکي مخ، مخ پېژند. <var>$1title</var> سره يوځای نشي کارول کېدای.",
+	"apihelp-change-rating-param-title": "د ارزول کېدونکي مخ سرليک. <var>pageid</var> سره يوځای نشي کارول کېدای.",
+	"apihelp-change-rating-param-pageid": "د ارزول کېدونکي مخ، مخ پېژند. <var>title</var> سره يوځای نشي کارول کېدای.",
 	"apihelp-change-rating-param-reason": "د ارزونې د بدلون لامل به په ځانگړی:يادښت/ارزونې کې وساتل شي.",
 	"apihelp-change-rating-param-rating-to": "د مخ لپاره نوې ارزونه (يو دوه لوښيز کوډنوم چې په <kbd>MediaWiki:Are-ratings</kbd> کې تعريف شوی).",
 	"apihelp-change-rating-example-1": "د \"71040 ډيزني کلا\" په نوم ليکنې ارزونه \"FA\" په دې لامل سره بدله کړئ چې د \"رايې له مخې د ځانگړو ليکنو معيارونه پوره کوي\""
