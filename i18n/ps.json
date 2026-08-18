@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"log-name-ratings": "د ارزونې د بدلون يادښت",
+	"log-description-ratings": "دا يادښت د مخونو د ارزونې ټول وروستي بدلونونه ښيي.",
+	"logentry-ratings-change": "$1 د $3 ارزونه له $5 څخه $4 ته بدله کړه",
+	"right-change-rating": "د مخونو ارزونه بدلول",
+	"group-reviewer": "بياکتونکي",
+	"group-reviewer-member": "بياکتنونکی",
+	"action-change-rating": "د ليکنې ارزونې بدلول"
+}
