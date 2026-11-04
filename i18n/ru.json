@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yurina Tatiana"
+		]
+	},
+	"articleratings-batchrating": "Пакетное оценивание",
+	"articleratings-batchrating-error-no-titles": "Вы должны указать названия страниц для оценки!",
+	"articleratings-batchrating-error-no-rating": "Оценка не выбрана!",
+	"articleratings-batchrating-legend": "Оценка нескольких страниц одновременно",
+	"articleratings-batchrating-titles": "Страницы для оценки",
+	"articleratings-batchrating-new-rating": "Новая оценка",
+	"articleratings-batchrating-log-summary": "Пакетное оценивание через [[Special:BatchRating]]",
+	"articleratings-changerating": "Сменить оценку",
+	"articleratings-changerating-error-no-changes-requested": "Вы должны выбрать оценку, которая отличается от текущей!",
+	"articleratings-changerating-no-such-page": "Извините, страница «$1» не существует.",
+	"articleratings-changerating-reason": "Причина:",
+	"articleratings-changerating-success": "Оценка успешно изменена.",
+	"articleratings-changerating-submit": "Отправить",
+	"articleratings-no-such-page": "Страница «$1» не существует.",
+	"articleratings-change-rating": "Сменить оценку"
+}
