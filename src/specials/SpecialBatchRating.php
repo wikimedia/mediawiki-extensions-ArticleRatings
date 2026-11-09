@@ -50,6 +50,11 @@ class SpecialBatchRating extends FormSpecialPage {
 		return $this->msg( 'articleratings-batchrating' );
 	}
 
+	/** @inheritDoc */
+	protected function getMessagePrefix() {
+		return 'articleratings-batchrating';
+	}
+
 	/**
 	 * Show the special page
 	 *
